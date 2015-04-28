@@ -1,0 +1,6304 @@
+{
+  "CMajor": {
+    "name": "CMajor",
+    "pronounce": "",
+    "same": "CM"
+  },
+  "Cminor": {
+    "name": "Cminor",
+    "pronounce": "",
+    "same": "Cm"
+  },
+  "Cminor7": {
+    "name": "Cminor7",
+    "pronounce": "",
+    "same": "Cm7"
+  },
+  "CDominant": {
+    "name": "CDominant",
+    "pronounce": "",
+    "same": "C7"
+  },
+  "Caugmented": {
+    "name": "Caugmented",
+    "pronounce": "",
+    "same": "CM#5"
+  },
+  "Cdiminished": {
+    "name": "Cdiminished",
+    "pronounce": "",
+    "same": "Co7"
+  },
+  "Chalf-diminished": {
+    "name": "Chalf-diminished",
+    "pronounce": "",
+    "same": "Cm7b5"
+  },
+  "Cquartal": {
+    "name": "Cquartal",
+    "pronounce": "",
+    "same": "C4"
+  },
+  "C": {
+    "name": "C",
+    "pronounce": "",
+    "same": "CM"
+  },
+  "CBass": {
+    "name": "CBass",
+    "pronounce": "C Bass",
+    "key": "c",
+    "family": "bass",
+    "spell": "c8",
+    "color": "",
+    "priority": "c8",
+    "approach": {
+      "c8": "b8 c#8 d8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "",
+    "scales": [
+      {}
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CNote": {
+    "name": "CNote",
+    "pronounce": "C note",
+    "key": "c",
+    "family": "note",
+    "spell": "c8",
+    "color": "",
+    "priority": "c8",
+    "approach": "",
+    "voicings": [
+      {
+        "all": [
+          {
+            "type": "closed",
+            "notes": "c8",
+            "extension": ""
+          },
+          {
+            "type": "open",
+            "notes": "c8",
+            "extension": ""
+          }
+        ]
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {}
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM": {
+    "name": "CM",
+    "pronounce": "C major",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8",
+    "color": "a8 b8 d8 f#8",
+    "priority": "e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8 a8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g8 c+8 e+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "e8 c+8 g+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "g8 c+8 e+8",
+          "extension": ""
+        },
+        "open-C": {
+          "type": "open",
+          "notes": "g8 e+8 c++8",
+          "extension": ""
+        },
+        "open-D": {
+          "type": "open",
+          "notes": "c8 g8 e+8 c++8",
+          "extension": ""
+        },
+        "open-E": {
+          "type": "open",
+          "notes": "e-8 g-8 c8 e8 g8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM6 CM7 CMadd9",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "lydian",
+          "bebop major",
+          "major pentatonic",
+          "ionian pentatonic",
+          "harmonic major",
+          "augmented",
+          "double harmonic major",
+          "double harmonic lydian",
+          "major blues"
+        ],
+        "G": "major pentatonic",
+        "E": "harmonic minor",
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM6": {
+    "name": "CM6",
+    "pronounce": "C major six",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 a8",
+    "color": "d8 b8 f#8",
+    "priority": "e8 a8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8",
+      "a8": "g#8 bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "a-8 c8 e8 g8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 a8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g8 c+8 e+8 a+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "e8 a8 c+8 g+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "g8 e+8 a+8 c++8",
+          "extension": ""
+        },
+        "drop-2-A": {
+          "type": "open",
+          "notes": "a--8 e-8 g-8 c8",
+          "extension": ""
+        },
+        "drop-2-B": {
+          "type": "open",
+          "notes": "c-8 g-8 a-8 e8",
+          "extension": ""
+        },
+        "drop-2-C": {
+          "type": "open",
+          "notes": "e-8 a-8 c8 g8",
+          "extension": ""
+        },
+        "drop-2-D": {
+          "type": "open",
+          "notes": "g-8 c8 e8 a8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM69",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "lydian",
+          "bebop major",
+          "major pentatonic",
+          "major blues"
+        ],
+        "G": "major pentatonic",
+        "E": "harmonic minor",
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Am7"
+  },
+  "C6": {
+    "name": "C6",
+    "pronounce": "",
+    "same": "CM6"
+  },
+  "CM69": {
+    "name": "CM69",
+    "pronounce": "C major six nine",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 a8 d8",
+    "color": "b8 f#8",
+    "priority": "d8 e8 a8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8",
+      "a8": "g#8 bb8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 a8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g8 d+8 e+8 a+8",
+          "extension": ""
+        },
+        "quartal": {
+          "type": "open",
+          "notes": "e8 a8 d+8 g+8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "e8 g8 a8 d+8",
+          "extension": "d++8 g++8 d+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "g8 d+8 e+8 a+8",
+          "extension": "d++8 g++8 d+++8"
+        }
+      }
+    ],
+    "extensions": "CM69#11",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "lydian",
+          "bebop major",
+          "major pentatonic",
+          "major blues"
+        ],
+        "G": "major pentatonic",
+        "D": "major pentatonic",
+        "E": "in-sen"
+      }
+    ],
+    "avoid": "",
+    "substitute": "CM7 CM9 CM69#11"
+  },
+  "C69": {
+    "name": "C69",
+    "pronounce": "",
+    "same": "CM69"
+  },
+  "CM6#11": {
+    "name": "CM6#11",
+    "pronounce": "C major six sharp eleven",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 a8 f#8",
+    "color": "b8 d8",
+    "priority": "f#8 a8 e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "eb8 f8",
+      "g8": "g#8",
+      "a8": "g#8 bb8",
+      "f#8": "f8 g8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "lydian",
+        "G": "major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM6b5": {
+    "name": "CM6b5",
+    "pronounce": "",
+    "same": "CM6#11"
+  },
+  "C6#11": {
+    "name": "C6#11",
+    "pronounce": "",
+    "same": "CM6#11"
+  },
+  "C6b5": {
+    "name": "C6b5",
+    "pronounce": "",
+    "same": "CM6b5"
+  },
+  "CM69#11": {
+    "name": "CM69#11",
+    "pronounce": "C major six nine sharp eleven",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 a8 d8 f#8",
+    "color": "",
+    "priority": "f#8 d8 a8 e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "eb8 f8",
+      "g8": "g#8",
+      "a8": "g#8 bb8",
+      "d8": "c#8 eb8",
+      "f#8": "f8 g8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 a8 d+8 f#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "a8 d+8 e+8 f#+8 a+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "e8 g8 d+8 f#+8 a+8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "e8 a8 d+8 f#+8",
+          "extension": "d++8 g++8 d+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "a8 d+8 e+8 f#+8 a+8",
+          "extension": "d++8 g++8 d+++8"
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "lydian",
+          "major pentatonic"
+        ],
+        "G": [
+          "major",
+          "major pentatonic"
+        ],
+        "D": "major pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CMadd9": {
+    "name": "CMadd9",
+    "pronounce": "C major add nine",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 d8",
+    "color": "a8",
+    "priority": "d8 e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8 a8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "d8 e8 g8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 d+8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "e8 c+8 g+8 d++8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e8 c+8 d+8 g+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM69",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "major pentatonic",
+          "major blues"
+        ],
+        "G": "major pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cadd9": {
+    "name": "Cadd9",
+    "pronounce": "",
+    "same": "CMadd9"
+  },
+  "Cadd9no3": {
+    "name": "Cadd9no3",
+    "pronounce": "",
+    "same": "CMsus2"
+  },
+  "CMsus2": {
+    "name": "CMsus2",
+    "pronounce": "C major sus two",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 d8 g8",
+    "color": "e8 a8",
+    "priority": "d8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "g8": "f#8 g#8 a8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "d8 g8 c+8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "g8 c+8 d+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d+8 c++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CMadd9",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "major pentatonic",
+          "major blues"
+        ],
+        "G": "major pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Csus": {
+    "name": "Csus",
+    "pronounce": "",
+    "same": "CMsus4"
+  },
+  "Csus2": {
+    "name": "Csus2",
+    "pronounce": "",
+    "same": "CMsus2"
+  },
+  "C2": {
+    "name": "C2",
+    "pronounce": "",
+    "same": "CMadd9"
+  },
+  "Cadd2": {
+    "name": "Cadd2",
+    "pronounce": "",
+    "same": "CMadd9"
+  },
+  "Csus24": {
+    "name": "Csus24",
+    "pronounce": "C major sus two four",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 d8 f8 g8",
+    "color": "a8",
+    "priority": "d8 f8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "g8": "f#8 g#8 a8",
+      "d8": "c#8 eb8",
+      "f8": "e8 f#8"
+    },
+    "voicings": [
+      {
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "d8 f8 g8 c+8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "g8 c+8 d+8 f+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d+8 c++8 f++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Csus4add9": {
+    "name": "Csus4add9",
+    "pronounce": "",
+    "same": "Csus24"
+  },
+  "CM7": {
+    "name": "CM7",
+    "pronounce": "C major seven",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 b8",
+    "color": "d8 a8 f#8",
+    "priority": "b8 e8 g8 c8",
+    "approach": {
+      "c8": "c#8 d8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8",
+      "b8": "bb8 c8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 b8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 e+8 g+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "g8 b8 e+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 e+8 b+8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "b8 g+8 e++8",
+          "extension": ""
+        },
+        "two-hand-C": {
+          "type": "open",
+          "notes": "e-8 b-8 g8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM9 CM7#11 CM7add13",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "lydian",
+          "bebop major",
+          "major pentatonic",
+          "ionian pentatonic",
+          "major blues"
+        ],
+        "G": "major pentatonic",
+        "E": [
+          "harmonic minor",
+          "minor bebop",
+          "bebop minor"
+        ],
+        "B": "augmented"
+      }
+    ],
+    "avoid": "c8",
+    "substitute": "CM69 Em7 Am9"
+  },
+  "Cmaj7": {
+    "name": "Cmaj7",
+    "pronounce": "",
+    "same": "CM7"
+  },
+  "CMaj7": {
+    "name": "CMaj7",
+    "pronounce": "",
+    "same": "CM7"
+  },
+  "CM9": {
+    "name": "CM9",
+    "pronounce": "C major nine",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 b8 d8",
+    "color": "a8 f#8",
+    "priority": "b8 e8 d8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8",
+      "a8": "g#8 bb8",
+      "d8": "c#8 eb8",
+      "b8": "bb8 c8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 b8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 d+8 e+8 g+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "g8 b8 d+8 e+8",
+          "extension": ""
+        },
+        "drop-2-A": {
+          "type": "open",
+          "notes": "b-8 e8 g8 d+8",
+          "extension": ""
+        },
+        "drop-2-B": {
+          "type": "open",
+          "notes": "g-8 d8 e8 b8",
+          "extension": ""
+        },
+        "drop-2-C": {
+          "type": "open",
+          "notes": "e-8 b-8 d8 g8",
+          "extension": ""
+        },
+        "drop-2-D": {
+          "type": "open",
+          "notes": "d8 g8 b8 e+8",
+          "extension": ""
+        },
+        "drop-3-A": {
+          "type": "open",
+          "notes": "g-8 e8 b8 d+8",
+          "extension": ""
+        },
+        "drop-3-B": {
+          "type": "open",
+          "notes": "e-8 d8 g8 b8",
+          "extension": ""
+        },
+        "drop-3-C": {
+          "type": "open",
+          "notes": "b-8 g8 d+8 e+8",
+          "extension": ""
+        },
+        "drop-2-3-A": {
+          "type": "open",
+          "notes": "g-8 b-8 e8 d+8",
+          "extension": ""
+        },
+        "drop-2-3-B": {
+          "type": "open",
+          "notes": "e-8 g-8 d+8 b+8",
+          "extension": ""
+        },
+        "drop-2-3-C": {
+          "type": "open",
+          "notes": "d-8 e-8 b-8 g8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d+8 b+8 e++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "b8 e+8 g+8 d++8",
+          "extension": ""
+        },
+        "two-hand-C": {
+          "type": "open",
+          "notes": "e-8 b-8 d8 g8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "e8 g8 b8 d+8",
+          "extension": "g++8 d+++8 g+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "b8 e+8 g+8",
+          "extension": "g++8 d+++8 g+++8"
+        }
+      }
+    ],
+    "extensions": "CM9#11 CM13",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "lydian",
+          "bebop major",
+          "major pentatonic",
+          "major blues"
+        ],
+        "G": "major pentatonic"
+      }
+    ],
+    "avoid": "c8",
+    "substitute": "CM69 Em7 Am11"
+  },
+  "Cmaj9": {
+    "name": "Cmaj9",
+    "pronounce": "",
+    "same": "CM9"
+  },
+  "CMaj9": {
+    "name": "CMaj9",
+    "pronounce": "",
+    "same": "CM9"
+  },
+  "CM7#11": {
+    "name": "CM7#11",
+    "pronounce": "C major seven sharp eleven",
+    "key": "g",
+    "family": "major",
+    "spell": "c8 e8 g8 b8 f#8",
+    "color": "d8 a8",
+    "priority": "f#8 b8 e8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "g8": "g#8",
+      "f#8": "f8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 f#8 b8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 e+8 f#+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "g8 b8 e+8 f#+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 e+8 b+8 f#++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "g8 f#+8 b+8 e++8",
+          "extension": ""
+        },
+        "two-hand-C": {
+          "type": "open",
+          "notes": "e-8 g-8 b-8 e8 f#8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM9#11",
+    "scales": [
+      {
+        "C": [
+          "lydian",
+          "lydian pentatonic",
+          "major pentatonic"
+        ],
+        "G": "major pentatonic",
+        "D": [
+          "major pentatonic",
+          "mixolydian"
+        ],
+        "A": [
+          "minor six pentatonic",
+          "flat three pentatonic"
+        ],
+        "E": "flat six pentatonic"
+      }
+    ],
+    "avoid": "c8 g8",
+    "substitute": "CM69#11"
+  },
+  "Cmaj7#11": {
+    "name": "Cmaj7#11",
+    "pronounce": "",
+    "same": "CM7#11"
+  },
+  "CMaj7#11": {
+    "name": "CMaj7#11",
+    "pronounce": "",
+    "same": "CM7#11"
+  },
+  "CM9#11": {
+    "name": "CM9#11",
+    "pronounce": "C major nine sharp eleven",
+    "key": "g",
+    "family": "major",
+    "spell": "c8 e8 g8 b8 d8 f#8",
+    "color": "a8",
+    "priority": "f#8 b8 e8 d8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "g8": "g#8",
+      "d8": "c#8 eb8",
+      "f#8": "g8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 f#8 b8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 d+8 e+8 f#+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "g8 b8 d+8 e+8 f#8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d+8 e+8 b+8 f#++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "g8 d+8 f#+8 b+8 e++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM13#11",
+    "scales": [
+      {
+        "C": [
+          "lydian",
+          "lydian pentatonic",
+          "major pentatonic"
+        ],
+        "G": "major pentatonic",
+        "D": [
+          "major pentatonic",
+          "mixolydian"
+        ]
+      }
+    ],
+    "avoid": "c8 g8",
+    "substitute": "CM69#11"
+  },
+  "Cmaj9#11": {
+    "name": "Cmaj9#11",
+    "pronounce": "",
+    "same": "CM9#11"
+  },
+  "CMaj9#11": {
+    "name": "CMaj9#11",
+    "pronounce": "",
+    "same": "CM9#11"
+  },
+  "CM13": {
+    "name": "CM13",
+    "pronounce": "C major thirteen",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 b8 d8 a8",
+    "color": "f#8",
+    "priority": "a8 b8 e8 d8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8",
+      "a8": "g#8 bb8",
+      "d8": "c#8 eb8",
+      "b8": "bb8 c8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e8 b8 d+8 a+8 g++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "b8 d+8 a+8 e++8 g++8",
+          "extension": ""
+        },
+        "two-hand-C": {
+          "type": "open",
+          "notes": "e8 g8 b8 d+8 a+8",
+          "extension": ""
+        },
+        "quartal-A": {
+          "type": "open",
+          "notes": "b-8 e8 a8 d+8 g+8",
+          "extension": ""
+        },
+        "so-what": {
+          "type": "open",
+          "notes": "e8 a8 d+8 g+8 b+8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "e8 b8 d+8 a+8",
+          "extension": "d++8 g++8 d+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "b8 d+8 a+8 e++8",
+          "extension": "d++8 g++8 d+++8"
+        }
+      }
+    ],
+    "extensions": "CM13#11",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "lydian",
+          "major pentatonic"
+        ],
+        "G": "major pentatonic"
+      }
+    ],
+    "avoid": "c8",
+    "substitute": "CM69#11"
+  },
+  "Cmaj13": {
+    "name": "Cmaj13",
+    "pronounce": "",
+    "same": "CM13"
+  },
+  "CMaj13": {
+    "name": "CMaj13",
+    "pronounce": "",
+    "same": "CM13"
+  },
+  "CM7add13": {
+    "name": "CM7add13",
+    "pronounce": "C major seven add 13",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 a8 b8 d8",
+    "color": "d8",
+    "priority": "a8 b8 e8 d8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8",
+      "a8": "g#8 bb8",
+      "d8": "c#8 eb8",
+      "b8": "bb8 c8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e-8 g-8 b-8 a8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "g-8 b-8 e8 a8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 a8 b8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 e+8 a+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM13#11",
+    "scales": [
+      {
+        "C": [
+          "major",
+          "lydian",
+          "major pentatonic"
+        ],
+        "G": "major pentatonic"
+      }
+    ],
+    "avoid": "c8",
+    "substitute": ""
+  },
+  "CM13#11": {
+    "name": "CM13#11",
+    "pronounce": "C major thirteen sharp eleven",
+    "key": "g",
+    "family": "major",
+    "spell": "c8 e8 g8 b8 d8 f#8 a8",
+    "color": "",
+    "priority": "f#8 a8 b8 e8 d8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "g8": "g#8",
+      "a8": "g#8 bb8",
+      "d8": "c#8 eb8",
+      "b8": "bb8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e8 b8 d+8 a+8 f#++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "e-8 b-8 d8 f#8 a8",
+          "extension": ""
+        },
+        "two-hand-C": {
+          "type": "open",
+          "notes": "e-8 a-8 b-8 d8 f#8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 a8 b8 d+8 f#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "e8 b8 d+8 f#+8 a+8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "e8 a8 b8 d+8 f#+8",
+          "extension": "d++8 g++8 d+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "b8 d+8 e+8 f#+8 a+8",
+          "extension": "d++8 g++8 d+++8"
+        }
+      }
+    ],
+    "extensions": "CM13#11",
+    "scales": [
+      {
+        "C": [
+          "lydian",
+          "lydian pentatonic",
+          "major pentatonic"
+        ],
+        "G": "major pentatonic",
+        "D": [
+          "major pentatonic",
+          "mixolydian"
+        ]
+      }
+    ],
+    "avoid": "c8 g8",
+    "substitute": ""
+  },
+  "Cmaj13#11": {
+    "name": "Cmaj13#11",
+    "pronounce": "",
+    "same": "CM13#11"
+  },
+  "CMaj13#11": {
+    "name": "CMaj13#11",
+    "pronounce": "",
+    "same": "CM13#11"
+  },
+  "C69#11": {
+    "name": "C69#11",
+    "pronounce": "C six nine sharp eleven",
+    "key": "g",
+    "family": "major",
+    "spell": "c8 e8 g8 a8 d8 f#8",
+    "color": "b8",
+    "priority": "f#8 a8 e8 d8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "g8": "g#8",
+      "a8": "g#8 bb8",
+      "d8": "c#8 eb8",
+      "f#8": "f8"
+    },
+    "voicings": [
+      {
+        "two-hand-B": {
+          "type": "open",
+          "notes": "e-8 b-8 d8 a8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 a8 d+8 f#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "e8 d+8 f#+8 a+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e8 d+8 a+8 f#++8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "e8 a8 d+8 f#+8",
+          "extension": "d++8 g++8 d+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "d+8 e+8 f#+8 a+8",
+          "extension": "d++8 g++8 d+++8"
+        }
+      }
+    ],
+    "extensions": "CM13#11",
+    "scales": [
+      {
+        "C": [
+          "lydian",
+          "lydian pentatonic",
+          "major pentatonic"
+        ],
+        "G": "major pentatonic",
+        "D": [
+          "major pentatonic",
+          "mixolydian"
+        ]
+      }
+    ],
+    "avoid": "c8 g8",
+    "substitute": ""
+  },
+  "CMb5": {
+    "name": "CMb5",
+    "pronounce": "C major flat five",
+    "key": "g",
+    "family": "major",
+    "spell": "c8 e8 gb8",
+    "color": "b8 d8 a8",
+    "priority": "gb8 e8 c8",
+    "approach": {
+      "c8": "c#8 b8 d8",
+      "e8": "eb8 f8",
+      "gb8": "f8 g8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e-8 c8 f#8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f#8 c+8 e+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "e-8 f#-8 c8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM7b5",
+    "scales": [
+      {
+        "C": "lydian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM7b5": {
+    "name": "CM7b5",
+    "pronounce": "C major seven flat five",
+    "key": "g",
+    "family": "major",
+    "spell": "c8 e8 gb8 b8",
+    "color": "d8 a8",
+    "priority": "b8 gb8 e8 c8",
+    "approach": {
+      "c8": "c#8 d8",
+      "e8": "eb8 f8",
+      "gb8": "f8 g8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 b8 gb+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "gb8 e+8 b+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM9b5",
+    "scales": [
+      {
+        "C": "lydian",
+        "Gb": "locrian pentatonic"
+      }
+    ],
+    "avoid": "c8",
+    "substitute": ""
+  },
+  "CM9b5": {
+    "name": "CM9b5",
+    "pronounce": "C major nine flat five",
+    "key": "g",
+    "family": "major",
+    "spell": "c8 e8 gb8 b8 d8",
+    "color": "a8",
+    "priority": "b8 d8 gb8 e8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "gb8": "f8 g8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 b8 d+8 gb+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 d+8 e+8 gb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "lydian"
+      }
+    ],
+    "avoid": "c8",
+    "substitute": ""
+  },
+  "CM7#9#11": {
+    "name": "CM7#9#11",
+    "pronounce": "C major seven sharp nine sharp eleven",
+    "key": "g",
+    "family": "major",
+    "spell": "c8 e8 g8 b8 d#8 f#8",
+    "color": "",
+    "priority": "f#8 d#8 b8 e8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "e8": "eb8 f8",
+      "g8": "g#8",
+      "d#8": "d8 e8",
+      "f#8": "g8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 f#8 b8 d#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 d#+8 e+8 f#+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "g8 b8 d#+8 e+8 f#8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d#+8 e+8 b+8 f#++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "g8 d#+8 f#+8 b+8 e++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {}
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CMsus4": {
+    "name": "CMsus4",
+    "pronounce": "C major sus four",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 f8 g8",
+    "color": "b8 d8 a8",
+    "priority": "f8 g8 c8",
+    "approach": {
+      "c8": "c#8 b8 d8",
+      "f8": "f#8",
+      "g8": "f#8"
+    },
+    "voicings": [
+      {
+        "open-A": {
+          "type": "open",
+          "notes": "c-8 f-8 g-8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 g8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g8 c+8 f+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C7sus4",
+    "scales": [
+      {
+        "F": "major pentatonic",
+        "C": "minor six pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Csus4": {
+    "name": "Csus4",
+    "pronounce": "",
+    "same": "CMsus4"
+  },
+  "CM7b6": {
+    "name": "CM7b6",
+    "pronounce": "C major seven flat six",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 ab8 b8",
+    "color": "d8",
+    "priority": "ab8 b8 e8 c8",
+    "approach": {
+      "c8": "c#8 d8",
+      "e8": "eb8 f8",
+      "g8": "f#8",
+      "ab8": "a8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 ab8 b8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 e+8 ab+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "harmonic major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C4": {
+    "name": "C4",
+    "pronounce": "C four",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 f8 bb8 eb8",
+    "color": "g8 d8 a8",
+    "priority": "f8 bb8 eb8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "f8": "f#8",
+      "bb8": "a8 b8",
+      "eb8": "db8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 bb8 eb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C7sus4",
+    "scales": [
+      {
+        "C": [
+          "aeolian",
+          "mixolydian"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Csusb9": {
+    "name": "Csusb9",
+    "pronounce": "",
+    "same": "C7sus4b9"
+  },
+  "C7susb9": {
+    "name": "C7susb9",
+    "pronounce": "",
+    "same": "C7sus4b9"
+  },
+  "C7b9sus": {
+    "name": "C7b9sus",
+    "pronounce": "",
+    "same": "C7sus4b9"
+  },
+  "C7b9sus4": {
+    "name": "C7b9sus4",
+    "pronounce": "",
+    "same": "C7sus4b9"
+  },
+  "Cphryg": {
+    "name": "Cphryg",
+    "pronounce": "",
+    "same": "C7sus4b9"
+  },
+  "C9no5": {
+    "name": "C9no5",
+    "pronounce": "C nine no five",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 bb8 d8",
+    "color": "g8 a8 db8",
+    "priority": "d8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "e8": "f8 eb8",
+      "bb8": "a8 b8",
+      "d8": "eb8 c#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 bb8 d+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9 C7b9 C7#5#9",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "whole tone"
+        ],
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Gb7 Dbo7"
+  },
+  "CM#5": {
+    "name": "CM#5",
+    "pronounce": "C major sharp five",
+    "key": "c",
+    "family": "augmented",
+    "spell": "c8 e8 g#8",
+    "color": "d8 b8",
+    "priority": "g#8 e8 c8",
+    "approach": {
+      "c8": "c#8 b8 d8",
+      "e8": "eb8 f8",
+      "g#8": "g8 a8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g#8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g#8 c+8 e+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "e8 c+8 g#+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "g#8 e+8 c++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM7#5",
+    "scales": [
+      {
+        "C": [
+          "lydian augmented",
+          "augmented",
+          "lydian augmented"
+        ],
+        "E": [
+          "harmonic major",
+          "flat six pentatonic"
+        ],
+        "B": "minor six pentatonic",
+        "A": [
+          "minor #7 pentatonic",
+          "flat three pentatonic"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cmaj#5": {
+    "name": "Cmaj#5",
+    "pronounce": "",
+    "same": "CM#5"
+  },
+  "CMaj#5": {
+    "name": "CMaj#5",
+    "pronounce": "",
+    "same": "CM#5"
+  },
+  "CM7#5": {
+    "name": "CM7#5",
+    "pronounce": "C major seven sharp five",
+    "key": "c",
+    "family": "augmented",
+    "spell": "c8 e8 g#8 b8",
+    "color": "d8",
+    "priority": "b8 g#8 e8 c8",
+    "approach": {
+      "c8": "c#8 d8",
+      "e8": "eb8 f8",
+      "g#8": "g8 a8",
+      "b8": "c8 bb8"
+    },
+    "voicings": [
+      {
+        "closed-1": {
+          "type": "closed",
+          "notes": "e8 g#8 b8",
+          "extension": ""
+        },
+        "open-1": {
+          "type": "open",
+          "notes": "e8 b8 g#+8",
+          "extension": ""
+        },
+        "open-2": {
+          "type": "open",
+          "notes": "b8 e+8 g#+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM9#5",
+    "scales": [
+      {
+        "C": [
+          "lydian augmented",
+          "augmented"
+        ],
+        "E": [
+          "harmonic major",
+          "flat six pentatonic"
+        ],
+        "B": "minor six pentatonic",
+        "A": [
+          "minor #7 pentatonic",
+          "flat three pentatonic"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cmaj7#5": {
+    "name": "Cmaj7#5",
+    "pronounce": "",
+    "same": "CM7#5"
+  },
+  "CMaj7#5": {
+    "name": "CMaj7#5",
+    "pronounce": "",
+    "same": "CM7#5"
+  },
+  "CM9#5": {
+    "name": "CM9#5",
+    "pronounce": "C major nine sharp five",
+    "key": "c",
+    "family": "augmented",
+    "spell": "c8 e8 g#8 b8 d8",
+    "color": "",
+    "priority": "d8 b8 g#8 e8 c8",
+    "approach": {
+      "c8": "c#8",
+      "d8": "c#8 d#8",
+      "e8": "eb8 f8",
+      "g#8": "g8 a8",
+      "b8": "c8 bb8"
+    },
+    "voicings": [
+      {
+        "closed-1": {
+          "type": "closed",
+          "notes": "e8 g#8 b8 d+8",
+          "extension": ""
+        },
+        "closed-2": {
+          "type": "closed",
+          "notes": "b8 d+8 e+8 g#+8",
+          "extension": ""
+        },
+        "open-1": {
+          "type": "open",
+          "notes": "e8 b8 d+8 g#+8",
+          "extension": ""
+        },
+        "open-2": {
+          "type": "open",
+          "notes": "b8 e+8 g#+8 d++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "lydian augmented",
+          "augmented"
+        ],
+        "B": "minor six pentatonic",
+        "E": "flat six pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cmaj9#5": {
+    "name": "Cmaj9#5",
+    "pronounce": "",
+    "same": "CM7#5"
+  },
+  "CMaj9#5": {
+    "name": "CMaj9#5",
+    "pronounce": "",
+    "same": "CM9#5"
+  },
+  "CM#5add9": {
+    "name": "CM#5add9",
+    "pronounce": "C major sharp five add 9",
+    "key": "c",
+    "family": "augmented",
+    "spell": "c8 e8 g#8 d8",
+    "color": "b8",
+    "priority": "g#8 d8 e8 c8",
+    "approach": {
+      "c8": "c#8 b8",
+      "e8": "eb8 f8",
+      "g#8": "g8 a8",
+      "d8": "eb8 c#8"
+    },
+    "voicings": [
+      {
+        "closed-1": {
+          "type": "closed",
+          "notes": "e8 g#8 d+8",
+          "extension": ""
+        },
+        "closed-2": {
+          "type": "closed",
+          "notes": "d8 e8 g#8",
+          "extension": ""
+        },
+        "open-1": {
+          "type": "open",
+          "notes": "e8 d+8 g#+8",
+          "extension": ""
+        },
+        "open-2": {
+          "type": "open",
+          "notes": "e8 g#8 d+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM9#5",
+    "scales": [
+      {
+        "C": [
+          "lydian augmented",
+          "augmented"
+        ],
+        "B": "minor six pentatonic",
+        "E": "flat six pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM7sus4": {
+    "name": "CM7sus4",
+    "pronounce": "C major seven sus four",
+    "key": "c",
+    "family": "sus4",
+    "spell": "c8 f8 g8 b8",
+    "color": "d8",
+    "priority": "b8 f8 g8 c8",
+    "approach": {
+      "c8": "c#8 d8",
+      "f8": "e8 f#8",
+      "g8": "g#8 f#8 a8",
+      "b8": "c8 bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 g8 b8",
+          "extension": ""
+        },
+        "open-1": {
+          "type": "open",
+          "notes": "g8 b8 f+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM9sus4",
+    "scales": [
+      {
+        "C": "major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM9sus4": {
+    "name": "CM9sus4",
+    "pronounce": "C major nine sus four",
+    "key": "c",
+    "family": "sus4",
+    "spell": "c8 f8 g8 b8 d8",
+    "color": "",
+    "priority": "b8 f8 d8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "f8": "e8 f#8",
+      "g8": "g#8 f#8 a8",
+      "d8": "c#8 eb8",
+      "b8": "c8 bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 g8 b8 d+8",
+          "extension": ""
+        },
+        "open-1": {
+          "type": "open",
+          "notes": "g8 d+8 f+8 b8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM9sus4",
+    "scales": [
+      {
+        "C": "major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM7#5sus4": {
+    "name": "CM7#5sus4",
+    "pronounce": "C major seven sharp five sus four",
+    "key": "eb",
+    "family": "augmented",
+    "spell": "c8 f8 g#8 b8",
+    "color": "d8 e8",
+    "priority": "b8 g#8 f8 c8",
+    "approach": {
+      "c8": "c#8 d8",
+      "f8": "e8 f#8",
+      "g#8": "g8 a8",
+      "b8": "c8 bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 g#8 b8 d+8",
+          "extension": ""
+        },
+        "open-1": {
+          "type": "open",
+          "notes": "g#8 d+8 f+8 b8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "CM9#5",
+    "scales": [
+      {
+        "C": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM9#5sus4": {
+    "name": "CM9#5sus4",
+    "pronounce": "C major nine sharp five sus four",
+    "key": "eb",
+    "family": "augmented",
+    "spell": "c8 f8 g#8 b8 d8",
+    "color": "",
+    "priority": "b8 g#8 f8 d8 c8",
+    "approach": {
+      "c8": "c#8",
+      "d8": "c#8",
+      "f8": "e8 f#8",
+      "g#8": "g8 a8",
+      "b8": "c8 bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 g#8 b8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 d+8 f+8 g#+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "g#8 d+8 f+8 b+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C+": {
+    "name": "C+",
+    "pronounce": "",
+    "same": "CM#5"
+  },
+  "Caug": {
+    "name": "Caug",
+    "pronounce": "",
+    "same": "CM#5"
+  },
+  "CM7+": {
+    "name": "CM7+",
+    "pronounce": "",
+    "same": "CM7#5"
+  },
+  "C+add9": {
+    "name": "C+add9",
+    "pronounce": "",
+    "same": "CM#5add9"
+  },
+  "C+add#9": {
+    "name": "C+add#9",
+    "pronounce": "C augmented add sharp 9",
+    "key": "c",
+    "family": "augmented",
+    "spell": "c8 e8 g#8 d#8",
+    "color": "",
+    "priority": "d#8 g#8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8",
+      "g#8": "g8 a8",
+      "d#8": "d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g#8 d#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "d#+8 e+8 g#+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "e8 g#8 d#+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "augmented"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CM7b9": {
+    "name": "CM7b9",
+    "pronounce": "C major seven flat nine",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 b8 db8",
+    "color": "",
+    "priority": "db8 b8 e8 g8 c8",
+    "approach": {
+      "c8": "c#8 d8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8 a8",
+      "b8": "c8 bb8",
+      "db8": "c8 d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 b8 db+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 db+8 e+8 g+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "lydian augmented"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CMb6": {
+    "name": "CMb6",
+    "pronounce": "C major flat six",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 ab8",
+    "color": "",
+    "priority": "ab8 e8 c8",
+    "approach": {
+      "c8": "c#8 b8 d8",
+      "e8": "eb8 f8",
+      "ab8": "g8 a8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 ab8 c8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g8 e+8 ab+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "harmonic major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm": {
+    "name": "Cm",
+    "pronounce": "C minor",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 g8",
+    "color": "d8 f8 ab8 gb8 a8 bb8 b8",
+    "priority": "eb8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8 g#8 a8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g8 c+8 eb+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "eb8 c+8 g+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "g8 eb+8 c++8",
+          "extension": ""
+        },
+        "open-C": {
+          "type": "open",
+          "notes": "eb-8 c8 g8",
+          "extension": ""
+        },
+        "open-D": {
+          "type": "open",
+          "notes": "c-8 g-8 eb8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm6 Cm7 Cmadd9",
+    "scales": [
+      {
+        "C": [
+          "dorian",
+          "aeolian",
+          "melodic minor",
+          "harmonic minor",
+          "minor pentatonic",
+          "minor six diminished",
+          "bebop minor",
+          "minor bebop",
+          "phrygian",
+          "kumoi"
+        ],
+        "A": "ionian pentatonic",
+        "G": "harmonic major"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Co F9 AbM7"
+  },
+  "Cm7": {
+    "name": "Cm7",
+    "pronounce": "C minor seven",
+    "key": "bb",
+    "family": "minor7",
+    "spell": "c8 eb8 g8 bb8",
+    "color": "d8 f8 a8",
+    "priority": "eb8 bb8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "open",
+          "notes": "d#-8 g-8 a#-8 c8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "open",
+          "notes": "a#-8 c8 d#8 g8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "open",
+          "notes": "g-8 a#-8 d#8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 c+8 eb+8 bb+8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "eb8 bb8 c+8 g+8",
+          "extension": ""
+        },
+        "two-hand-C": {
+          "type": "open",
+          "notes": "a#-8 c8 d#8 g8",
+          "extension": ""
+        },
+        "drop-2-A": {
+          "type": "open",
+          "notes": "bb--8 eb-8 g-8 c8",
+          "extension": ""
+        },
+        "drop-2-B": {
+          "type": "open",
+          "notes": "eb-8 bb-8 c8 g8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm9 Cm11 Cm13",
+    "scales": [
+      {
+        "C": [
+          "dorian",
+          "minor pentatonic",
+          "flat three pentatonic",
+          "aeolian",
+          "phrygian",
+          "bebop minor",
+          "minor bebop"
+        ],
+        "F": [
+          "mixolydian",
+          "major pentatonic"
+        ],
+        "Bb": [
+          "major",
+          "major pentatonic",
+          "melodic minor"
+        ],
+        "D": "augmented",
+        "Eb": "major pentatonic",
+        "G": "harmonic minor",
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Am7b5 EbM Cm7b5 AbM9"
+  },
+  "Cm6": {
+    "name": "Cm6",
+    "pronounce": "C minor six",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 f8 g8 a8",
+    "color": "d8 f8 b8",
+    "priority": "eb8 a8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8 g#8",
+      "a8": "g#8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "a8 eb+8 c++8 g++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "a--8 eb-8 g-8 c8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb-8 g-8 a-8 c8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "a--8 c-8 eb8 g-8",
+          "extension": ""
+        },
+        "drop-2-A": {
+          "type": "open",
+          "notes": "a--8 eb-8 g-8 c8",
+          "extension": ""
+        },
+        "drop-2-B": {
+          "type": "open",
+          "notes": "c-8 g-8 a-8 eb8",
+          "extension": ""
+        },
+        "drop-2-C": {
+          "type": "open",
+          "notes": "eb-8 a-8 c8 g8",
+          "extension": ""
+        },
+        "drop-2-D": {
+          "type": "open",
+          "notes": "g-8 c8 eb8 a8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm69",
+    "scales": [
+      {
+        "C": [
+          "melodic minor",
+          "minor six diminished",
+          "bebop minor",
+          "minor six pentatonic",
+          "kumoi"
+        ],
+        "A": "locrian pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Am7b5 CmM7"
+  },
+  "Cm69": {
+    "name": "Cm69",
+    "pronounce": "C minor six nine",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 g8 a8 d8",
+    "color": "f8 b8",
+    "priority": "eb8 a8 d8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8 g#8",
+      "a8": "g#8",
+      "d8": "c#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g8 a8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "a8 d+8 eb+8 g+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "a8 eb+8 d++8 g++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "eb8 a8 d+8 g+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "melodic minor",
+          "bebop minor",
+          "minor six diminished",
+          "kumoi"
+        ],
+        "G": "harmonic major"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Am7b5 CmM7"
+  },
+  "Cmadd9": {
+    "name": "Cmadd9",
+    "pronounce": "C minor add nine",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 g8 d8",
+    "color": "b8 bb8 a8 f8",
+    "priority": "eb8 d8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8 g#8 a8",
+      "d8": "c#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "d8 eb8 g8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "eb+8 d++8 g++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm69",
+    "scales": [
+      {
+        "C": [
+          "dorian",
+          "melodic minor",
+          "aeolian",
+          "bebop minor"
+        ],
+        "G": "harmonic major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cmadd4": {
+    "name": "Cmadd4",
+    "pronounce": "C minor add four",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 f8 g8",
+    "color": "b8 bb8 d8",
+    "priority": "eb8 d8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8 g#8 a8",
+      "f8": "f#8 e8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g8 f+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "eb8 f8 g8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "eb+8 f8 d++8 g++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "dorian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CmM7": {
+    "name": "CmM7",
+    "pronounce": "C minor major seven",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 g8 b8",
+    "color": "f8 a8 d8",
+    "priority": "b8 eb8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8 g#8",
+      "b8": "bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g8 b8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 eb+8 g+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "melodic minor",
+          "harmonic minor",
+          "minor six diminished",
+          "augmented",
+          "minor hexatonic",
+          "flat three pentatonic",
+          "minor #7 pentatonic"
+        ],
+        "F": "major pentatonic",
+        "G": [
+          "harmonic major",
+          "flat six pentatonic"
+        ],
+        "B": "whole tone pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Cm69"
+  },
+  "CmMaj7": {
+    "name": "CmMaj7",
+    "pronounce": "",
+    "same": "CmM7"
+  },
+  "CmM9": {
+    "name": "CmM9",
+    "pronounce": "C minor major nine",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 g8 b8 d8",
+    "color": "f8 a8",
+    "priority": "b8 d8 eb8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8 g#8",
+      "b8": "bb8",
+      "d8": "c#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g8 b8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b+8 d+8 eb+8 g+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "melodic minor",
+          "harmonic minor",
+          "minor six diminished",
+          "bebop minor",
+          "minor #7 pentatonic"
+        ],
+        "G": "harmonic major",
+        "F": "major pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Cm69"
+  },
+  "CmMaj9": {
+    "name": "CmMaj9",
+    "pronounce": "",
+    "same": "CmM9"
+  },
+  "CmM7b6": {
+    "name": "CmM7b6",
+    "pronounce": "C minor major seven flat six",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 g8 ab8 b8",
+    "color": "f8",
+    "priority": "b8 eb8 ab8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8",
+      "ab8": "a8",
+      "b8": "bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 ab8 b8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 eb+8 ab+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "harmonic minor",
+          "minor six diminished"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CmMaj7b6": {
+    "name": "CmMaj7b6",
+    "pronounce": "",
+    "same": "CmM7b6"
+  },
+  "CmM9b6": {
+    "name": "CmM9b6",
+    "pronounce": "C minor major nine flat six",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 g8 ab8 b8 d8",
+    "color": "f8",
+    "priority": "d8 b8 eb8 ab8 g8 c8",
+    "approach": {
+      "c8": "c#8",
+      "eb8": "d8 e8 f8",
+      "g8": "f#8",
+      "ab8": "a8",
+      "b8": "bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 ab8 b8 d8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "b8 d8 eb+8 ab+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "harmonic minor",
+          "minor six diminished"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CmMaj9b6": {
+    "name": "CmMaj9b6",
+    "pronounce": "",
+    "same": "CmM9b6"
+  },
+  "Cm9": {
+    "name": "Cm9",
+    "pronounce": "C minor nine",
+    "key": "bb",
+    "family": "minor7",
+    "spell": "c8 eb8 g8 bb8 d8",
+    "color": "a8 f8",
+    "priority": "eb8 bb8 d8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "e8 f8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "d8": "c#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 eb+8 g+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d+8 bb+8 eb++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "eb8 bb8 d+8 g+8",
+          "extension": ""
+        },
+        "drop-2-A": {
+          "type": "open",
+          "notes": "bb-8 eb8 g8 d+8",
+          "extension": ""
+        },
+        "drop-2-B": {
+          "type": "open",
+          "notes": "g8 d+8 eb+8 bb+8",
+          "extension": ""
+        },
+        "drop-2-C": {
+          "type": "open",
+          "notes": "eb8 bb8 d+8 g+8",
+          "extension": ""
+        },
+        "drop-2-D": {
+          "type": "open",
+          "notes": "d8 g8 bb8 eb+8",
+          "extension": ""
+        },
+        "drop-3-A": {
+          "type": "open",
+          "notes": "g-8 eb8 bb8 d+8",
+          "extension": ""
+        },
+        "drop-3-B": {
+          "type": "open",
+          "notes": "eb-8 d8 g8 bb8",
+          "extension": ""
+        },
+        "drop-3-C": {
+          "type": "open",
+          "notes": "bb-8 g8 d+8 eb+8",
+          "extension": ""
+        },
+        "drop-2-3-A": {
+          "type": "open",
+          "notes": "g-8 bb-8 eb8 d+8",
+          "extension": ""
+        },
+        "drop-2-3-B": {
+          "type": "open",
+          "notes": "eb-8 g-8 d8 bb8",
+          "extension": ""
+        },
+        "drop-2-3-C": {
+          "type": "open",
+          "notes": "d8 eb8 bb8 g+8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "eb8 g8 bb8 d+8",
+          "extension": "g++8 d+++8 g+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "bb8 d+8 eb+8 g+8",
+          "extension": "g++8 d+++8 g+++8"
+        }
+      }
+    ],
+    "extensions": "Cm11 Cm13",
+    "scales": [
+      {
+        "C": [
+          "dorian",
+          "bebop minor",
+          "minor bebop",
+          "aeolian"
+        ],
+        "F": [
+          "mixolydian",
+          "major pentatonic"
+        ],
+        "Bb": [
+          "major",
+          "major pentatonic"
+        ],
+        "Eb": "major pentatonic",
+        "G": "harmonic minor"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Am7b5 EbM7"
+  },
+  "Cm11": {
+    "name": "Cm11",
+    "pronounce": "C minor eleven",
+    "key": "bb",
+    "family": "minor7",
+    "spell": "c8 eb8 g8 bb8 d8 f8",
+    "color": "a8",
+    "priority": "f8 eb8 bb8 d8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "e8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "d8": "c#8",
+      "f8": "e8 f#8"
+    },
+    "voicings": [
+      {
+        "two-hand-B": {
+          "type": "open",
+          "notes": "bb--8 g-8 bb-8 d8 f8",
+          "extension": ""
+        },
+        "so-what": {
+          "type": "open",
+          "notes": "g--8 c-8 f-8 bb-8 d8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d+8 eb+8 bb+8 f++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm13",
+    "scales": [
+      {
+        "C": [
+          "dorian",
+          "aeolian"
+        ],
+        "F": "mixolydian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm7add11": {
+    "name": "Cm7add11",
+    "pronounce": "C minor seven add eleven",
+    "key": "bb",
+    "family": "minor7",
+    "spell": "c8 eb8 g8 bb8 f8",
+    "color": "a8 d8",
+    "priority": "f8 eb8 bb8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "e8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "f8": "e8 f#8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 eb+8 bb+8 f++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm11",
+    "scales": [
+      {
+        "C": [
+          "dorian",
+          "aeolian"
+        ],
+        "F": "mixolydian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm7add4": {
+    "name": "Cm7add4",
+    "pronounce": "",
+    "same": "Cm7add11"
+  },
+  "Cm13": {
+    "name": "Cm13",
+    "pronounce": "C minor thirteen",
+    "key": "bb",
+    "family": "minor7",
+    "spell": "c8 eb8 g8 bb8 d8 f8 a8",
+    "color": "",
+    "priority": "f8 a8 eb8 bb8 d8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "e8",
+      "g8": "f#8 g#8",
+      "bb8": "b8",
+      "d8": "c#8",
+      "f8": "e8 f#8",
+      "a8": "g#8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d+8 f+8 a+8 bb+8 eb++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "dorian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm7b5": {
+    "name": "Cm7b5",
+    "pronounce": "C minor seven flat five",
+    "key": "db",
+    "family": "half-diminished",
+    "spell": "c8 eb8 gb8 bb8",
+    "color": "db8 d8 f8 ab8 a8",
+    "priority": "gb8 eb8 bb8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "eb8": "d8 e8 f8",
+      "gb8": "f8 g8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 gb8 bb8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 c+8 eb+8 gb+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "gb8 c+8 eb+8 bb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm9b5",
+    "scales": [
+      {
+        "C": [
+          "locrian #2",
+          "locrian",
+          "locrian pentatonic",
+          "diminished",
+          "bebop locrian",
+          "minor blues"
+        ],
+        "Eb": [
+          "melodic minor",
+          "minor six pentatonic",
+          "flat three pentatonic"
+        ],
+        "Ab": "mixolydian",
+        "Bb": [
+          "harmonic minor",
+          "harmonic major"
+        ],
+        "Db": [
+          "melodic minor",
+          "diminished"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Ch7": {
+    "name": "Ch7",
+    "pronounce": "",
+    "same": "Cm7b5"
+  },
+  "Cmb5": {
+    "name": "Cmb5",
+    "pronounce": "",
+    "same": "Co"
+  },
+  "Cm6b5": {
+    "name": "Cm6b5",
+    "pronounce": "",
+    "same": "Co7"
+  },
+  "Cm9b5": {
+    "name": "Cm9b5",
+    "pronounce": "C minor nine flat five",
+    "key": "db",
+    "family": "half-diminished",
+    "spell": "c8 eb8 bb8 gb8 d8",
+    "color": "f8 ab8 a8",
+    "priority": "eb8 bb8 gb8 d8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "d8 e8 f8",
+      "gb8": "f8 g8",
+      "bb8": "a8 b8",
+      "d8": "c#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 gb8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 eb+8 gb+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "gb8 eb+8 bb+8 d++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm11b5",
+    "scales": [
+      {
+        "C": [
+          "locrian #2",
+          "minor blues"
+        ],
+        "Eb": "melodic minor",
+        "Ab": "mixolydian",
+        "Bb": "harmonic major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Ch9": {
+    "name": "Ch9",
+    "pronounce": "",
+    "same": "Cm9b5"
+  },
+  "Cm11b5": {
+    "name": "Cm11b5",
+    "pronounce": "C minor eleven flat five",
+    "key": "db",
+    "family": "half-diminished",
+    "spell": "c8 eb8 bb8 gb8 d8 f8",
+    "color": "ab8",
+    "priority": "f8 eb8 bb8 gb8 d8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "d8 e8",
+      "f8": "e8",
+      "gb8": "g8",
+      "bb8": "a8 b8",
+      "d8": "c#8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "gb8 eb+8 bb+8 d++8 f++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "locrian #2",
+        "Eb": "melodic minor",
+        "Bb": "harmonic major"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Ch11": {
+    "name": "Ch11",
+    "pronounce": "",
+    "same": "Cm11b5"
+  },
+  "Cm#5": {
+    "name": "Cm#5",
+    "pronounce": "C minor sharp five",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 g#8",
+    "color": "b8 f8 d8",
+    "priority": "eb8 g#8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "eb8": "d8 e8 f8",
+      "g#8": "a8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g#8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g#8 c+8 eb+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "eb8 c+8 g#+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "g#8 eb+8 c++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "aeolian",
+          "harmonic minor",
+          "pelog"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm+": {
+    "name": "Cm+",
+    "pronounce": "",
+    "same": "Cm#5"
+  },
+  "Cmb6": {
+    "name": "Cmb6",
+    "pronounce": "",
+    "same": "Cm#5"
+  },
+  "Cmb6b9": {
+    "name": "Cmb6b9",
+    "pronounce": "C minor flat six flat nine",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 ab8 db8",
+    "color": "b8 f8",
+    "priority": "eb8 db8 ab8 c8",
+    "approach": {
+      "c8": "b8",
+      "eb8": "d8 e8 f8",
+      "ab8": "a8",
+      "db8": "d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 ab8 db+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "ab8 db+8 eb+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "eb8 c+8 g#+8 db++8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "g#8 db+8 eb+8 c++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "phrygian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cmb6M7": {
+    "name": "Cmb6M7",
+    "pronounce": "C minor flat six major 7",
+    "key": "eb",
+    "family": "minor",
+    "spell": "c8 eb8 ab8 b8",
+    "color": "f8 d8",
+    "priority": "b8 eb8 ab8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "eb8": "d8 e8 f8",
+      "ab8": "a8",
+      "b8": "bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 ab8 b8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "ab8 b8 eb+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "eb8 b8 c+8 g#+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "g#8 eb+8 b+8 c++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "harmonic minor"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm7#5": {
+    "name": "Cm7#5",
+    "pronounce": "C minor seven sharp five",
+    "key": "eb",
+    "family": "minor7",
+    "spell": "c8 eb8 ab8 bb8",
+    "color": "d8 f8",
+    "priority": "ab8 eb8 bb8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "eb8": "d8 e8 f8",
+      "ab8": "g8 a8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g#8 bb8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g#8 bb8 eb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm9#5",
+    "scales": [
+      {
+        "C": [
+          "aeolian",
+          "harmonic minor"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm9#5": {
+    "name": "Cm9#5",
+    "pronounce": "C minor nine sharp five",
+    "key": "eb",
+    "family": "minor7",
+    "spell": "c8 eb8 ab8 bb8 d8",
+    "color": "f8",
+    "priority": "ab8 d8 eb8 bb8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "e8 f8",
+      "ab8": "g8 a8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g#8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g#8 bb8 d+8 eb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Cm11#5",
+    "scales": [
+      {
+        "C": [
+          "aeolian",
+          "harmonic minor"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm11#5": {
+    "name": "Cm11#5",
+    "pronounce": "C minor eleven sharp five",
+    "key": "eb",
+    "family": "minor7",
+    "spell": "c8 eb8 ab8 bb8 d8 f8",
+    "color": "",
+    "priority": "f8 ab8 d8 eb8 bb8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "eb8": "e8",
+      "ab8": "g8 a8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 g#8 bb8 d+8 f+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "f8 g#8 bb8 d+8 eb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "aeolian",
+          "harmonic minor"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Caddb9": {
+    "name": "Caddb9",
+    "pronounce": "C major add flat nine",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 e8 g8 db8",
+    "color": "",
+    "priority": "db8 e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "eb8 f8",
+      "g8": "f#8 g#8 a8",
+      "db8": "d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 db+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "db8 e8 g8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e8 c+8 db+8 g+8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "e8 c+8 g+8 db++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7": {
+    "name": "C7",
+    "pronounce": "C seven",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8",
+    "color": "a8 f#8 db8 d8 d#8 g#8 f8",
+    "priority": "bb8 e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "two-hand-C": {
+          "type": "open",
+          "notes": "bb--8 g-8 bb-8 e8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "e--8 bb--8 g-8 e8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g--8 bb--8 e-8 g-8 bb-8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 bb8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 e+8 g+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "open",
+          "notes": "g--8 bb--8 e-8 g-8",
+          "extension": ""
+        },
+        "left-hand-D": {
+          "type": "open",
+          "notes": "bb--8 e-8 g-8 bb-8",
+          "extension": ""
+        },
+        "drop-2-A": {
+          "type": "open",
+          "notes": "a#-8 e8 g8 c+8",
+          "extension": ""
+        },
+        "drop-2-B": {
+          "type": "open",
+          "notes": "c-8 g-8 a#-8 e8",
+          "extension": ""
+        },
+        "drop-2-C": {
+          "type": "open",
+          "notes": "e-8 a#-8 c8 g8",
+          "extension": ""
+        },
+        "drop-2-D": {
+          "type": "open",
+          "notes": "g-8 c8 e8 a#8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9 C7b9 C7#9 C7b13",
+    "scales": [
+      {
+        "C": [
+          "mixolydian",
+          "lydian dominant",
+          "bebop dominant",
+          "whole tone",
+          "major pentatonic",
+          "mixolydian pentatonic",
+          "major flat two pentatonic",
+          "major blues",
+          "minor pentatonic",
+          "minor blues",
+          "composite blues"
+        ],
+        "F": "major",
+        "G": [
+          "dorian",
+          "minor pentatonic",
+          "minor six pentatonic"
+        ],
+        "Db": "diminished",
+        "E": "locrian pentatonic",
+        "Eb": "major flat two pentatonic",
+        "A": "major flat two pentatonic",
+        "Gb": "major flat two pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Gb7 Gm7 Dbo7 GmM7 C7#5"
+  },
+  "C7no5": {
+    "name": "C7no5",
+    "pronounce": "C seven no five",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 bb8",
+    "color": "a8 ab8 d#8 f#8 db8 d8",
+    "priority": "bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "e8": "f8 eb8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "open",
+          "notes": "e-8 bb-8 c8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 e+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "bb--8 e-8 c8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9no5 C7b9 C7#5#9",
+    "scales": [
+      {
+        "C": [
+          "mixolydian",
+          "lydian dominant",
+          "whole tone"
+        ],
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Gb7 Dbo7"
+  },
+  "C7b9": {
+    "name": "C7b9",
+    "pronounce": "C seven flat nine",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 db8",
+    "color": "a8 ab8 f#8 d#8",
+    "priority": "db8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "db8": "d8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 bb8 db+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 db+8 e+8 g+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 e+8 bb+8 db++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C7b9#11 C13b9#11 C7b9b13",
+    "scales": [
+      {
+        "F": [
+          "minor six diminished",
+          "harmonic minor"
+        ],
+        "Db": [
+          "diminished",
+          "flat three pentatonic",
+          "augmented"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7b9#9": {
+    "name": "C7b9#9",
+    "pronounce": "C seven flat nine sharp 9",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 db8 d#8",
+    "color": "a8 ab8 f#8",
+    "priority": "d#8 db8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "db8": "d8 eb8",
+      "d#8": "d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 bb8 db+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 e+8 bb+8 db++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C7b9#11 C13b9#11 C7b9b13",
+    "scales": [
+      {
+        "F": [
+          "minor six diminished",
+          "harmonic minor"
+        ],
+        "Db": [
+          "diminished",
+          "flat three pentatonic",
+          "augmented"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7#5": {
+    "name": "C7#5",
+    "pronounce": "C seven sharp five",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g#8 bb8",
+    "color": "d#8 db8 f#8 d8",
+    "priority": "g#8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "g#8": "g8 a8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8",
+      "f#8": "f8 g8"
+    },
+    "voicings": [
+      {
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e--8 bb--8 c-8 g#-8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "g#--8 bb--8 c-8 e-8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "c-8 e-8 ab-8 bb-8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 e+8 g#+8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "bb--8 e-8 ab-8 c8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C7#5#9 C7#5b9",
+    "scales": [
+      {
+        "C": [
+          "whole tone",
+          "augmented",
+          "hindu",
+          "spanish"
+        ],
+        "Ab": "flat six pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Db9b5"
+  },
+  "C+7": {
+    "name": "C+7",
+    "pronounce": "",
+    "same": "C7#5"
+  },
+  "C7+": {
+    "name": "C7+",
+    "pronounce": "",
+    "same": "C7#5"
+  },
+  "C7aug": {
+    "name": "C7aug",
+    "pronounce": "",
+    "same": "C7#5"
+  },
+  "Caug7": {
+    "name": "Caug7",
+    "pronounce": "",
+    "same": "C7#5"
+  },
+  "C7#9": {
+    "name": "C7#9",
+    "pronounce": "C seven sharp nine",
+    "key": "bb",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d#8",
+    "color": "f#8 ab8 db8 a8",
+    "priority": "d#8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "d#8": "d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 bb8 d#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d#+8 e+8 g+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 e+8 bb+8 d#++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C7#9#11",
+    "scales": [
+      {
+        "Db": [
+          "diminished",
+          "melodic minor",
+          "flat three pentatonic"
+        ],
+        "Ab": "flat six pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7#11": {
+    "name": "C7#11",
+    "pronounce": "C seven sharp eleven",
+    "key": "bb",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 f#8",
+    "color": "d8 ab8 a8 db8 eb8",
+    "priority": "f#8 bb8 e8 c8 g8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8",
+      "f#8": "f8 g8",
+      "g8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "bb--8 c-8 e-8 gb-8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb--8 e-8 gb-8 g-8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e--8 g--8 bb--8 gb-8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "bb--8 e-8 gb-8 c8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9#11 C7#9#11",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "whole tone"
+        ],
+        "G": [
+          "melodic minor",
+          "minor hexatonic",
+          "flat three pentatonic"
+        ],
+        "Db": "diminished",
+        "A": "minor six pentatonic",
+        "D": "flat six pentatonic",
+        "Gb": "whole tone pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Gb7#5#9"
+  },
+  "C7#9#11": {
+    "name": "C7#9#11",
+    "pronounce": "C seven sharp nine sharp eleven",
+    "key": "bb",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d#8 f#8",
+    "color": "ab8 db8 a8",
+    "priority": "f#8 d#8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "g#8",
+      "bb8": "a8 b8",
+      "d#8": "d8",
+      "f#8": "f8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "C7#9#11b13",
+    "scales": [
+      {
+        "Db": [
+          "diminished",
+          "melodic minor"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7b5#9": {
+    "name": "C7b5#9",
+    "pronounce": "",
+    "same": "C7#9#11"
+  },
+  "C7#9b13": {
+    "name": "C7#9b13",
+    "pronounce": "C seven sharp nine flat thirteen",
+    "key": "bb",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d#8 ab8",
+    "color": "",
+    "priority": "ab8 d#8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "bb8": "a8 b8",
+      "d#8": "d8",
+      "ab8": "a8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "Db": [
+          "diminished",
+          "melodic minor"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7#9#11b13": {
+    "name": "C7#9#11b13",
+    "pronounce": "C seven sharp nine sharp eleven flat thirteen",
+    "key": "bb",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d#8 f#8 ab8",
+    "color": "db8",
+    "priority": "ab8 f#8 d#8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "bb8": "a8 b8",
+      "d#8": "d8",
+      "f#8": "f8",
+      "ab8": "a8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "Db": [
+          "diminished",
+          "melodic minor"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7b5": {
+    "name": "C7b5",
+    "pronounce": "C seven flat five",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 gb8 bb8",
+    "color": "d8 a8",
+    "priority": "gb8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "gb8": "g8 f8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "C9b5",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "whole tone"
+        ],
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Gb7b5b9"
+  },
+  "C9": {
+    "name": "C9",
+    "pronounce": "C nine",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d8",
+    "color": "a8 f#8 g#8 f8",
+    "priority": "d8 bb8 e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {
+        "shout-A": {
+          "type": "shout",
+          "notes": "bb--8 e-8 g-8 bb-8 g8 c+8 g+8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "bb--8 d-8 e-8 g-8 bb-8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 g+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "g8 d+8 e+8 bb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9#11 C13",
+    "scales": [
+      {
+        "C": [
+          "mixolydian",
+          "lydian dominant",
+          "whole tone"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": "Gb7 Em7b5"
+  },
+  "C9#11": {
+    "name": "C9#11",
+    "pronounce": "C nine sharp eleven",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d8 f#8",
+    "color": "a8",
+    "priority": "f#8 bb8 e8 d8 c8 g8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8",
+      "f#8": "f8 g8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 f#8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 f#+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e8 d+8 bb+8 f#++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "bb8 e+8 f#+8 d++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C13#11",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "whole tone"
+        ],
+        "G": "melodic minor"
+      }
+    ],
+    "avoid": "",
+    "substitute": "Gb7#5#9 GmM7"
+  },
+  "C9b5": {
+    "name": "C9b5",
+    "pronounce": "C nine flat five",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 gb8 bb8 d8",
+    "color": "a8",
+    "priority": "d8 gb8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "gb8": "g8 f8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 gb8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 gb+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "d+8 e+8 bb+8 gb++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "bb8 e+8 gb+8 d++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C13b5",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "whole tone"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": "Db9b5"
+  },
+  "C9#5": {
+    "name": "C9#5",
+    "pronounce": "C nine sharp five",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g#8 bb8 d8",
+    "color": "f#8",
+    "priority": "d8 g#8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "g#8": "g8 a8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g#8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 g#+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "d+8 e+8 bb+8 g#++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "bb8 e+8 g#+8 d++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9#5#11",
+    "scales": [
+      {
+        "C": "whole tone"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C9+": {
+    "name": "C9+",
+    "pronounce": "",
+    "same": "C9#5"
+  },
+  "C9#5#11": {
+    "name": "C9#5#11",
+    "pronounce": "C nine sharp five sharp eleven",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g#8 bb8 d8 f#8",
+    "color": "",
+    "priority": "f#8 g#8 bb8 e8 d8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "g#8": "g8 a8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8",
+      "f#8": "f8 g8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g#8 bb8 d+8 f#+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "e8 bb8 g#+8 f#++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "bb8 e+8 g#+8 f#++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "whole tone",
+          "diminished"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C11": {
+    "name": "C11",
+    "pronounce": "C eleven",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 g8 bb8 d8 f8",
+    "color": "",
+    "priority": "f8 d8 bb8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "f8": "f#8",
+      "g8": "g#8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "mixolydian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C11b9": {
+    "name": "C11b9",
+    "pronounce": "C eleven flat 9",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 g8 bb8 db8 f8",
+    "color": "",
+    "priority": "f8 db8 bb8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "f8": "f#8",
+      "g8": "g#8",
+      "bb8": "a8 b8",
+      "db8": "d8 eb8 c#8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "phrygian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C13": {
+    "name": "C13",
+    "pronounce": "C thirteen",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d8 a8",
+    "color": "db8 eb8 f#8",
+    "priority": "a8 d8 bb8 e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "b8",
+      "d8": "c#8 eb8",
+      "a8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 a8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 a+8",
+          "extension": ""
+        },
+        "drop-2-A": {
+          "type": "open",
+          "notes": "e8 bb8 d+8 a+8",
+          "extension": ""
+        },
+        "drop-2-B": {
+          "type": "open",
+          "notes": "d8 a8 bb8 e+8",
+          "extension": ""
+        },
+        "drop-2-C": {
+          "type": "open",
+          "notes": "bb-8 e8 a8 d+8",
+          "extension": ""
+        },
+        "drop-2-D": {
+          "type": "open",
+          "notes": "a-8 d8 e8 bb8",
+          "extension": ""
+        },
+        "drop-3-A": {
+          "type": "open",
+          "notes": "d8 bb8 e+8 a+8",
+          "extension": ""
+        },
+        "drop-3-B": {
+          "type": "open",
+          "notes": "bb-8 a8 d+8 e+8",
+          "extension": ""
+        },
+        "drop-3-C": {
+          "type": "open",
+          "notes": "e8 d+8 a+8 bb+8",
+          "extension": ""
+        },
+        "drop-2-3-A": {
+          "type": "open",
+          "notes": "d8 e8 bb8 a+8",
+          "extension": ""
+        },
+        "drop-2-3-B": {
+          "type": "open",
+          "notes": "bb-8 d8 a8 e+8",
+          "extension": ""
+        },
+        "drop-2-3-C": {
+          "type": "open",
+          "notes": "a8 bb8 e+8 d++8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "a8 d+8 e+8 bb+8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "e8 a8 bb8 d+8",
+          "extension": "d++8 a++8 d+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "bb8 e+8 a+8",
+          "extension": "d++8 a++8 d+++8"
+        }
+      }
+    ],
+    "extensions": "C13#11",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "mixolydian"
+        ],
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7add6": {
+    "name": "C7add6",
+    "pronounce": "C seven add 6",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 a8",
+    "color": "d8 f#8",
+    "priority": "a8 bb8 e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "b8",
+      "a8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 a8 bb8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 e+8 a+8",
+          "extension": ""
+        },
+        "drop-2-A": {
+          "type": "open",
+          "notes": "e8 bb8 a+8",
+          "extension": ""
+        },
+        "drop-2-B": {
+          "type": "open",
+          "notes": "d8 a8 bb8 e+8",
+          "extension": ""
+        },
+        "drop-2-C": {
+          "type": "open",
+          "notes": "bb-8 e8 a8",
+          "extension": ""
+        },
+        "drop-2-D": {
+          "type": "open",
+          "notes": "a-8 e8 bb8",
+          "extension": ""
+        },
+        "drop-3-A": {
+          "type": "open",
+          "notes": "bb8 e+8 a+8",
+          "extension": ""
+        },
+        "drop-3-B": {
+          "type": "open",
+          "notes": "bb-8 a8 e+8",
+          "extension": ""
+        },
+        "drop-3-C": {
+          "type": "open",
+          "notes": "e8 a+8 bb+8",
+          "extension": ""
+        },
+        "drop-2-3-A": {
+          "type": "open",
+          "notes": "e8 bb8 a+8",
+          "extension": ""
+        },
+        "drop-2-3-B": {
+          "type": "open",
+          "notes": "bb-8 a8 e+8",
+          "extension": ""
+        },
+        "drop-2-3-C": {
+          "type": "open",
+          "notes": "a8 bb8 e+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "a8 e+8 bb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C13",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "mixolydian"
+        ],
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7add13": {
+    "name": "C7add13",
+    "pronounce": "",
+    "same": "C7add6"
+  },
+  "C67": {
+    "name": "C67",
+    "pronounce": "",
+    "same": "C7add6"
+  },
+  "C13no5": {
+    "name": "C13no5",
+    "pronounce": "C thirteen no five",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 bb8 d8 a8",
+    "color": "db8 eb8",
+    "priority": "a8 d8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "b8",
+      "d8": "c#8 eb8",
+      "a8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 a8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 a+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "a8 d+8 e+8 bb+8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "e8 a8 bb8 d+8",
+          "extension": "d++8 a++8 d+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "bb8 e+8 a+8",
+          "extension": "d++8 a++8 d+++8"
+        }
+      }
+    ],
+    "extensions": "C13#11",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "mixolydian"
+        ],
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7b13": {
+    "name": "C7b13",
+    "pronounce": "C seven flat thirteen",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 bb8 ab8",
+    "color": "f#8 d8 db8 d#8",
+    "priority": "ab8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "ab8": "g8 a8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 ab8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 ab+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "ab8 d+8 e+8 bb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9b13",
+    "scales": [
+      {
+        "C": [
+          "altered",
+          "diminished",
+          "hindu"
+        ],
+        "Bb": "flat three pentatonic",
+        "F": "flat six pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7b6": {
+    "name": "C7b6",
+    "pronounce": "C seven flat six",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 ab8 bb8",
+    "color": "f#8 d8 db8 d#8",
+    "priority": "ab8 bb8 e8 c8 g8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "ab8": "a8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 ab8 bb8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 e+8 ab+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "ab8 e+8 bb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "melodic minor fifth mode"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C9b13": {
+    "name": "C9b13",
+    "pronounce": "C nine flat thirteen",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 bb8 d8 ab8",
+    "color": "f#8 f8",
+    "priority": "ab8 d8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "ab8": "g8 a8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 ab8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 ab+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "ab8 e+8 bb+8 d++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "altered",
+          "diminished"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7#11b13": {
+    "name": "C7#11b13",
+    "pronounce": "C seven sharp eleven flat thirteen",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 f#8 ab8",
+    "color": "d8 db8 d#8",
+    "priority": "ab8 f#8 bb8 e8 c8 g8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "ab8": "g8 a8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8",
+      "f#8": "f8 g8",
+      "g8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 ab8 bb8 f#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 e+8 f#+8 ab+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "ab8 e+8 bb+8 f#++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9#11b13",
+    "scales": [
+      {
+        "C": [
+          "altered",
+          "diminished"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C9#11b13": {
+    "name": "C9#11b13",
+    "pronounce": "C nine sharp eleven flat thirteen",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d8 f#8 ab8",
+    "color": "",
+    "priority": "ab8 f#8 d8 bb8 e8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "ab8": "g8 a8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8",
+      "f#8": "f8 g8",
+      "g8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 ab8 bb8 d+8 f#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 f#+8 ab+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "ab8 e+8 bb+8 d++8 f#++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C9b5b13": {
+    "name": "C9b5b13",
+    "pronounce": "",
+    "same": "C9#11b13"
+  },
+  "C13b9": {
+    "name": "C13b9",
+    "pronounce": "C thirteen flat nine",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 db8 a8",
+    "color": "f#8 d#8",
+    "priority": "db8 a8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "b8",
+      "db8": "d8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "bb8 db+8 e+8 a+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "bb8 a+8 e+8 db++8",
+          "extension": ""
+        },
+        "two-hand-B": {
+          "type": "open",
+          "notes": "e8 bb8 db+8 a+8",
+          "extension": ""
+        },
+        "two-hand-C": {
+          "type": "open",
+          "notes": "e-8 bb8 db8 a8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "bb8 a+8 e+8 db++8",
+          "extension": "g++8 c+++8 g+++8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "e8 bb8 db+8 a+8",
+          "extension": "c++8 g++8 c+++8"
+        },
+        "shout-C": {
+          "type": "shout",
+          "notes": "e-8 bb-8 db8 a8",
+          "extension": "c+8 g+8 c++8"
+        }
+      }
+    ],
+    "extensions": "C13b9#11",
+    "scales": [
+      {
+        "Db": "diminished",
+        "F": "harmonic minor"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C13b5": {
+    "name": "C13b5",
+    "pronounce": "C thirteen flat five",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 gb8 a8 bb8 d8",
+    "color": "db8 eb8",
+    "priority": "a8 gb8 d8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "gb8": "g8 f8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8",
+      "a8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 gb8 a8 bb8 d8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 e+8 gb+8 a+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "bb8 e+8 a+8 d++8 gb++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "lydian dominant",
+          "whole tone"
+        ],
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C13#9": {
+    "name": "C13#9",
+    "pronounce": "C thirteen sharp nine",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d#8 a8",
+    "color": "db8",
+    "priority": "d#8 a8 bb8 e8 g8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "b8",
+      "db8": "eb8 c8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 a8 bb8 d#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d#+8 a+8 e++8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "bb-8 e8 a8 d#+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C13#9#11",
+    "scales": [
+      {
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C13#11": {
+    "name": "C13#11",
+    "pronounce": "C thirteen sharp eleven",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d8 f#8 a8",
+    "color": "db8 eb8",
+    "priority": "f#8 a8 bb8 e8 d8 c8 g8",
+    "approach": {
+      "c8": "b8 c#8",
+      "e8": "f8 eb8",
+      "bb8": "b8",
+      "d8": "c#8 eb8",
+      "f#8": "f8 g8",
+      "a8": "g#8",
+      "g8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 f#8 a8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 e+8 f#+8 a+8 d++8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "bb8 e+8 d+8 d++8 f#++8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb8 e+8 a+8 d++8 f#++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "lydian dominant",
+        "G": "melodic minor",
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C13#9#11": {
+    "name": "C13#9#11",
+    "pronounce": "C thirteen sharp nine sharp eleven",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 d#8 f#8 a8",
+    "color": "db8",
+    "priority": "a8 f#8 d#8 d8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "g#8",
+      "bb8": "b8",
+      "d#8": "d8 e8",
+      "f#8": "f8",
+      "a8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 f#8 a8 bb8 d#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d#+8 e+8 f#+8 a+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "bb8 e+8 f#+8 d#++8 a++8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C13b9#11 C7b9#11b13",
+    "scales": [
+      {
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7sus4": {
+    "name": "C7sus4",
+    "pronounce": "C seven sus four",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 f8 g8 bb8",
+    "color": "e8 a8 d8 db8",
+    "priority": "f8 bb8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "f8": "f#8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 g8 bb8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "g8 bb8 f+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "f8 bb8 g+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C9sus4",
+    "scales": [
+      {
+        "C": "mixolydian",
+        "D": "aeolian",
+        "F": "major pentatonic",
+        "Bb": "major pentatonic",
+        "G": [
+          "minor six pentatonic",
+          "flat three pentatonic"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7sus": {
+    "name": "C7sus",
+    "pronounce": "",
+    "same": "C7sus4"
+  },
+  "C9sus4": {
+    "name": "C9sus4",
+    "pronounce": "C nine sus four",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 f8 g8 bb8 d8",
+    "color": "e8 a8",
+    "priority": "f8 bb8 d8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "f8": "f#8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "d8": "c#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 bb8 d+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 f+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "f8 d+8 bb+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 f8 d+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C13sus4",
+    "scales": [
+      {
+        "C": "mixolydian",
+        "D": "aeolian",
+        "F": "major pentatonic",
+        "Bb": "major pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C9sus": {
+    "name": "C9sus",
+    "pronounce": "",
+    "same": "C9sus4"
+  },
+  "C7#5sus4": {
+    "name": "C7#5sus4",
+    "pronounce": "C seven sharp five sus four",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 f8 g#8 bb8",
+    "color": "d8",
+    "priority": "g#8 bb8 f8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "f8": "e8 f#8",
+      "g#8": "g8 a8",
+      "bb8": "a8 b8",
+      "d8": "c#8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "f8 g#8 bb8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 f+8 g#+8",
+          "extension": ""
+        },
+        "two-hand-A": {
+          "type": "open",
+          "notes": "f8 bb8 g#+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "Ab": "minor pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7sus4b9": {
+    "name": "C7sus4b9",
+    "pronounce": "C seven sus four flat nine",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 f8 g8 bb8 db8",
+    "color": "",
+    "priority": "f8 bb8 db8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "f8": "f#8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "db8": "d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "bb8 db+8 f+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "f8 bb8 db+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 f8 db+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": [
+          "phrygian",
+          "melodic minor second mode",
+          "in-sen",
+          "major flat two pentatonic"
+        ],
+        "Bb": [
+          "melodic minor",
+          "minor six pentatonic",
+          "flat three pentatonic"
+        ],
+        "F": "flat six pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7sus4b9b13": {
+    "name": "C7sus4b9b13",
+    "pronounce": "C seven sus four flat nine flat thirteen",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 f8 g8 bb8 db8 ab8",
+    "color": "",
+    "priority": "f8 ab8 bb8 db8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "f8": "f#8",
+      "g8": "f#8",
+      "ab8": "a8",
+      "bb8": "a8 b8",
+      "db8": "d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "ab8 bb8 db+8 f+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 db+8 f+8 ab+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "f8 bb8 db+8 ab+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 f8 db+8 ab+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "phrygian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7b9b13sus4": {
+    "name": "C7b9b13sus4",
+    "pronounce": "",
+    "same": "C7sus4b9b13"
+  },
+  "C13sus4": {
+    "name": "C13sus4",
+    "pronounce": "C thirteen sus four",
+    "key": "f",
+    "family": "sus4",
+    "spell": "c8 f8 g8 bb8 d8 a8",
+    "color": "",
+    "priority": "f8 a8 bb8 d8 c8",
+    "approach": {
+      "c8": "b8 c#8",
+      "f8": "f#8",
+      "g8": "f#8 g#8",
+      "bb8": "b8",
+      "d8": "c#8",
+      "a8": "g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "a8 bb8 d+8 f+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d+8 f+8 a+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "f8 bb8 d+8 a+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 f8 d+8 a+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "mixolydian"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C13sus": {
+    "name": "C13sus",
+    "pronounce": "",
+    "same": "C13sus4"
+  },
+  "C7b9#11": {
+    "name": "C7b9#11",
+    "pronounce": "C seven flat nine sharp eleven",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 db8 f#8",
+    "color": "ab8 a8",
+    "priority": "f#8 db8 bb8 e8 c8 g8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "bb8": "a8 b8",
+      "db8": "d8 eb8",
+      "f#8": "f8",
+      "g8": "g#8"
+    },
+    "voicings": [
+      {
+        "open-A": {
+          "type": "open",
+          "notes": "bb-8 e8 db+8 f#+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 db+8 e+8 f#+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C13b9#11 C7b9#11b13",
+    "scales": [
+      {
+        "Db": [
+          "diminished",
+          "melodic minor"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": "Db7b5"
+  },
+  "C7b9#11b13": {
+    "name": "C7b9#11b13",
+    "pronounce": "",
+    "same": "C7b9b13#11"
+  },
+  "C7b5b9": {
+    "name": "C7b5b9",
+    "pronounce": "",
+    "same": "C7b9#11"
+  },
+  "C7b5b13": {
+    "name": "C7b5b13",
+    "pronounce": "",
+    "same": "C7#11b13"
+  },
+  "C7b5b9b13": {
+    "name": "C7b5b9b13",
+    "pronounce": "",
+    "same": "C7b9#11b13"
+  },
+  "C13b9#11": {
+    "name": "C13b9#11",
+    "pronounce": "C thirteen flat nine sharp eleven",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 db8 f#8 a8",
+    "color": "",
+    "priority": "f#8 a8 db8 bb8 e8 c8 g8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "bb8": "a8 b8",
+      "db8": "d8 eb8",
+      "f#8": "f8",
+      "g8": "g#8"
+    },
+    "voicings": [
+      {
+        "open-A": {
+          "type": "open",
+          "notes": "bb8 e+8 a+8 db++8 f#++8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "bb8 a+8 db++8 f#++8",
+          "extension": "e+++8"
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "Db": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7b9b13": {
+    "name": "C7b9b13",
+    "pronounce": "C seven flat nine flat thirteen",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 db8 ab8",
+    "color": "g8 gb8",
+    "priority": "db8 ab8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "f#8 g#8",
+      "bb8": "a8 b8",
+      "db8": "d8 eb8",
+      "ab8": "a8"
+    },
+    "voicings": [
+      {
+        "open-A": {
+          "type": "open",
+          "notes": "bb-8 e8 ab8 db+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 ab8 db+8 e+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C7b9b13#11",
+    "scales": [
+      {
+        "F": "minor six diminished",
+        "Db": "melodic minor"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7b9b13#11": {
+    "name": "C7b9b13#11",
+    "pronounce": "C seven flat nine flat thirteen sharp eleven",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g8 bb8 db8 f#8 ab8",
+    "color": "",
+    "priority": "db8 ab8 f#8 bb8 e8 c8 g8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8 eb8",
+      "g8": "g#8",
+      "bb8": "a8 b8",
+      "db8": "d8 eb8",
+      "ab8": "a8"
+    },
+    "voicings": [
+      {
+        "open-A": {
+          "type": "open",
+          "notes": "bb-8 e8 ab8 db+8 f#+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 ab8 db+8 e+8 f#+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "F": "minor six diminished",
+        "Db": "melodic minor"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7#5b9": {
+    "name": "C7#5b9",
+    "pronounce": "C seven sharp five flat nine",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g#8 bb8 db8",
+    "color": "f#8 eb8",
+    "priority": "g#8 bb8 e8 db8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8",
+      "g#8": "g8 a8",
+      "bb8": "a8 b8",
+      "d#8": "d8"
+    },
+    "voicings": [
+      {
+        "open-A": {
+          "type": "open",
+          "notes": "bb-8 e8 g#8 db+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 g#8 db+8 e+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "C7#5b9#11",
+    "scales": [
+      {
+        "Db": [
+          "melodic minor",
+          "minor six pentatonic"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7#5b9#11": {
+    "name": "C7#5b9#11",
+    "pronounce": "C seven sharp five flat nine sharp 11",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g#8 bb8 db8 f#8",
+    "color": "eb8",
+    "priority": "g#8 f#8 bb8 e8 db8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8",
+      "f#8": "f8",
+      "g#8": "g8 a8",
+      "bb8": "a8 b8",
+      "d#8": "d8"
+    },
+    "voicings": [
+      {
+        "open-A": {
+          "type": "open",
+          "notes": "bb-8 e8 g#8 db+8 f#+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "bb-8 g#8 db+8 e+8 f#+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "Db": [
+          "melodic minor",
+          "minor six pentatonic"
+        ]
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C7#5#9": {
+    "name": "C7#5#9",
+    "pronounce": "C seven sharp five sharp nine",
+    "key": "f",
+    "family": "dominant",
+    "spell": "c8 e8 g#8 bb8 d#8",
+    "color": "db8 gb8 g8",
+    "priority": "d#8 g#8 bb8 e8 c8",
+    "approach": {
+      "c8": "b8",
+      "e8": "f8",
+      "g#8": "g8 a8",
+      "bb8": "a8 b8",
+      "d#8": "d8"
+    },
+    "voicings": [
+      {
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "bb--8 eb-8 e-8 ab-8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "e8 g#8 bb8 d#+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "bb8 d#+8 e+8 g#+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "bb-8 e8 g#8 d#+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "Db": "melodic minor",
+        "Gb": "major pentatonic",
+        "F#": "mixolydian",
+        "Eb": "minor six pentatonic",
+        "Ab": "flat six pentatonic",
+        "Bb": "locrian pentatonic",
+        "C": "whole tone pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": "DbmM7 Gb7#11"
+  },
+  "C7alt": {
+    "name": "C7alt",
+    "pronounce": "",
+    "same": "C7#5#9"
+  },
+  "Co": {
+    "name": "Co",
+    "pronounce": "C diminished",
+    "key": "db",
+    "family": "diminished",
+    "spell": "c8 eb8 gb8",
+    "color": "a8 b8 bb8 d8 f8",
+    "priority": "gb8 eb8 c8",
+    "approach": {
+      "c8": "b8 d8 db8",
+      "eb8": "d8 e8 f8",
+      "gb8": "f8 g8 g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 gb8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "gb8 c+8 eb+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "c8 eb8 gb8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "eb8 c+8 gb+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "gb8 c+8 eb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "Co7 Cm7b5",
+    "scales": [
+      {
+        "C": "diminished",
+        "Db": "harmonic minor",
+        "F#": "mixolydian pentatonic",
+        "Ab": "mixolydian pentatonic"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Co7": {
+    "name": "Co7",
+    "pronounce": "C diminished seven",
+    "key": "db",
+    "family": "diminished",
+    "spell": "c8 eb8 gb8 a8",
+    "color": "d8 f8 ab8 b8",
+    "priority": "a8 eb8 gb8 c8",
+    "approach": {
+      "c8": "b8 d8 db8",
+      "eb8": "d8 e8 f8",
+      "gb8": "f8 g8 g#8",
+      "a8": "g#8 bb8 b8"
+    },
+    "voicings": [
+      {
+        "open-G": {
+          "type": "open",
+          "notes": "a-8 c8 d#8 f#8 a8",
+          "extension": ""
+        },
+        "open-F": {
+          "type": "open",
+          "notes": "d#-8 f#-8 c8 f#8 a8",
+          "extension": ""
+        },
+        "open-E": {
+          "type": "open",
+          "notes": "eb--8 a--8 c-8 gb-8",
+          "extension": ""
+        },
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 gb8 a8 c+8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "gb8 a8 c+8 eb+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "a8 c+8 eb+8 gb+8",
+          "extension": ""
+        },
+        "left-hand-D": {
+          "type": "closed",
+          "notes": "c-8 eb-8 gb-8 a-8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "eb8 a8 gb+8 c++8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "gb8 eb+8 a+8 c++8",
+          "extension": ""
+        },
+        "open-C": {
+          "type": "open",
+          "notes": "a--8 gb-8 c8 eb8",
+          "extension": ""
+        },
+        "open-D": {
+          "type": "open",
+          "notes": "c-8 gb-8 a-8 eb8",
+          "extension": ""
+        },
+        "shout-A": {
+          "type": "shout",
+          "notes": "eb8 gb8 a8 c+8",
+          "extension": "gb+8 eb+8"
+        },
+        "shout-B": {
+          "type": "shout",
+          "notes": "gb8 a8 c+8 eb+8",
+          "extension": "a+8 c++8"
+        },
+        "shout-C": {
+          "type": "shout",
+          "notes": "a8 c+8 eb+8 gb+8",
+          "extension": "c++8 a++8"
+        },
+        "shout-D": {
+          "type": "shout",
+          "notes": "c-8 eb-8 gb-8 a-8",
+          "extension": "eb8 c+8"
+        }
+      }
+    ],
+    "extensions": "CoM7",
+    "scales": [
+      {
+        "C": "diminished",
+        "Db": "harmonic minor"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cdim": {
+    "name": "Cdim",
+    "pronounce": "",
+    "same": "Co"
+  },
+  "Cdim7": {
+    "name": "Cdim7",
+    "pronounce": "",
+    "same": "Co7"
+  },
+  "CoM7": {
+    "name": "CoM7",
+    "pronounce": "C diminished major seven",
+    "key": "db",
+    "family": "diminished",
+    "spell": "c8 eb8 gb8 b8",
+    "color": "d8 f8 ab8",
+    "priority": "b8 eb8 gb8 c8",
+    "approach": {
+      "c8": "b8 db8",
+      "eb8": "e8 f8",
+      "gb8": "f8 g8 g#8",
+      "b8": "bb8"
+    },
+    "voicings": [
+      {}
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Co7M7": {
+    "name": "Co7M7",
+    "pronounce": "C diminished seven major seven",
+    "key": "db",
+    "family": "diminished",
+    "spell": "c8 eb8 gb8 a8 b8",
+    "color": "d8 f8 ab8",
+    "priority": "b8 a8 eb8 gb8 c8",
+    "approach": {
+      "c8": "b8 db8",
+      "eb8": "e8 f8",
+      "gb8": "f8 g8 g#8",
+      "a8": "g#8 bb8 b8",
+      "b8": "bb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 gb8 a8 b8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "gb8 a8 b8 eb+8",
+          "extension": ""
+        },
+        "left-hand-C": {
+          "type": "closed",
+          "notes": "b8 eb+8 gb+8 a+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "eb8 a8 gb+8 b+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "gb8 b8 eb+8 a+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "diminished"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "CBlues": {
+    "name": "CBlues",
+    "pronounce": "C Blues",
+    "key": "bb",
+    "family": "dominant",
+    "spell": "c8 eb8 f8 gb8 g8 bb8",
+    "color": "",
+    "priority": "c8 eb8 f8 g8 bb8 gb8",
+    "approach": {
+      "c8": "b8 db8",
+      "eb8": "e8 f8",
+      "f8": "gb8 e8",
+      "gb8": "f8 g8",
+      "g8": "gb8 ab8",
+      "bb8": "a8 b8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "closed",
+          "notes": "eb8 f8 gb8 bb8",
+          "extension": ""
+        },
+        "left-hand-B": {
+          "type": "closed",
+          "notes": "f8 gb8 bb8 eb+8",
+          "extension": ""
+        },
+        "open-A": {
+          "type": "open",
+          "notes": "eb8 gb8 bb8 f+8",
+          "extension": ""
+        },
+        "open-B": {
+          "type": "open",
+          "notes": "f8 gb8 eb+8 bb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {
+        "C": "minor blues"
+      }
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C5": {
+    "name": "C5",
+    "pronounce": "C five",
+    "key": "c",
+    "family": "bass",
+    "spell": "c8 g8",
+    "color": "",
+    "priority": "g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "g8": "f#8 g#8"
+    },
+    "voicings": [
+      {
+        "left-hand-B": {
+          "type": "open",
+          "notes": "c8 g8 c+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {}
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C10": {
+    "name": "C10",
+    "pronounce": "C ten",
+    "key": "c",
+    "family": "major",
+    "spell": "c8 g8 e8",
+    "color": "",
+    "priority": "e8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "g8": "f#8 g#8",
+      "e8": "f8 eb8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "open",
+          "notes": "c8 g8 e+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {}
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "Cm10": {
+    "name": "Cm10",
+    "pronounce": "C minor ten",
+    "key": "c",
+    "family": "minor",
+    "spell": "c8 g8 eb8",
+    "color": "",
+    "priority": "eb8 g8 c8",
+    "approach": {
+      "c8": "b8 c#8 d8",
+      "g8": "f#8 g#8",
+      "eb8": "e8 d8"
+    },
+    "voicings": [
+      {
+        "left-hand-A": {
+          "type": "open",
+          "notes": "c8 g8 eb+8",
+          "extension": ""
+        }
+      }
+    ],
+    "extensions": "",
+    "scales": [
+      {}
+    ],
+    "avoid": "",
+    "substitute": ""
+  },
+  "C-": {
+    "name": "C-",
+    "pronounce": "",
+    "same": "Cm7"
+  },
+  "C-7": {
+    "name": "C-7",
+    "pronounce": "",
+    "same": "Cm7"
+  },
+  "C-9": {
+    "name": "C-9",
+    "pronounce": "",
+    "same": "Cm9"
+  },
+  "C-11": {
+    "name": "C-11",
+    "pronounce": "",
+    "same": "Cm11"
+  },
+  "C-13": {
+    "name": "C-13",
+    "pronounce": "",
+    "same": "Cm13"
+  },
+  "C-7b5": {
+    "name": "C-7b5",
+    "pronounce": "",
+    "same": "Cm7b5"
+  },
+  "C-9b5": {
+    "name": "C-9b5",
+    "pronounce": "",
+    "same": "Cm9b5"
+  },
+  "C-11b5": {
+    "name": "C-11b5",
+    "pronounce": "",
+    "same": "Cm11b5"
+  },
+  "C-6": {
+    "name": "C-6",
+    "pronounce": "",
+    "same": "Cm6"
+  },
+  "C-69": {
+    "name": "C-69",
+    "pronounce": "",
+    "same": "Cm69"
+  },
+  "C-M7": {
+    "name": "C-M7",
+    "pronounce": "",
+    "same": "CmM7"
+  },
+  "C-M9": {
+    "name": "C-M9",
+    "pronounce": "",
+    "same": "CmM9"
+  },
+  "C7+4": {
+    "name": "C7+4",
+    "pronounce": "",
+    "same": "C7#11"
+  },
+  "C7#4": {
+    "name": "C7#4",
+    "pronounce": "",
+    "same": "C7#11"
+  },
+  "C9+4": {
+    "name": "C9+4",
+    "pronounce": "",
+    "same": "C9#11"
+  },
+  "C9#4": {
+    "name": "C9#4",
+    "pronounce": "",
+    "same": "C9#11"
+  },
+  "C13+4": {
+    "name": "C13+4",
+    "pronounce": "",
+    "same": "C13#11"
+  },
+  "C13#4": {
+    "name": "C13#4",
+    "pronounce": "",
+    "same": "C13#11"
+  },
+  "CM7+4": {
+    "name": "CM7+4",
+    "pronounce": "",
+    "same": "CM7#11"
+  },
+  "CM7#4": {
+    "name": "CM7#4",
+    "pronounce": "",
+    "same": "CM7#11"
+  },
+  "CM9+4": {
+    "name": "CM9+4",
+    "pronounce": "",
+    "same": "CM9#11"
+  },
+  "CM9#4": {
+    "name": "CM9#4",
+    "pronounce": "",
+    "same": "CM9#11"
+  },
+  "CM13+4": {
+    "name": "CM13+4",
+    "pronounce": "",
+    "same": "CM13#11"
+  },
+  "CM13#4": {
+    "name": "CM13#4",
+    "pronounce": "",
+    "same": "CM13#11"
+  },
+  "C7_": {
+    "name": "C7_",
+    "pronounce": "",
+    "same": "C7"
+  },
+  "C9_": {
+    "name": "C9_",
+    "pronounce": "",
+    "same": "C9"
+  },
+  "C13_": {
+    "name": "C13_",
+    "pronounce": "",
+    "same": "C13"
+  },
+  "C7#11_": {
+    "name": "C7#11_",
+    "pronounce": "",
+    "same": "C7#11"
+  },
+  "C9#11_": {
+    "name": "C9#11_",
+    "pronounce": "",
+    "same": "C9#11"
+  },
+  "C13#11_": {
+    "name": "C13#11_",
+    "pronounce": "",
+    "same": "C13#11"
+  },
+  "C7#4_": {
+    "name": "C7#4_",
+    "pronounce": "",
+    "same": "C7#4"
+  },
+  "C9#4_": {
+    "name": "C9#4_",
+    "pronounce": "",
+    "same": "C9#4"
+  },
+  "C13#4_": {
+    "name": "C13#4_",
+    "pronounce": "",
+    "same": "C13#4"
+  },
+  "C13#9_": {
+    "name": "C13#9_",
+    "pronounce": "",
+    "same": "C13#9"
+  },
+  "C7#9_": {
+    "name": "C7#9_",
+    "pronounce": "",
+    "same": "C7#9"
+  },
+  "C7#5#9_": {
+    "name": "C7#5#9_",
+    "pronounce": "",
+    "same": "C7#5#9"
+  },
+  "C7#9b13_": {
+    "name": "C7#9b13_",
+    "pronounce": "",
+    "same": "C7#5#9"
+  }
+}

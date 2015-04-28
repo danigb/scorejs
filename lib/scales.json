@@ -1,0 +1,430 @@
+{
+  "C lydian": {
+    "name": "C lydian",
+    "spell": "c d e f# g a b c"
+  },
+  "C major": {
+    "name": "C major",
+    "spell": "c d e f g a b c"
+  },
+  "C mixolydian": {
+    "name": "C mixolydian",
+    "spell": "c d e f g a bb c"
+  },
+  "C dominant": {
+    "name": "C dominant",
+    "same": "C mixolydian"
+  },
+  "C dorian": {
+    "name": "C dorian",
+    "spell": "c d eb f g a bb c"
+  },
+  "C aeolian": {
+    "name": "C aeolian",
+    "spell": "c d eb f g ab bb c"
+  },
+  "C phrygian": {
+    "name": "C phrygian",
+    "spell": "c db eb f g ab bb c"
+  },
+  "C locrian": {
+    "name": "C locrian",
+    "spell": "c db eb f gb ab bb c"
+  },
+  "C melodic minor": {
+    "name": "C melodic minor",
+    "spell": "c d eb f g a b c"
+  },
+  "C melodic minor second mode": {
+    "name": "C melodic minor second mode",
+    "spell": "c db eb f g a bb c"
+  },
+  "C lydian augmented": {
+    "name": "C lydian augmented",
+    "spell": "c d e f# g# a b c"
+  },
+  "C lydian dominant": {
+    "name": "C lydian dominant",
+    "spell": "c d e f# g a bb c"
+  },
+  "C melodic minor fifth mode": {
+    "name": "C melodic minor fifth mode",
+    "spell": "c d e f g ab bb c"
+  },
+  "C locrian #2": {
+    "name": "C locrian #2",
+    "spell": "c d eb f gb ab bb c"
+  },
+  "C locrian major": {
+    "name": "C locrian major",
+    "spell": "c d e f gb ab bb c"
+  },
+  "C altered": {
+    "name": "C altered",
+    "spell": "c db eb e gb ab bb c"
+  },
+  "C super locrian": {
+    "name": "C super locrian",
+    "same": "C altered"
+  },
+  "C diminished whole tone": {
+    "name": "C diminished whole tone",
+    "same": "C altered"
+  },
+  "C major pentatonic": {
+    "name": "C major pentatonic",
+    "spell": "c d e g a c"
+  },
+  "C lydian pentatonic": {
+    "name": "C lydian pentatonic",
+    "spell": "c e f# g b c"
+  },
+  "C mixolydian pentatonic": {
+    "name": "C mixolydian pentatonic",
+    "spell": "c e f g bb c"
+  },
+  "C locrian pentatonic": {
+    "name": "C locrian pentatonic",
+    "spell": "c eb f gb bb c"
+  },
+  "C minor pentatonic": {
+    "name": "C minor pentatonic",
+    "spell": "c eb f g bb c"
+  },
+  "C minor six pentatonic": {
+    "name": "C minor six pentatonic",
+    "spell": "c eb f g a c"
+  },
+  "C minor hexatonic": {
+    "name": "C minor hexatonic",
+    "spell": "c d eb f g b c"
+  },
+  "C flat three pentatonic": {
+    "name": "C flat three pentatonic",
+    "spell": "c d eb g a c"
+  },
+  "C flat six pentatonic": {
+    "name": "C flat six pentatonic",
+    "spell": "c d e g ab c"
+  },
+  "C major flat two pentatonic": {
+    "name": "C major flat two pentatonic",
+    "spell": "c db e g a c"
+  },
+  "C whole tone pentatonic": {
+    "name": "C whole tone pentatonic",
+    "spell": "c e gb ab bb c"
+  },
+  "C ionian pentatonic": {
+    "name": "C ionian pentatonic",
+    "spell": "c e f g b c"
+  },
+  "C lydian #5 pentatonic": {
+    "name": "C lydian #5 pentatonic",
+    "spell": "c e f# g# b c"
+  },
+  "C lydian dominant pentatonic": {
+    "name": "C lydian dominant pentatonic",
+    "spell": "c e f# g bb c"
+  },
+  "C minor #7 pentatonic": {
+    "name": "C minor #7 pentatonic",
+    "spell": "c eb f g b c"
+  },
+  "C super locrian pentatonic": {
+    "name": "C super locrian pentatonic",
+    "spell": "c eb fb gb bb c"
+  },
+  "C in-sen": {
+    "name": "C in-sen",
+    "spell": "c db f g bb c"
+  },
+  "C iwato": {
+    "name": "C iwato",
+    "spell": "c db f gb bb c"
+  },
+  "C hirajoshi": {
+    "name": "C hirajoshi",
+    "spell": "c d eb g ab c"
+  },
+  "C kumoijoshi": {
+    "name": "C kumoijoshi",
+    "spell": "c db f g ab c"
+  },
+  "C pelog": {
+    "name": "C pelog",
+    "spell": "c db eb g ab c"
+  },
+  "C vietnamese 1": {
+    "name": "C vietnamese 1",
+    "spell": "c eb f g ab c"
+  },
+  "C vietnamese 2": {
+    "name": "C vietnamese 2",
+    "spell": "c eb f g bb c"
+  },
+  "C prometheus": {
+    "name": "C prometheus",
+    "spell": "c d e f# a bb c"
+  },
+  "C prometheus neopolitan": {
+    "name": "C prometheus neopolitan",
+    "spell": "c db e f# a bb c"
+  },
+  "C ritusen": {
+    "name": "C ritusen",
+    "spell": "c d f g a c"
+  },
+  "C scriabin": {
+    "name": "C scriabin",
+    "spell": "c db e g a c"
+  },
+  "C piongio": {
+    "name": "C piongio",
+    "spell": "c d f g a bb c"
+  },
+  "C major blues": {
+    "name": "C major blues",
+    "spell": "c d eb e g a c"
+  },
+  "C minor blues": {
+    "name": "C minor blues",
+    "spell": "c eb f gb g bb c"
+  },
+  "C composite blues": {
+    "name": "C composite blues",
+    "spell": "c d eb e f gb g a bb c"
+  },
+  "C augmented": {
+    "name": "C augmented",
+    "spell": "c d# e g g# b c"
+  },
+  "C augmented heptatonic": {
+    "name": "C augmented heptatonic",
+    "spell": "c d# e f g g# b c"
+  },
+  "C dorian #4": {
+    "name": "C dorian #4",
+    "spell": "c d eb f# g a bb c"
+  },
+  "C lydian diminished": {
+    "name": "C lydian diminished",
+    "spell": "c d eb f# g a b c"
+  },
+  "C whole tone": {
+    "name": "C whole tone",
+    "spell": "c d e f# g# bb c"
+  },
+  "C leading whole tone": {
+    "name": "C leading whole tone",
+    "spell": "c d e f# g# bb b c"
+  },
+  "C harmonic minor": {
+    "name": "C harmonic minor",
+    "spell": "c d eb f g ab b c"
+  },
+  "C lydian minor": {
+    "name": "C lydian minor",
+    "spell": "c d e f# g ab bb c"
+  },
+  "C neopolitan": {
+    "name": "C neopolitan",
+    "spell": "c db eb f g ab b c"
+  },
+  "C neopolitan minor": {
+    "name": "C neopolitan minor",
+    "spell": "c db eb f g ab bb c"
+  },
+  "C neopolitan major": {
+    "name": "C neopolitan major",
+    "spell": "c db eb f g a b c"
+  },
+  "C neopolitan major pentatonic": {
+    "name": "C neopolitan major pentatonic",
+    "spell": "c e f gb bb c"
+  },
+  "C romanian minor": {
+    "name": "C romanian minor",
+    "spell": "c d eb gb g a bb c"
+  },
+  "C double harmonic lydian": {
+    "name": "C double harmonic lydian",
+    "spell": "c db e f# g ab b c"
+  },
+  "C diminished": {
+    "name": "C diminished",
+    "spell": "c d eb f gb ab a b c"
+  },
+  "C harmonic major": {
+    "name": "C harmonic major",
+    "spell": "c d e f g ab b c"
+  },
+  "C double harmonic major": {
+    "name": "C double harmonic major",
+    "spell": "c db e f g ab b c"
+  },
+  "C egyptian": {
+    "name": "C egyptian",
+    "spell": "c d f g bb c"
+  },
+  "C hungarian minor": {
+    "name": "C hungarian minor",
+    "spell": "c d eb f# g ab b c"
+  },
+  "C hungarian major": {
+    "name": "C hungarian major",
+    "spell": "c d# e f# g a bb c"
+  },
+  "C oriental": {
+    "name": "C oriental",
+    "spell": "c db e f gb a bb c"
+  },
+  "C spanish": {
+    "name": "C spanish",
+    "spell": "c db e f g ab bb c"
+  },
+  "C spanish heptatonic": {
+    "name": "C spanish heptatonic",
+    "spell": "c db eb e f g ab bb c"
+  },
+  "C flamenco": {
+    "name": "C flamenco",
+    "spell": "c db eb e f# g bb c"
+  },
+  "C balinese": {
+    "name": "C balinese",
+    "spell": "c db eb f g ab b c"
+  },
+  "C todi raga": {
+    "name": "C todi raga",
+    "spell": "c db eb f# g ab b c"
+  },
+  "C malkos raga": {
+    "name": "C malkos raga",
+    "spell": "c eb f ab bb c"
+  },
+  "C kafi raga": {
+    "name": "C kafi raga",
+    "spell": "c eb e f g a bb b c"
+  },
+  "C purvi raga": {
+    "name": "C purvi raga",
+    "spell": "c db e f f# g ab b c"
+  },
+  "C persian": {
+    "name": "C persian",
+    "spell": "c db e f gb ab b c"
+  },
+  "C bebop": {
+    "name": "C bebop",
+    "spell": "c d e f g a bb b c"
+  },
+  "C bebop dominant": {
+    "name": "C bebop dominant",
+    "spell": "c d e f g a bb b c"
+  },
+  "C bebop minor": {
+    "name": "C bebop minor",
+    "spell": "c d eb e f g a bb c"
+  },
+  "C bebop major": {
+    "name": "C bebop major",
+    "spell": "c d e f g g# a b c"
+  },
+  "C bebop locrian": {
+    "name": "C bebop locrian",
+    "spell": "c db eb f gb g ab bb c"
+  },
+  "C minor bebop": {
+    "name": "C minor bebop",
+    "spell": "c d eb f g ab bb b c"
+  },
+  "C mystery #1": {
+    "name": "C mystery #1",
+    "spell": "c db e gb ab bb c"
+  },
+  "C enigmatic": {
+    "name": "C enigmatic",
+    "spell": "c db e gb ab bb b c"
+  },
+  "C minor six diminished": {
+    "name": "C minor six diminished",
+    "spell": "c d eb f g ab a b c"
+  },
+  "C ionian augmented": {
+    "name": "C ionian augmented",
+    "spell": "c d e f g# a b c"
+  },
+  "C lydian #9": {
+    "name": "C lydian #9",
+    "spell": "c db e f# g a b c"
+  },
+  "C ichikosucho": {
+    "name": "C ichikosucho",
+    "spell": "c d e f gb g a b"
+  },
+  "C six tone symmetric": {
+    "name": "C six tone symmetric",
+    "spell": "c db e f g# a c"
+  },
+  "C arabian": {
+    "name": "C arabian",
+    "same": "C locrian major"
+  },
+  "C ionian": {
+    "name": "C ionian",
+    "same": "C major"
+  },
+  "C pomeroy": {
+    "name": "C pomeroy",
+    "same": "C altered"
+  },
+  "C pentatonic": {
+    "name": "C pentatonic",
+    "same": "C major pentatonic"
+  },
+  "C minor seven flat five pentatonic": {
+    "name": "C minor seven flat five pentatonic",
+    "same": "C locrian pentatonic"
+  },
+  "C chinese": {
+    "name": "C chinese",
+    "same": "C lydian pentatonic"
+  },
+  "C kumoi": {
+    "name": "C kumoi",
+    "same": "C flat three pentatonic"
+  },
+  "C blues": {
+    "name": "C blues",
+    "same": "C minor blues"
+  },
+  "C gypsy": {
+    "name": "C gypsy",
+    "same": "C double harmonic major"
+  },
+  "C hindu": {
+    "name": "C hindu",
+    "same": "C melodic minor fifth mode"
+  },
+  "C indian": {
+    "name": "C indian",
+    "same": "C mixolydian pentatonic"
+  },
+  "C dorian b2": {
+    "name": "C dorian b2",
+    "same": "C neopolitan major"
+  },
+  "C lydian b7": {
+    "name": "C lydian b7",
+    "same": "C lydian dominant"
+  },
+  "C mixolydian b6": {
+    "name": "C mixolydian b6",
+    "same": "C melodic minor fifth mode"
+  },
+  "C phrygian major": {
+    "name": "C phrygian major",
+    "same": "C spanish"
+  }
+}
