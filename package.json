@@ -4,7 +4,7 @@
   "description": "Create and manipulate musical scores with javascript",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "vows test/* --spec"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/danigb/scorejs/issues"
   },
-  "homepage": "https://github.com/danigb/scorejs#readme"
+  "homepage": "https://github.com/danigb/scorejs#readme",
+  "devDependencies": {
+    "vows": "^0.8.1"
+  }
 }
