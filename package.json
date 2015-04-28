@@ -4,7 +4,7 @@
   "description": "Create and manipulate musical scores with javascript",
   "main": "index.js",
   "scripts": {
-    "test": "vows test/* --spec"
+    "test": "vows test/* "
   },
   "repository": {
     "type": "git",
