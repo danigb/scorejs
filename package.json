@@ -27,5 +27,8 @@
   "homepage": "https://github.com/danigb/scorejs#readme",
   "devDependencies": {
     "vows": "^0.8.1"
+  },
+  "dependencies": {
+    "teoria": "^1.6.0"
   }
 }
