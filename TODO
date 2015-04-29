@@ -1,6 +1,9 @@
 
 # TODO: ALL
 
+
+
+
 JQuery style...
 
 $("a4 d4 g+8 f+8 c+").transpose("M2").toSring() => b4
@@ -14,6 +17,8 @@ $.plugin.delay = function(options) {
     events.forEach(function(e) { e.position += score.time(8) })
   }
 }
+
+$("...").swing(0.66);
 
 ==========
 .json documents
