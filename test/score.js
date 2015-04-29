@@ -25,11 +25,18 @@ vows.describe('Score').addBatch({
       assert.notEqual(s.get('time'), null);
     }
   },
-  "parse score": function() {
-    var s = $("a4 b4");
-    assert.equal(s.length, 2);
-    assert.equal(s[0].value, 'a')
-    assert.equal(s[1].value, 'b')
+  "parse score":  {
+    "simple parse": function() {
+      var s = $("a4 b4");
+      assert.equal(s.length, 2);
+      assert.equal(s[0].value, 'a')
+      assert.equal(s[1].value, 'b')
+    },
+    "call score on object before parse": function() {
+      var o = { score: function() { return "a b"; }}
+      var s = $(o);
+      assert.equal(s.length, 2);
+    }
   },
   "plugins": {
     "add plugin": function() {
@@ -38,11 +45,13 @@ vows.describe('Score').addBatch({
       assert.notEqual(s.myPlugin, null);
     },
     "invoke plugin": function() {
-      var inv = 0;
-      var plugin = function() { inv++; }
+      var args = null;
+      var plugin = function() { args = arguments }
       $.plugin("myPlugin", plugin);
-      $("a4").myPlugin();
-      assert.equal(inv, 1);
+      $("a4").myPlugin(1, 2);
+      assert.equal(args.length, 2);
+      assert.equal(args[0], 1);
+      assert.equal(args[1], 2);
     },
     "invoke iterator": function() {
       var plugin = function() {

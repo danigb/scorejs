@@ -18,6 +18,12 @@ vows.describe('Scale').addBatch({
   "G mixolydian": function() {
     var s = scale('G mixolydian');
     assert.equal(s.name, 'G mixolydian');
-    assert.equal(s.spell, "g a b c d e f g");
+    //assert.equal(s.spell, "g a b c d e f g");
+  },
+  "scale score": {
+    "every scale has a score": function() {
+      var s = scale('C major');
+      assert.equal(s.score(), s.spell);
+    }
   }
 }).export(module);

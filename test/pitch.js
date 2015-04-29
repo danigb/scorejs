@@ -23,17 +23,19 @@ vows.describe('pitch').addBatch({
       assert.equal(pitch.midi(['c', 4]), 60);
     }
   },
-  "tranpose": {
+  "pitch transpose": {
     "octaves": function() {
       equal(pitch.transpose(['c', 4], "P8"), ["c", 5]);
       equal(pitch.transpose(['g', 4], "-P8"), ["g", 5]);
+    },
+    "M2": function() {
+      equal(pitch.transpose('e', "M2"), ['f#', 4]);
+      equal(pitch.transpose('b', "M2"), ['c#', 4]);
     }
   },
-  "toString": {
-    "impro-visor": function() {
-      assert.equal(pitch.i(['g', 3]), 'g-');
-      assert.equal(pitch.i(['db', 5]), 'db+');
-      assert.equal(pitch.i(['f', 4]), 'f');
-    }
+  "str": function () {
+    assert.equal(pitch.str(['g', 3]), 'g-');
+    assert.equal(pitch.str(['db', 5]), 'db+');
+    assert.equal(pitch.str(['f', 4]), 'f');
   }
 }).export(module);
