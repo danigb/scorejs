@@ -1,0 +1,43 @@
+
+# TODO: ALL
+
+JQuery style...
+
+$("a4 d4 g+8 f+8 c+").transpose("M2").toSring() => b4
+                                     .play() ....
+
+
+==========
+
+$.plugin.delay = function(options) {
+  return function(events, score) {
+    events.forEach(function(e) { e.position += score.time(8) })
+  }
+}
+
+==========
+.json documents
+{
+  "title": "All of me",
+  "key": "C",
+  "time": "4/4"
+  "style": {
+    style: "..."
+  }
+  "section A": {
+    "chords": {
+      "source": "C | Am D7 | G | C"
+    },
+    "melody": {
+      "source": "c4 d4 f8 g8"
+      "instrument": "piano"
+    }
+  }
+  "section B": {
+    "chords": { source: "section A/chords" }
+  }
+  "plugins": {
+    transpose: { "M2" },
+    walkinbass: {}
+  }
+}

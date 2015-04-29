@@ -1,6 +1,6 @@
 var vows = require('vows');
 var assert = require('assert');
-var interval = require('../lib/intervals.js');
+var interval = require('../lib/interval.js');
 
 
 vows.describe('intervals').addBatch({
