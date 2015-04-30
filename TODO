@@ -1,7 +1,14 @@
 
 # TODO: ALL
 
+$("a") => note A
+$("a").transpose('M3') => C#
 
+$("Cmaj7").chord()  => Cmaj7
+
+$("a").scale('lydian').transpose('M2').slice(3, 3)
+
+$("a lydian").scale()
 
 
 JQuery style...
