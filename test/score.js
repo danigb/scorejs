@@ -21,8 +21,7 @@ vows.describe('Score').addBatch({
     },
     "default options": function() {
       var s = $();
-      assert.equal(s.get('tempo'), "120");
-      assert.notEqual(s.get('time'), null);
+      assert.equal(s.get('time'), '4/4');
     }
   },
   "parse score":  {

@@ -1,15 +1,8 @@
 'use strict';
 
+var Score = require('./lib/score.js');
+
+Score.scale = require('./lib/gen/scale.js');
+Score.chord = require('./lib/gen/scale.js');
+
 module.exports = Score;
-
-function Score(opts) {
-  if (!(this instanceof Score)) return new Score(opts);
-  this.parts = {};
-}
-
-Score.prototype.set = function(name, repr) {
-  return this.parts[name] = repr;
-}
-
-Score.time = require('./lib/time.js');
-Score.scale = require('./lib/scale.js');

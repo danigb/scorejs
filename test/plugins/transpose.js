@@ -1,7 +1,7 @@
-var test = require('./support/test-helper.js');
-var $ = require('../lib/score.js');
-var scale = require('../lib/scale.js');
-var transpose = require('../lib/plugins/transpose');
+var test = require('../support/test-helper.js');
+var $ = require('../../lib/score.js');
+var scale = require('../../lib/scale.js');
+var transpose = require('../../lib/plugins/transpose');
 
 $.plugin("transpose", transpose);
 
