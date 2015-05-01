@@ -1,7 +1,6 @@
-var vows = require('vows');
-var assert = require('assert');
+var test = require('./support/test-helper.js');
 
-vows.describe('Object').addBatch({
+test.describe('Object', {
   "some test": function() {
   }
 }).export(module);
