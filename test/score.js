@@ -1,69 +1,26 @@
 var vows = require('vows');
 var assert = require('assert');
 
-var $ = require('../lib/score.js');
+var score = require('../lib/score.js');
 
 vows.describe('Score').addBatch({
   "constructor" : {
-    "score and options": function() {
-      var s = $("a4 b4", {title: "My title"});
-      assert.equal(s.get('title'), "My title");
-      assert.equal(s.source, "a4 b4");
+    "always return score instance": function() {
+      assert(score() instanceof score);
     },
-    "only score": function() {
-      var s = $("a4 b4");
-      assert.equal(s.source, "a4 b4");
-    },
-    "only options": function() {
-      var s = $({title: 'My song'});
-      assert.equal(s.get('title'), 'My song');
-      assert.equal(s.source, null);
-    },
-    "default options": function() {
-      var s = $();
-      assert.equal(s.get('time'), '4/4');
+    "time is 4/4 by default": function() {
+      assert(score().time.beats, 4);
+      assert(score().time.sub, 4);
     }
   },
-  "parse score":  {
-    "simple parse": function() {
-      var s = $("a4 b4");
-      assert.equal(s.length, 2);
-      assert.equal(s[0].value, 'a')
-      assert.equal(s[1].value, 'b')
+  "length":  {
+    "returns the total length": function() {
+      var s = score("A | B");
+      assert.equal(s.length(), 2 * s.time.measure);
     },
-    "call score on object before parse": function() {
-      var o = { score: function() { return "a b"; }}
-      var s = $(o);
-      assert.equal(s.length, 2);
-    }
-  },
-  "plugins": {
-    "add plugin": function() {
-      $.plugin("myPlugin", function() {});
-      var s = $();
-      assert.notEqual(s.myPlugin, null);
-    },
-    "invoke plugin": function() {
-      var args = null;
-      var plugin = function() { args = arguments }
-      $.plugin("myPlugin", plugin);
-      $("a4").myPlugin(1, 2);
-      assert.equal(args.length, 2);
-      assert.equal(args[0], 1);
-      assert.equal(args[1], 2);
-    },
-    "invoke iterator": function() {
-      var plugin = function() {
-        return function(events) {
-          events.forEach(function(e) {
-            e.value = e.value.toLowerCase();
-          });
-        }
-      }
-      $.plugin("lowerCase", plugin);
-      var s = $("A B").lowerCase();
-      assert.equal(s[0].value, "a");
-      assert.equal(s[1].value, "b");
+    "no events length": function() {
+      assert.equal(score().length(), 0);
     }
   }
+
 }).export(module);

@@ -1,8 +1,11 @@
 'use strict';
+(function() {
+  var Score = require('./lib/score.js');
+  Score.Event = require('./lib/event.js');
+  Score.Time = require('./lib/time.js');
 
-var Score = require('./lib/score.js');
-
-Score.scale = require('./lib/gen/scale.js');
-Score.chord = require('./lib/gen/scale.js');
-
-module.exports = Score;
+  Score.version = "0.1.0";
+  if (typeof define === "function" && define.amd) define(function() { return Score; });
+  else if (typeof module === "object" && module.exports) module.exports = Score;
+  else this.Score = Score;
+})();
