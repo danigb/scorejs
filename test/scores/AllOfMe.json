@@ -1,0 +1,18 @@
+{
+  "score": {
+    "chords": {
+      "source": "Cmaj7 | Dm7"
+    },
+    "piano": {
+      "source": "chords"
+      "process": {
+        "piano-chords": {}
+      }
+    }
+  },
+  "expected": {
+    "piano": [
+      [null, null, null, null]
+    ]
+  }
+}
