@@ -1,6 +1,6 @@
 {
   "name": "scorejs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Create and manipulate musical scores with javascript",
   "main": "index.js",
   "scripts": {
