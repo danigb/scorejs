@@ -13,6 +13,20 @@ vows.describe('Score').addBatch({
       assert(score().time.sub, 4);
     }
   },
+  "each": function() {
+    var times = 0;
+    var s = score('a b c d')
+    var s2 = s.each(function(e) {
+      times++;
+    });
+    assert.equal(times, 4);
+    assert(s == s2);
+  },
+  "map": function() {
+    var s1 = score('a b c d');
+    var s2 = s1.map(function(e) { return e; });
+    assert(s2 instanceof score);
+  },
   "length":  {
     "returns the total length": function() {
       var s = score("A | B");
