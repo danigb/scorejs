@@ -13,30 +13,25 @@ vows.describe('Event').addBatch({
     }
   },
   "has properties": function() {
-    assert.equal(event('a').value(), 'a');
-    assert.equal(event('a', 'pos').position(), 'pos');
-    assert.equal(event('a', null, 'dur').duration(), 'dur');
-    assert.equal(event('a', null, 'dur', 't').type(), 't');
-  },
-  "clone": function() {
-    var a = event('a');
-    var b = a.clone(a);
-    assert.notStrictEqual(a, b);
-    assert.equal(b.value(), a.value());
-  },
-  "set": function() {
-    var a = event('a');
-    var b = a.set('note', 'c');
-    assert.equal(b.get('note'), 'c');
-    assert.equal(b.value(), 'a');
+    assert.equal(event('a').value, 'a');
+    assert.equal(event('a', 'pos').position, 'pos');
+    assert.equal(event('a', null, 'dur').duration, 'dur');
+    assert.equal(event('a', null, 'dur', 't').type, 't');
   },
   "merge": function() {
-    var a = event('a');
-    var b = a.merge({ note: 'd#' });
-    assert.equal(b.value(), 'a');
-    assert.equal(b.get('note'), 'd#');
-    var c = b.merge({'chord': 'Cmaj'});
-    assert.equal(c.get('note'), 'd#');
-    assert.equal(c.get('chord'), 'Cmaj');
+    var e = event('a', 1, 2, 'empty');
+    e.merge({value: 'b', type: 'note', other: 'blah'});
+    assert.equal(e.value, 'b');
+    assert.equal(e.type, 'note');
+    assert.equal(e.other, 'blah');
+  },
+  "clone": function() {
+    var a = event('a', 1, 2, 'note');
+    var b = a.clone(a);
+    assert.notStrictEqual(a, b);
+    assert.equal(b.value, a.value);
+    assert.equal(b.position, a.position);
+    assert.equal(b.duration, a.duration);
+    assert.equal(b.type, a.type);
   }
 }).export(module);

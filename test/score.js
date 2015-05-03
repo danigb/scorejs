@@ -31,23 +31,11 @@ vows.describe('Score').addBatch({
     assert.equal(times, 4);
     assert(s == s2);
   },
-  "map": function() {
-    var s1 = score('a b c d');
-    var s2 = s1.map(function(e) {
-      return e.set('value', e.value().toUpperCase());
-    });
-    assert(s2 instanceof score);
-    assert.equal(s2.events.length, 4);
-    assert.equal(s2.events[0].value(), 'A')
-    assert.equal(s2.events[1].value(), 'B')
-    assert.equal(s2.events[2].value(), 'C')
-    assert.equal(s2.events[3].value(), 'D')
-  },
   "clone": function() {
     var s1 = score('a b c d');
     var s2 = s1.clone();
     for(var i = 0; i < s1.events.length; i++) {
-      assert.equal(s2.events[i].value(), s1.events[i].value());
+      assert.equal(s2.events[i].value, s1.events[i].value);
     }
   },
   "created event": function() {

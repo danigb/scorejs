@@ -29,6 +29,7 @@
     "vows": "^0.8.1"
   },
   "dependencies": {
-    "micro-events": "^1.0.0"
+    "micro-events": "^1.0.0",
+    "teoria": "^1.6.0"
   }
 }
