@@ -4,8 +4,16 @@ var score = require('../index.js');
 
 vows.describe('Event').addBatch({
   "score is defined": function() {
-    assert(score != undefined);
-    assert(score.Time != undefined);
-    assert(score.Event != undefined);
+    assert(score);
+    assert(score.Time);
+    assert(score.Event);
+  },
+  "time plugin": function() {
+    assert(score.fn.duration);
+  },
+  "teoria plugin": function() {
+  },
+  "chord player plugin": function() {
+    assert(score.fn.playChords);
   }
 }).export(module);
