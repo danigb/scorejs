@@ -10,13 +10,19 @@ vows.describe('Event').addBatch({
     "return same instance": function() {
       var a = event('a');
       assert(a === event(a));
+    },
+    "set properties": function() {
+      assert.equal(event('a').value, 'a');
+      assert.equal(event('a', 'pos').position, 'pos');
+      assert.equal(event('a', null, 'dur').duration, 'dur');
+      assert.equal(event('a', null, 'dur', 't').type, 't');
     }
   },
-  "has properties": function() {
-    assert.equal(event('a').value, 'a');
-    assert.equal(event('a', 'pos').position, 'pos');
-    assert.equal(event('a', null, 'dur').duration, 'dur');
-    assert.equal(event('a', null, 'dur', 't').type, 't');
+  "str": function() {
+    var o = [];
+    o.toString = function() { return 'toString'; }
+    var e = event(o);
+    assert.equal(e.str(), 'toString');
   },
   "merge": function() {
     var e = event('a', 1, 2, 'empty');

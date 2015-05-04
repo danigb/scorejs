@@ -49,11 +49,14 @@ vows.describe('Score').addBatch({
       assert.equal(s.events[0].value, 'b');
     }
   },
-
   "parse no plugins": function() {
     var s = score('a b');
     assert.equal(s.events[0].value, 'a');
     assert.equal(s.events[1].value, 'b');
+  },
+  "toString": function() {
+    var s = score('a b');
+    assert.equal(s.toString(), 'a b');
   },
   "each": function() {
     var times = 0;

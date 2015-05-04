@@ -12,6 +12,7 @@ vows.describe('Event').addBatch({
     assert(score.fn.duration);
   },
   "teoria plugin": function() {
+    assert(score.fn.transpose);
   },
   "chord player plugin": function() {
     assert(score.fn.playChords);
