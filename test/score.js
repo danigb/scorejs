@@ -42,13 +42,5 @@ vows.describe('Score').addBatch({
     for(var i = 0; i < s1.events.length; i++) {
       assert.equal(s2.events[i].value, s1.events[i].value);
     }
-  },
-  "created event": function() {
-    var innerScore;
-    score.on('created', function(score) {
-      innerScore = score;
-    });
-    var s = score('a b c d');
-    assert(s === innerScore);
   }
 }).export(module);
