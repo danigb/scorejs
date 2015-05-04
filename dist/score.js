@@ -44,19 +44,18 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
-	(function() {
-	  var plugins = [
-	    __webpack_require__(1),
-	    __webpack_require__(2),
-	    __webpack_require__(3)
-	  ];
-	  var Score = __webpack_require__(4)(plugins);
+	'use strict';
 
-	  if (true) !(__WEBPACK_AMD_DEFINE_RESULT__ = function() { return Score; }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  else if (typeof module === "object" && module.exports) module.exports = Score;
-	  else this.Score = Score;
-	})();
+	var plugins = [
+	  __webpack_require__(1),
+	  __webpack_require__(2),
+	  __webpack_require__(3)
+	];
+	var Score = __webpack_require__(4)(plugins);
+
+
+	if(window) window.Score = Score;
+	module.exports = Score;
 
 
 /***/ },
