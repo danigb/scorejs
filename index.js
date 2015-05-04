@@ -7,6 +7,5 @@ var plugins = [
 ];
 var Score = require('./lib/score.js')(plugins);
 
-
-if(window) window.Score = Score;
 module.exports = Score;
+if (typeof window !== 'undefined') window.Score = Score

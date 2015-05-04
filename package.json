@@ -1,6 +1,6 @@
 {
   "name": "scorejs",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Create and manipulate musical scores with javascript",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "jazz"
   ],
   "author": "danigb",
-  "license": "GNU Public License 2",
+  "license": "MIT License",
   "bugs": {
     "url": "https://github.com/danigb/scorejs/issues"
   },
