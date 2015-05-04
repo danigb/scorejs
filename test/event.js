@@ -25,13 +25,21 @@ vows.describe('Event').addBatch({
     assert.equal(e.type, 'note');
     assert.equal(e.other, 'blah');
   },
-  "clone": function() {
-    var a = event('a', 1, 2, 'note');
-    var b = a.clone(a);
-    assert.notStrictEqual(a, b);
-    assert.equal(b.value, a.value);
-    assert.equal(b.position, a.position);
-    assert.equal(b.duration, a.duration);
-    assert.equal(b.type, a.type);
+  "clone": {
+    "empty obj": function() {
+      var a = event('a', 1, 2, 'note');
+      var b = a.clone();
+      assert.notStrictEqual(a, b);
+      assert.equal(b.value, a.value);
+      assert.equal(b.position, a.position);
+      assert.equal(b.duration, a.duration);
+      assert.equal(b.type, a.type);
+    },
+    "with params": function() {
+      var a = event('a', 1, 2, 'note');
+      var b = a.clone({position: a.position + 1});
+      assert.equal(b.value, a.value);
+      assert.equal(b.position, a.position + 1);
+    }
   }
 }).export(module);

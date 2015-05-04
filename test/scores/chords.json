@@ -1,4 +1,5 @@
 {
+  "description": "Chords must be parsed",
   "score": {
     "title": "Chords test",
     "parts" : {
@@ -10,8 +11,8 @@
   "expected": {
     "parts": {
       "chords": [
-        ["Cmaj7", null, null, null],
-        ["Dm7", null, null, null]
+        [ "Cmaj7", 0, 384, "chord" ],
+        [ "Dm7", 384, 384, "chord" ]
       ]
     }
   }

@@ -25,6 +25,28 @@ vows.describe('Score').addBatch({
     "can add a part": function() {
       s = score().part('melody', 'a b c d');
       assert.equal(s.part('melody').events.length, 4);
+    },
+    "source can be inlined": function() {
+      s = score().part('melody', {source: 'a b'});
+      assert.equal(s.part('melody').events.length, 2);
+    }
+  },
+  "transactions": {
+    "can add events": function() {
+      var s = score('a');
+      s.each(function(e) {
+        this.add(e.clone({position: e.position + 1}));
+      });
+      assert.equal(s.events.length, 2);
+      assert.equal(s.events[1].position, s.events[0].position + 1);
+    },
+    "can remove events": function() {
+      var s = score('a b');
+      s.each(function(e) {
+        if(e.position == 0) this.remove(e);
+      });
+      assert.equal(s.events.length, 1);
+      assert.equal(s.events[0].value, 'b');
     }
   },
   "length of score":  {
