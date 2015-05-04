@@ -2,7 +2,7 @@ var vows = require('vows');
 var assert = require('assert');
 var Score = require('../../lib/score.js');
 
-var score = Score(require('../../lib/plugins/teoria.js'));
+var score = Score([require('../../lib/plugins/teoria.js')]);
 
 vows.describe('Teoria').addBatch({
   "parse notes": function() {

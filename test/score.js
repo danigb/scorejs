@@ -11,6 +11,20 @@ vows.describe('Score').addBatch({
     "time is 4/4 by default": function() {
       assert(score().time.beats, 4);
       assert(score().time.sub, 4);
+    },
+    "data object": function() {
+      var s = score({title: 'Title'});
+      assert.equal(s.data.title, 'Title');
+    },
+    "data can contain source": function() {
+      var s = score({source: 'a b c d'});
+      assert.equal(s.events.length, 4);
+    }
+  },
+  "parts": {
+    "can add a part": function() {
+      s = score().part('melody', 'a b c d');
+      assert.equal(s.part('melody').events.length, 4);
     }
   },
   "length of score":  {

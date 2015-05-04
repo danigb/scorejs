@@ -1,13 +1,18 @@
 {
   "score": {
-    "chords": {
-      "source": "Cmaj7 | Dm7"
+    "title": "Chords test",
+    "parts" : {
+      "chords": {
+        "source": "Cmaj7 | Dm7"
+      }
     }
   },
   "expected": {
-    "chords": [
-      ['Cmaj7', null, null, null],
-      ['Dm7', null, null, null]
-    ]
+    "parts": {
+      "chords": [
+        ["Cmaj7", null, null, null],
+        ["Dm7", null, null, null]
+      ]
+    }
   }
 }
