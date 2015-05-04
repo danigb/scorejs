@@ -1,7 +1,7 @@
 var vows = require('vows');
 var assert = require('assert');
 
-var score = require('../lib/score.js');
+var score = require('../lib/score.js')();
 
 vows.describe('Score').addBatch({
   "constructor" : {
@@ -21,6 +21,11 @@ vows.describe('Score').addBatch({
     "no events length": function() {
       assert.equal(score().length(), 0);
     }
+  },
+  "parse no plugins": function() {
+    var s = score('a b');
+    assert.equal(s.events[0].value, 'a');
+    assert.equal(s.events[1].value, 'b');
   },
   "each": function() {
     var times = 0;
