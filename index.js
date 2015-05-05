@@ -5,7 +5,12 @@ var plugins = [
   require('./lib/plugins/teoria.js'),
   require('./lib/plugins/chord-player.js')
 ];
-var Score = require('./lib/score.js')(plugins);
 
-module.exports = Score;
-if (typeof window !== 'undefined') window.Score = Score
+var $ = function(obj) {
+}
+
+$.Sequence = require('./lib/sequence.js')(plugins);
+$.Score = require('./lib/score.js');
+
+module.exports = $;
+if (typeof window !== 'undefined') window.Score = $;
