@@ -1,9 +1,16 @@
-# scorejs
+# ScoreJS
 
 Create and manipulate musical scores with javascript.
 
-It uses a huge knowledge base from impro-visor software (thanks!)
+## Usage
+
+```
+  var score = require('scorejs');
+  score('a b c d e f g').transpose('M2');
+  score('Cmaj7 | Dm7 G7').chordPlayer();
+```
+
 
 ### License
 
-GNU Public License 2.
+MIT License
