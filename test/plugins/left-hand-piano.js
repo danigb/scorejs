@@ -5,12 +5,12 @@ var teoria = require('teoria');
 var score = require('../../index.js');
 
 vows.describe('Chord player').addBatch({
-  "playChords method": function() {
-    assert(score.fn.playChords);
+  "leftHandPiano method": function() {
+    assert(score.fn.leftHandPiano);
   },
   "play chords": function() {
     var chord = teoria.chord('Cmaj7');
-    var s = score('Cmaj7').playChords({instrument: 'myInstrument'});
+    var s = score('Cmaj7').leftHandPiano({instrument: 'myInstrument'});
     assert.equal(s.events.length, chord.notes().length);
     s.events.forEach(function(e) {
       assert.equal(e.type, 'note');

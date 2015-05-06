@@ -17,7 +17,10 @@ vows.describe('Event').addBatch({
   "teoria plugin": function() {
     assert(score.fn.transpose);
   },
-  "chord player plugin": function() {
-    assert(score.fn.playChords);
+  "left hand piano plugin": function() {
+    assert(score.fn.leftHandPiano);
+  },
+  "walking bass plugin": function() {
+    assert(score.fn.walkingBass);
   }
 }).export(module);

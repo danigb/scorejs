@@ -1,16 +1,19 @@
 var vows = require('vows');
 var assert = require('assert');
-var Score = require('../../index.js');
+var Score = require('../index.js');
 
-vows.describe("Scores integration tests").addBatch(batch([
+var tests = [
   'chords', 'transpose', 'walking-bass'
-])).export(module);
+];
+
+vows.describe("Scores integration tests")
+  .addBatch(batch(tests)).export(module);
 
 function batch(tests) {
   var batch = {};
   tests.forEach(function(name) {
     batch["integration:" + name] = function() {
-      run(require('./' + name + '.json'));
+      run(require('./integration/' + name + '.json'));
     }
   });
   return batch;
