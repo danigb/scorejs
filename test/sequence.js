@@ -29,6 +29,12 @@ vows.describe('Sequence').addBatch({
       });
       assert.equal(s.events[0].value(), 'A');
       assert.equal(s.events[1].value(), 'B');
+    },
+    "compact the result": function() {
+      var s = seq('a b c').map(function(e) {
+        if(e.value() == 'b') return e;
+      });
+      assert.equal(s.events.length, 1);
     }
   },
   "morph": function() {
