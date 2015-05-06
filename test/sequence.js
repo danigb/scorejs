@@ -35,6 +35,14 @@ vows.describe('Sequence').addBatch({
         if(e.value() == 'b') return e;
       });
       assert.equal(s.events.length, 1);
+      assert.equal(s.events[0].value(), 'b');
+    },
+    "flatten the result": function() {
+      var s = seq('a').map(function(e) {
+        return [e, e];
+      });
+      assert.equal(s.events.length, 2);
+      assert.equal(s.events[0], s.events[1]);
     }
   },
   "morph": function() {
