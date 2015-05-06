@@ -1,0 +1,21 @@
+{
+  "description": "Chords must be parsed",
+  "score": {
+    "parts" : {
+      "chords": {
+        "source": "Cmaj7 | Dm7",
+        "process": {
+          "bassPlayer": []
+        }
+      }
+    }
+  },
+  "expected": {
+    "parts": {
+      "chords": [
+        [ "Cmaj7", 0, 384, "chord" ],
+        [ "Dm7", 384, 384, "chord" ]
+      ]
+    }
+  }
+}

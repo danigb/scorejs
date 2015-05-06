@@ -4,8 +4,9 @@ var Score = require('../../index.js');
 
 
 vows.describe('Scores integration tests').addBatch({
-  "chords score": function() {
-    //run(require('./chords.json'));
+  "integration": function() {
+    run(require('./chords.json'));
+    //run(require('./tranpose.json'));
   }
 }).export(module);
 
@@ -19,9 +20,20 @@ function prepare(options) {
   var score = Score(options);
 
   for(name in parts) {
-    score.part(name, parts[name]);
+    var part = parts[name];
+    var proc = buildProcess(part.process);
+    score.part(name, parts[name].source, proc);
   }
   return score;
+}
+
+function buildProcess(process) {
+  return function(seq) {
+    for(proc in process) {
+      seq = seq[proc].apply(seq);
+    }
+    return seq;
+  }
 }
 
 function check(score, expected) {
@@ -31,7 +43,7 @@ function check(score, expected) {
     var expected = parts[name];
     var actual = score.part(name);
     var repr = actual.events.map(function(evt) {
-      return [evt.value.toString(), evt.position, evt.duration, evt.type];
+      return [evt.str(), evt.position(), evt.duration(), evt.type()];
     });
     assert.deepEqual(repr, expected);
   }

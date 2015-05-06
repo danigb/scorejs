@@ -1,7 +1,6 @@
 {
   "description": "Chords must be parsed",
   "score": {
-    "title": "Chords test",
     "parts" : {
       "chords": {
         "source": "Cmaj7 | Dm7"
