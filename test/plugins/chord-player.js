@@ -13,7 +13,7 @@ vows.describe('Chord player').addBatch({
     var s = score('Cmaj7').playChords({instrument: 'myInstrument'});
     assert.equal(s.events.length, chord.notes().length);
     s.events.forEach(function(e) {
-      assert.equal(e.type(), 'note');
+      assert.equal(e.type, 'note');
       assert.equal(e.get('instrument'), 'myInstrument');
       assert.equal(e.get('fromChord'), 'Cmaj7');
     });

@@ -43,7 +43,7 @@ function check(score, expected) {
     var expected = parts[name];
     var actual = score.part(name);
     var repr = actual.events.map(function(evt) {
-      return [evt.str(), evt.position(), evt.duration(), evt.type()];
+      return [evt.str(), evt.position, evt.duration, evt.type];
     });
     assert.deepEqual(repr, expected);
   }

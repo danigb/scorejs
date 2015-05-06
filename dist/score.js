@@ -1048,7 +1048,7 @@
 	    },
 
 	    number: function() {
-	      return Math.abs(this.value());
+	      return Math.abs(this.value);
 	    },
 
 	    value: function() {
@@ -1068,7 +1068,7 @@
 
 	    base: function() {
 	      var fifth = sub(this.coord, mul(sharp, this.qualityValue()))[1], name;
-	      fifth = this.value() > 0 ? fifth + 5 : -(fifth - 5) % 7;
+	      fifth = this.value > 0 ? fifth + 5 : -(fifth - 5) % 7;
 	      fifth = fifth < 0 ? intervalFromFifth.length + fifth : fifth;
 
 	      name = intervalFromFifth[fifth];
@@ -1080,14 +1080,14 @@
 
 	    direction: function(dir) {
 	      if (dir) {
-	        var is = this.value() >= 1 ? 'up' : 'down';
+	        var is = this.value >= 1 ? 'up' : 'down';
 	        if (is !== dir)
 	          this.coord = mul(this.coord, -1);
 
 	        return this;
 	      }
 	      else
-	        return this.value() >= 1 ? 'up' : 'down';
+	        return this.value >= 1 ? 'up' : 'down';
 	    },
 
 	    simple: function(ignore) {
@@ -1123,7 +1123,7 @@
 	    invert: function() {
 	      var i = this.base();
 	      var qual = this.qualityValue();
-	      var acc = this.type() === 'minor' ? -(qual - 1) : -qual;
+	      var acc = this.type === 'minor' ? -(qual - 1) : -qual;
 	      var coord = intervals[intervalsIndex[9 - kStepNumber[i] - 1]];
 	      coord = add(coord, mul(sharp, acc));
 
@@ -1131,7 +1131,7 @@
 	    },
 
 	    quality: function(lng) {
-	      var quality = kAlterations[this.type()][this.qualityValue() + 2];
+	      var quality = kAlterations[this.type][this.qualityValue() + 2];
 
 	      return lng ? kQualityLong[quality] : quality;
 	    },
@@ -1168,7 +1168,7 @@
 
 	    toString: function(ignore) {
 	      // If given true, return the positive value
-	      var number = ignore ? this.number() : this.value();
+	      var number = ignore ? this.number() : this.value;
 
 	      return this.quality() + number;
 	    }

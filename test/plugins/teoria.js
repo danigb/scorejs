@@ -10,26 +10,26 @@ vows.describe('Teoria').addBatch({
     "type is note": function(){
       var s = score('a b');
       s.events.forEach(function(e) {
-        assert.equal(e.type(), 'note');
+        assert.equal(e.type, 'note');
       });
     },
     "teoria note": function() {
       var s = score('c2');
-      assert.equal(s.events[0].value().name(), 'c');
-      assert.equal(s.events[0].value().octave(), 2);
+      assert.equal(s.events[0].value.name(), 'c');
+      assert.equal(s.events[0].value.octave(), 2);
     }
   },
   "parse": {
     "parse chords": function() {
       var s = score('C Dm7');
       s.events.forEach(function(e) {
-        assert.equal(e.type(), 'chord');
+        assert.equal(e.type, 'chord');
       });
     },
     "skip unknown": function() {
       var s = score('algo raro');
-      assert.equal(s.events[0].value(), 'algo');
-      assert.equal(s.events[1].value(), 'raro');
+      assert.equal(s.events[0].value, 'algo');
+      assert.equal(s.events[1].value, 'raro');
     }
   },
   "teoria:transpose": {
