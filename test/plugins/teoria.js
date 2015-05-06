@@ -1,5 +1,6 @@
 var vows = require('vows');
 var assert = require('assert');
+var _ = require('lodash');
 
 var score = require('../../lib/score.js');
 
@@ -37,5 +38,11 @@ vows.describe('Teoria').addBatch({
       var s = score('a2 b2 c3 d3').transpose('M2');
       assert.equal(s.toString(), 'b2 c#3 d3 e3');
     }
+  },
+  "teoria:chordRoots": function() {
+    var s = score('Cmaj7 | Dm7 G7').roots(2);
+    assert.deepEqual(_.pluck(s.events, 'position'), [0, 384, 576]);
+    assert.deepEqual(_.pluck(s.events, 'duration'), [2, 2, 2]);
+    assert.deepEqual(_.pluck(s.events, 'type'), ['note', 'note', 'note']);
   }
 }).export(module);
