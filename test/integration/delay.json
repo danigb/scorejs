@@ -2,19 +2,17 @@
   "description": "Chords must be parsed",
   "score": {
     "parts" : {
-      "chords": {
-        "source": "Cmaj7 | Dm7",
+      "notes": {
+        "source": "a b",
         "process": {
-          "bassPlayer": []
+          "delay": [96, { "repeat": 2 }]
         }
       }
     }
   },
   "expected": {
-    "parts": {
+    "notes": {
       "chords": [
-        [ "Cmaj7", 0, 384, "chord" ],
-        [ "Dm7", 384, 384, "chord" ]
       ]
     }
   }

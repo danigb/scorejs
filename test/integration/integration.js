@@ -2,13 +2,19 @@ var vows = require('vows');
 var assert = require('assert');
 var Score = require('../../index.js');
 
+vows.describe("Scores integration tests").addBatch(batch([
+  'chords', 'transpose', 'walking-bass'
+])).export(module);
 
-vows.describe('Scores integration tests').addBatch({
-  "integration": function() {
-    run(require('./chords.json'));
-    run(require('./transpose.json'));
-  }
-}).export(module);
+function batch(tests) {
+  var batch = {};
+  tests.forEach(function(name) {
+    batch["integration:" + name] = function() {
+      run(require('./' + name + '.json'));
+    }
+  });
+  return batch;
+}
 
 function run(test) {
   var score = prepare(test.score);
@@ -32,6 +38,7 @@ function buildProcess(process) {
   return function(seq) {
     for(proc in process) {
       args = process[proc];
+      assert(seq[proc], "Plugin " + proc + " must exist.");
       seq = seq[proc].apply(seq, args);
     }
     return seq;

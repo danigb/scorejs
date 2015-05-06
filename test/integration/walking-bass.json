@@ -1,0 +1,27 @@
+{
+  "description": "Chords must be parsed",
+  "score": {
+    "parts" : {
+      "chords": {
+        "source": "Cmaj7 | Dm7 G7",
+        "process": {
+          "walkingBass": []
+        }
+      }
+    }
+  },
+  "expected": {
+    "parts": {
+      "chords": [
+        [ "c4", 0, 96, "note" ],
+        [ "c4", 96, 96, "note" ],
+        [ "c4", 192, 96, "note" ],
+        [ "c4", 288, 96, "note" ],
+        [ "d4", 384, 96, "note" ],
+        [ "d4", 480, 96, "note" ],
+        [ "g4", 576, 96, "note" ],
+        [ "g4", 672, 96, "note" ]
+      ]
+    }
+  }
+}

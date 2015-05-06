@@ -17,6 +17,13 @@ vows.describe('Time plugin').addBatch({
   },
   "repeat": function() {
     var s = score("a b").repeat(2);
-    assert.deepEqual(_.pluck(s.events, 'position'), [0, 192, 384, 576]);
+    var positions = _.pluck(s.events, 'position');
+    assert.deepEqual(positions, [0, 192, 384, 576]);
+  },
+  "delay": function() {
+    var s = score('a').delay(100, { repeat: 4});
+    assert.equal(s.events.length, 5);
+    var positions = _.pluck(s.events, 'position');
+    assert.deepEqual(positions, [0, 100, 200, 300, 400]);
   }
 }).export(module);
