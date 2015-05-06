@@ -18,6 +18,19 @@ vows.describe('Sequence').addBatch({
     assert.equal(s.value(0), 'a');
     assert.equal(s.value(1), 'b');
   },
+  "map": {
+    "returns a sequence": function() {
+      var s = seq('a b').map(function(a) { return a; });
+      assert(s instanceof seq);
+    },
+    "apply the interatee": function() {
+      var s = seq('a b').map(function(e) {
+        return e.clone({ value: e.value().toUpperCase() })
+      });
+      assert.equal(s.events[0].value(), 'A');
+      assert.equal(s.events[1].value(), 'B');
+    }
+  },
   "morph": function() {
     var s = seq('a b').morph(function(event, newSeq) {
       newSeq.add(event, {value: event.value().toUpperCase() });
