@@ -1,0 +1,21 @@
+{
+  "description": "Chords must be parsed",
+  "score": {
+    "parts" : {
+      "chords": {
+        "source": "a b",
+        "process": {
+          "transpose": ["M2"]
+        }
+      }
+    }
+  },
+  "expected": {
+    "parts": {
+      "chords": [
+        [ "b3",   0,  192, "note" ],
+        [ "c#4", 192, 192, "note" ]
+      ]
+    }
+  }
+}

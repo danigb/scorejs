@@ -6,7 +6,7 @@ var Score = require('../../index.js');
 vows.describe('Scores integration tests').addBatch({
   "integration": function() {
     run(require('./chords.json'));
-    //run(require('./tranpose.json'));
+    run(require('./transpose.json'));
   }
 }).export(module);
 
@@ -28,9 +28,11 @@ function prepare(options) {
 }
 
 function buildProcess(process) {
+  var args;
   return function(seq) {
     for(proc in process) {
-      seq = seq[proc].apply(seq);
+      args = process[proc];
+      seq = seq[proc].apply(seq, args);
     }
     return seq;
   }
