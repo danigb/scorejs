@@ -51,6 +51,11 @@ vows.describe('Sequence').addBatch({
       assert.equal(s.events[0], s.events[1]);
     }
   },
+  "sequence:filter": function() {
+    var s = seq('a b c a').filter('value', 'a');
+    assert.equal(s.events.length, 2);
+    assert.equal(s.toString(), 'a a');
+  },
   "sequence:toString": function() {
     var s = seq('a b');
     assert.equal(s.toString(), 'a b');
