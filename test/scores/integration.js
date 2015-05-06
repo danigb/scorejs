@@ -5,7 +5,7 @@ var Score = require('../../index.js');
 
 vows.describe('Scores integration tests').addBatch({
   "chords score": function() {
-    run(require('./chords.json'));
+    //run(require('./chords.json'));
   }
 }).export(module);
 

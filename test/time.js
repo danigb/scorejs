@@ -18,7 +18,6 @@ vows.describe('Time').addBatch({
   },
   "has names": function() {
     var t = time('4/4');
-    console.log(t);
     assert.equal(t.measure, 384);
   }
 }).export(module);
