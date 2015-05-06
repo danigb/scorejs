@@ -1,27 +1,28 @@
 var vows = require('vows');
 var assert = require('assert');
-var Score = require('../../lib/score.js');
 
-var score = Score([require('../../lib/plugins/teoria.js')]);
+var score = require('../../lib/score.js');
+
+score.plugins(require('../../lib/plugins/teoria.js'));
 
 vows.describe('Teoria').addBatch({
   "parse": {
     "parse notes": function() {
       var s = score('a b');
-      s.each(function(e) {
-        assert.equal(e.type, 'note');
+      s.events.forEach(function(e) {
+        assert.equal(e.type(), 'note');
       });
     },
     "parse chords": function() {
       var s = score('C Dm7');
-      s.each(function(e) {
-        assert.equal(e.type, 'chord');
+      s.events.forEach(function(e) {
+        assert.equal(e.type(), 'chord');
       });
     },
     "skip unknown": function() {
       var s = score('algo raro');
-      assert.equal(s.events[0].value, 'algo');
-      assert.equal(s.events[1].value, 'raro');
+      assert.equal(s.events[0].value(), 'algo');
+      assert.equal(s.events[1].value(), 'raro');
     }
   },
   "transpose": {

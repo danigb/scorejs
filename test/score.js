@@ -2,12 +2,16 @@ var vows = require('vows');
 var assert = require('assert');
 
 var sequence = require('../lib/sequence.js')();
-var score = require('../lib/score.js')(sequence);
+var score = require('../lib/score.js');
 
 vows.describe('Score').addBatch({
   "constructor" : {
-    "always return score instance": function() {
+    "by default return score instance": function() {
       assert(score() instanceof score);
+    },
+    "parse and return a sequence instance": function() {
+      assert(score('a') instanceof score.Sequence);
+      assert(score(['a']) instanceof score.Sequence);
     },
     "time is 4/4 by default": function() {
       assert(score().time.beats, 4);

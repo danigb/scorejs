@@ -1,16 +1,13 @@
 'use strict';
 
-var plugins = [
+
+var Score = require('./lib/score.js');
+Score.plugins(
   require('./lib/plugins/time.js'),
   require('./lib/plugins/teoria.js'),
   require('./lib/plugins/chord-player.js')
-];
+);
 
-var $ = function(obj) {
-}
+module.exports = Score;
 
-$.Sequence = require('./lib/sequence.js')(plugins);
-$.Score = require('./lib/score.js');
-
-module.exports = $;
-if (typeof window !== 'undefined') window.Score = $;
+if (typeof window !== 'undefined') window.Score = Score;

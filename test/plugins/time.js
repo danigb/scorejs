@@ -1,8 +1,8 @@
 var vows = require('vows');
 var assert = require('assert');
-var Score = require('../../lib/score.js');
 
-var score = Score([require('../../lib/plugins/time.js')]);
+var score = require('../../lib/score.js');
+score.plugins(require('../../lib/plugins/time.js'));
 
 vows.describe('Time plugin').addBatch({
   "duration":  {
@@ -11,7 +11,7 @@ vows.describe('Time plugin').addBatch({
       assert.equal(s.duration(), 2 * s.time.measure);
     },
     "no events length": function() {
-      assert.equal(score().duration(), 0);
+      assert.equal(score("").duration(), 0);
     }
   }
 }).export(module);

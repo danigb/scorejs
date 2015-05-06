@@ -18,6 +18,13 @@ vows.describe('Sequence').addBatch({
     assert.equal(s.value(0), 'a');
     assert.equal(s.value(1), 'b');
   },
+  "morph": function() {
+    var s = seq('a b').morph(function(event, newSeq) {
+      newSeq.add(event, {value: event.value().toUpperCase() });
+    });
+    assert.equal(s.events[0].value(), 'A');
+    assert.equal(s.events[1].value(), 'B');
+  },
   "toString": function() {
     var s = seq('a b');
     assert.equal(s.toString(), 'a b');
