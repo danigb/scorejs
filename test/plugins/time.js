@@ -18,7 +18,7 @@ vows.describe('Time plugin').addBatch({
   "repeat": function() {
     var s = score("a b").repeat(2);
     var positions = _.pluck(s.events, 'position');
-    assert.deepEqual(positions, [0, 192, 384, 576]);
+    assert.deepEqual(positions, [0, 96, 192, 288]);
   },
   "delay": function() {
     var s = score('a').delay(100, { repeat: 4});
