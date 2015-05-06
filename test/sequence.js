@@ -23,6 +23,12 @@ vows.describe('Sequence').addBatch({
       var s = seq('a b').map(function(a) { return a; });
       assert(s instanceof seq);
     },
+    "clone a seq no iterator": function() {
+      var s = seq('a b').map();
+      assert.equal(s.events.length, 2);
+      assert.equal(s.events[0].value(), 'a');
+      assert.equal(s.events[1].value(), 'b');
+    },
     "apply the interatee": function() {
       var s = seq('a b').map(function(e) {
         return e.clone({ value: e.value().toUpperCase() })
