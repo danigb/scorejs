@@ -14,8 +14,8 @@ vows.describe('Chord player').addBatch({
     assert.equal(s.events.length, chord.notes().length);
     s.events.forEach(function(e) {
       assert.equal(e.type, 'note');
-      assert.equal(e.get('instrument'), 'myInstrument');
-      assert.equal(e.get('fromChord'), 'Cmaj7');
+      assert.equal(e.instrument, 'myInstrument');
+      assert.equal(e.fromChord, 'Cmaj7');
     });
   }
 }).export(module);

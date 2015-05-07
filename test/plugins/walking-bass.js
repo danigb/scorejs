@@ -12,8 +12,8 @@ vows.describe('Walking bass plugin').addBatch({
     assert.equal(s.events.length, 4);
     s.events.forEach(function(e) {
       assert.equal(e.type, 'note');
-      assert.equal(e.get('instrument'), 'myInstrument');
-      assert.equal(e.get('fromChord'), 'Cmaj7');
+      assert.equal(e.instrument, 'myInstrument');
+      assert.equal(e.fromChord, 'Cmaj7');
     });
   }
 }).export(module);
