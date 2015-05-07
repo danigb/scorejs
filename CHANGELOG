@@ -1,6 +1,13 @@
 
 [current]
 
+[0.4.0]
+- Combine plugin: merge function
+- Sequence: better map implementation
+- WalkinBass plugin: a naive implementation
+- LeftHandPiano plugin annotates chords and instruments
+- ChordPlayer plugin renamed to LeftHandPiano
+
 [0.3.0]
 - First working version.
 - Plaguin infrastructure
