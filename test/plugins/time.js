@@ -15,6 +15,12 @@ vows.describe('Time plugin').addBatch({
       assert.equal(score("").duration(), 0);
     }
   },
+  "region": function() {
+    s = score('a | b c | d');
+    r = s.region(1 * s.time.measure, 2 * s.time.measure);
+    values = _.pluck(r.events, 'value');
+    assert.equal(r.events.length, 2);
+  },
   "repeat": function() {
     var s = score("a b").repeat(2);
     var positions = _.pluck(s.events, 'position');
