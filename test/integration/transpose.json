@@ -4,9 +4,7 @@
     "parts" : {
       "chords": {
         "source": "a b",
-        "process": {
-          "transpose": ["M2"]
-        }
+        "transpose": ["M2"]
       }
     }
   },

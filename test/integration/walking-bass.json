@@ -4,9 +4,7 @@
     "parts" : {
       "chords": {
         "source": "Cmaj7 | Dm7 G7",
-        "process": {
-          "walkingBass": []
-        }
+        "walkingBass": []
       }
     }
   },

@@ -3,7 +3,7 @@ var assert = require('assert');
 var Score = require('../index.js');
 
 var tests = [
-  'merge', 'chords', 'transpose', 'walking-bass'
+  'merge', 'chords', 'transpose', 'delay', 'walking-bass'
 ];
 
 vows.describe("Scores integration tests")
@@ -20,32 +20,8 @@ function batch(tests) {
 }
 
 function run(test) {
-  var score = prepare(test.score);
+  var score = new Score(test.score);
   check(score, test.expected);
-}
-
-function prepare(options) {
-  var parts = getParts(options);
-  var score = Score(options);
-
-  for(name in parts) {
-    var part = parts[name];
-    var proc = buildProcess(part.process);
-    score.part(name, parts[name].source, proc);
-  }
-  return score;
-}
-
-function buildProcess(process) {
-  var args;
-  return function(seq) {
-    for(proc in process) {
-      args = process[proc];
-      assert(seq[proc], "Plugin " + proc + " must exist.");
-      seq = seq[proc].apply(seq, args);
-    }
-    return seq;
-  }
 }
 
 function check(score, expected) {

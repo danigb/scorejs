@@ -8,9 +8,7 @@
         "source": "c e | d f"
       },
       "score": {
-        "process": {
-          "merge": ["chords", "melody"]
-        }
+        "merge": ["chords", "melody"]
       }
     }
   },

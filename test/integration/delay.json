@@ -4,15 +4,19 @@
     "parts" : {
       "notes": {
         "source": "a b",
-        "process": {
-          "delay": [96, { "repeat": 2 }]
-        }
+        "delay": [192, { "repeat": 2 }]
       }
     }
   },
   "expected": {
-    "notes": {
-      "chords": [
+    "parts": {
+      "notes": [
+        [ "a3", 0, 96, "note" ],
+        [ "b3", 96, 96, "note" ],
+        [ "a3", 192, 96, "note" ],
+        [ "b3", 288, 96, "note" ],
+        [ "a3", 384, 96, "note" ],
+        [ "b3", 480, 96, "note" ]
       ]
     }
   }
