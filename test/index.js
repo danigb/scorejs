@@ -15,6 +15,9 @@ vows.describe('Event').addBatch({
   "time plugin": function() {
     assert(Score.fn.duration);
   },
+  "combine plugin": function() {
+    assert(Score.fn.merge);
+  },
   "teoria plugin": function() {
     assert(Score.Teoria, "teoria is defined");
     assert(Score.fn.transpose, "transpose method");
