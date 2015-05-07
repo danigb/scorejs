@@ -8,6 +8,7 @@ score.addPlugin(require('../../lib/plugins/combine.js'));
 vows.describe('Combine plugin').addBatch({
   "merge": function() {
     s = score('a b').merge(score('c d'));
+
     assert.equal(s.events.length, 4);
     values = _.pluck(s.events, 'value');
     assert.deepEqual(values, ['a', 'c', 'b', 'd']);

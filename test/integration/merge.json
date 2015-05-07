@@ -1,0 +1,29 @@
+{
+  "score": {
+    "parts" : {
+      "chords": {
+        "source": "Cmaj7 | Dm7"
+      },
+      "melody": {
+        "source": "c e | d f"
+      },
+      "score": {
+        "process": {
+          "merge": ["chords", "melody"]
+        }
+      }
+    }
+  },
+  "expected": {
+    "parts": {
+      "score": [
+        [ "Cmaj7", 0, 384, "chord" ],
+        [ "c3", 0, 192, "note" ],
+        [ "e3", 192, 192, "note" ],
+        [ "Dm7", 384, 384, "chord" ],
+        [ "d3", 384, 192, "note" ],
+        [ "f3", 576, 192, "note" ]
+      ]
+    }
+  }
+}
