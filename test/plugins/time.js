@@ -2,8 +2,8 @@ var vows = require('vows');
 var assert = require('assert');
 var _ = require('lodash');
 
-var score = require('../../lib/score.js');
-score.plugins(require('../../lib/plugins/time.js'));
+var score = require('../../lib/score.js')();
+score.addPlugin(require('../../lib/plugins/time.js'));
 
 vows.describe('Time plugin').addBatch({
   "duration":  {

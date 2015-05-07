@@ -2,10 +2,10 @@ var vows = require('vows');
 var assert = require('assert');
 var _ = require('lodash');
 
-var score = require('../../lib/score.js');
-score.plugins(require('../../lib/plugins/functional.js'));
+var score = require('../../lib/score.js')();
+score.addPlugin(require('../../lib/plugins/combine.js'));
 
-vows.describe('Functional plugin').addBatch({
+vows.describe('Combine plugin').addBatch({
   "merge": function() {
     s = score('a b').merge(score('c d'));
     assert.equal(s.events.length, 4);

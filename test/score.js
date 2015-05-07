@@ -1,8 +1,7 @@
 var vows = require('vows');
 var assert = require('assert');
 
-var sequence = require('../lib/sequence.js')();
-var score = require('../lib/score.js');
+var score = require('../lib/score.js')();
 
 vows.describe('Score').addBatch({
   "constructor" : {
@@ -29,10 +28,13 @@ vows.describe('Score').addBatch({
     },
     "part can have process": function() {
       s = score().part('m', 'a b', function(seq) {
-        return seq.transpose('M2');
+        return seq.map(function(e) { return e.clone({
+            value: e.value.toUpperCase()
+          });
+        });
       });
-      events = s.part('m').events;
-      assert.equal(s.part('m').toString(), 'b3 c#4');
+      assert(s.part('m'));
+      assert.equal(s.part('m').toString(), 'A B');
     }
   },
 }).export(module);

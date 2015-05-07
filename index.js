@@ -1,8 +1,7 @@
 'use strict';
 
 
-var Score = require('./lib/score.js');
-Score.plugins(
+var Score = require('./lib/score.js')(
   require('./lib/plugins/time.js'),
   require('./lib/plugins/teoria.js'),
   require('./lib/plugins/left-hand-piano.js'),
