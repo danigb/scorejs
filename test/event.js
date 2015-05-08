@@ -32,6 +32,12 @@ vows.describe('Event').addBatch({
     var e = event({value: o});
     assert.equal(e.str(), 'toString');
   },
+  "set": function() {
+    var a = event({value : 'A'});
+    var b = a.set('value', 'B');
+    assert.equal(a.value, 'A');
+    assert.equal(b.value, 'B');
+  },
   "clone": {
     "empty obj": function() {
       var a = event({value: 'a', position: 1, duration: 2, type: 'note'});

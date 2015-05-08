@@ -4,7 +4,9 @@
 var Score = require('./lib/score.js')(
   require('./lib/plugins/time.js'),
   require('./lib/plugins/combine.js'),
-  require('./lib/plugins/teoria.js'),
+  require('./lib/plugins/parse-music.js'),
+  require('./lib/plugins/pitch.js'),
+  require('./lib/plugins/chords.js'),
   require('./lib/plugins/left-hand-piano.js'),
   require('./lib/plugins/walking-bass.js')
 );
