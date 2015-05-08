@@ -1,17 +1,34 @@
 # ScoreJS
 
-Create and manipulate musical scores with javascript:
+Create and manipulate musical scores with javascript. The aim of this project
+is to provide a common interface and a high level toolkit that make easy
+build useful tools for musicians.
 
 ```js
-  var score = require('scorejs');
-  var melody = score('a b c d e f g').transpose('M2');
-  var chords = score('Cmaj7 | Dm7 G7').leftHandPiano();
+  var Score = require('scorejs');
+  var melody = Score('a b c d e f g').transpose('M2');
+  var chords = Score('Cmaj7 | Dm7 G7').leftHandPiano();
   chords.merge(melody).play({ tempo: 110 });
 ```
 
-You can use a more declarative version:
+The library is extensible using plugins and several of the are available.
+
+## Usage
+
+You can create sequences (ordered list of timed events) with ease:
+
+   s = Score('c/8 e/8 d4 g4') => | c.e.d...g... |
+
+Where the letter is the note and the /8 is the length of the note.
+
+Given a sequence you can manipulate them chaining methods:
+
+  s.reverse().delay(100);
+
+There's a more declarative approach available too:
+
 ```js
-  score({
+  score = Score({
     title: "Ain't misbehavin'",
     parts: {
       melody: {
@@ -32,7 +49,7 @@ You can use a more declarative version:
     }
   });
 
-  score.merge("melody", "piano", "bass").play( { tempo: 100 } );
+  score.merge().play( { tempo: 100 } );
 ```
 
 
@@ -40,23 +57,24 @@ You can use a more declarative version:
 
     $ npm install scorejs
 
-## Usage
+## How it works
 
-The core concept of ScoreJS library is the Sequence: a time-ordered list of
-events. You can create a Sequence with:
+ScoreJS provides a parser to convert string to sequences:
 
-    new Score.Sequence("a b c d");
+  Score("r4 a2/8 d2/8 e4 | c/2 ")
 
-or the surgar:
+The parser uses | to create measures and /num to specify durations.
 
-    Score("a b c d");
-
-Then you can apply methods to the sequence:
+The parser returns a sequence: a time-ordered list of events. You can
+alter the sequences using a chain of methods:
 
     Score("C | Dm G7 | C").measure(2).transpose('2M');
 
-All the methods are implemented by plugins. Extend the sequence object is
-really easy.
+All the methods are implemented by plugins. Add new methods are very easy.
+
+
+
+## API
 
 ## Plugins
 
@@ -70,8 +88,7 @@ module.exports = function(Score) {}
   Score.fn.delay = function(distance) {
     // we use map to transform the current Sequence into another
     return this.map(function(event) {
-      // For each event, return the event and the delayed event
-      return [event, event.set(position: event.position + distance)];
+      return event.set(position: event.position + distance);
     });
   }
 }

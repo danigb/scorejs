@@ -11,6 +11,13 @@ vows.describe('Event').addBatch({
       var a = event('a');
       assert(a === event(a));
     },
+    "all events has position and duration": function() {
+      var e = event();
+      assert(typeof(e.position) !== 'undefined');
+      assert.equal(e.position, 0);
+      assert(typeof(e.duration) !== 'undefined');
+      assert.equal(e.duration, 0);
+    },
     "set properties": function() {
       var a = event({value: 'a', position: 1, duration: 2, type: 'note'});
       assert.equal(a.value, 'a');
