@@ -20,12 +20,11 @@ vows.describe('Event').addBatch({
   },
   "teoria plugin": function() {
     assert(Score.Teoria, "teoria is defined");
-    assert(Score.fn.transpose, "transpose method");
   },
-  "left hand piano plugin": function() {
-    assert(Score.fn.leftHandPiano);
+  "pitch plugin": function() {
+    assert(Score.fn.transpose);
   },
-  "walking bass plugin": function() {
-    assert(Score.fn.walkingBass);
+  "chords plugin": function() {
+    assert(Score.fn.roots);
   }
 }).export(module);

@@ -3,7 +3,7 @@ var assert = require('assert');
 var Score = require('../index.js');
 
 var tests = [
-  'merge', 'chords', 'transpose', 'delay', 'walking-bass'
+  'merge', 'chords', 'transpose', 'delay'
 ];
 
 vows.describe("Scores integration tests")
