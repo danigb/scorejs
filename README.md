@@ -51,28 +51,6 @@ The same of above can be written in a more declarative manner:
 Score('a b c', { reverse: true, delay: 100 });
 ```
 
-Or even complex scores can be written in that way:
-
-```js
-  score = Score.build({
-    melody: {
-      score: "r8 e8 f8 e8 b8 b4."
-      transpose: 'M2'
-    },
-    chords: {
-      score: "EbMaj7 Edim7 | Fm7 F#dim7"
-    },
-    piano: {
-      score: "chords",
-      leftHandPiano: true
-    },
-    bass:
-    score: "chords",
-    walkingBass: true
-  });
-
-  score.play( { tempo: 100 } );
-```
 
 ## API
 
@@ -83,8 +61,30 @@ with a time signature.
 
 An optional time argument to specify the time signature ("4/4" by default)
 
-If the transform parameter is a function, a new Score is created by map all
-the events with the function:
+An optional transform parameter allows to make simple or complex transformations
+to the score. See `score.transform` documentation.
+
+
+#### Score.event(obj, ...)
+
+#### Score.merge(s1, s2, ...)
+
+#### Score.concat(s1, s2, ...)
+
+### Score object
+
+#### score.time
+
+The time signature of the score. "4/4" by default.
+
+#### score.sequence
+
+The sequence property give access to the array of events.
+
+#### score.transform(transform)
+
+Transform sequences. If the transform parameter is a function,
+a new Score is created by map all the events with the function:
 
 ```js
 Score('a b', function(event) {
@@ -110,27 +110,14 @@ Score('a b', function(event) {
 }); // score events values are: ['a', 'a', 'b', 'b']
 ```
 
-#### Score.event(obj, ...)
-
-#### Score.merge(s1, s2, ...)
-
-#### Score.concat(s1, s2, ...)
-
-### Score object
-
-#### score.time
-
-The time signature of the score. "4/4" by default.
-
-#### score.sequence
-
-The sequence property give access to the array of events.
-
-#### score.transform(transform)
-
 #### score.clone
 
+Clone the score.
+
 #### score.duration
+
+Returns the total duration of the score.
+
 
 ## Core plugins
 
@@ -172,6 +159,43 @@ Music related methods.
 Transpose all the notes by an interval:
 ```js
 Score('a b c').transpose('M2'); // => values: ['b' 'c#', 'd']
+```
+
+## Extensions
+
+This are the plugins not installed by default. You can install them using
+`use` static method of Score:
+
+```js
+Score.use(require('scorejs/ext/<plugin_name>'));
+```
+
+### Builder plugin
+
+Create complex scores using a declarative way:
+
+```js
+  // install the plugin.
+  Score.use(require('scorejs/ext/builder'));
+
+  score = Score.build({
+    melody: {
+      score: "r8 e8 f8 e8 b8 b4."
+      transpose: 'M2'
+    },
+    chords: {
+      score: "EbMaj7 Edim7 | Fm7 F#dim7"
+    },
+    piano: {
+      score: "chords",
+      leftHandPiano: true
+    },
+    bass:
+    score: "chords",
+    walkingBass: true
+  });
+
+  score.play( { tempo: 100 } );
 ```
 
 ## Build your own plugin
