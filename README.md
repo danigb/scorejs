@@ -36,8 +36,6 @@ s = Score('c/8 e/8 d4 g4');
 s.sequence; // => an array of events
 ```
 
-It uses [melody-parser](http://github.com/danigb/melody-parser) and [measure-parser](http://github.com/danigb/measure-parser) to convert from
-string to an array of event objects.
 
 The events are simply objects in the form of `{ value: '', position: 0, duration: 0 }`
 
@@ -57,14 +55,20 @@ Score('a b c', { reverse: true, delay: 100 });
 
 #### Score(source [, time] [, transfom]);
 
-Create a score object. Basically is an array of events ordered by time position
-with a time signature.
+Clone or create a score object. An score has a time signature (score.time) and
+and array of time ordered events (objects with, at least, value, position and
+  duration properties).
+
+If the source is a string, uses [melody-parser](http://github.com/danigb/melody-parser) and [measure-parser](http://github.com/danigb/measure-parser) to convert it to an
+array of event objects.
+
+If the source is another score, it clones the score and apply the transformation.
 
 An optional time argument to specify the time signature ("4/4" by default)
 
-An optional transform parameter allows to make simple or complex transformations
+The optional transform parameter allows to make simple or complex transformations
 to the score. Since events are intended to be immutable, you need Score.event to
-change event values. See `score.transform` for more documentation:
+change event values. See `score.clone` for more documentation:
 
 ```js
 var s1 = new Score("a b c", "3/4", function(event) {
@@ -130,10 +134,14 @@ The time signature of the score. "4/4" by default.
 
 The sequence property give access to the array of events.
 
-#### score.transform(transform)
+#### score.clone(transform)
 
-Create a new score by applying a transformation. Since event objects are intended
-to be immutable, you need Score.event to create mutated events:
+Clones the score and apply a transformation. The transformation can be a
+funtion or an object.
+
+If its a function is should create new events from the previous ones.
+Since event objects are intended to be immutable, you need Score.event to create
+the new events:
 
 ```js
 var a = Score('a b')
@@ -157,6 +165,9 @@ Score('a b', function(event) {
   return [event, Score.event(event, { position: event.position + 10 })];
 }); // score events values are: ['a', 'b', 'a', 'b']
 ```
+
+If its an object, you can use any plugin method to create complex transformations:
+
 
 ## Core plugins
 

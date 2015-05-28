@@ -16,17 +16,6 @@ vows.describe('Score transform').addBatch({
     }
   },
   "transform function": {
-    "transform method": function() {
-      s = Score('a b').transform(function(event) {
-        event.value = event.value.toUpperCase();
-        event.duration = event.duration * 2;
-        event.position = event.position + 1;
-        return event;
-      });
-      assert.deepEqual(_.pluck(s.sequence, 'value'), ['A', 'B']);
-      assert.deepEqual(_.pluck(s.sequence, 'duration'), [1/2, 1/2]);
-      assert.deepEqual(_.pluck(s.sequence, 'position'), [1, 1.25]);
-    },
     "simple transform": function() {
       s = Score('a b', function(event) {
         event.value = event.value.toUpperCase();

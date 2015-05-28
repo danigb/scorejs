@@ -18,5 +18,13 @@ vows.describe('Time plugin').addBatch({
     assert.deepEqual(_.pluck(s.sequence, 'value'), ['a', 'b', 'a', 'b', 'a', 'b']);
     assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.25, 0.5, 0.75, 1, 1.25]);
     assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.25, 0.25, 0.25, 0.25, 0.25]);
+  },
+  "sequence": function() {
+    s = Score('a b c/8', function(event) {
+      return event.value === 'b' ? null : event;
+    }).compact();
+    assert.deepEqual(_.pluck(s.sequence, 'value'), ['a', 'c']);
+    assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.125]);
+    assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.25]);
   }
 }).export(module);

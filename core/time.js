@@ -9,6 +9,15 @@ module.exports = function(Score) {
     return last.position + last.duration;
   }
 
+  Score.fn.compact = function() {
+    var position = 0;
+    return Score(this, function(event) {
+      var evt = Score.event(event, { position: position });
+      position += event.duration;
+      return evt;
+    });
+  }
+
   /*
    * Repeat a sequence 'times' times
    *
@@ -16,7 +25,7 @@ module.exports = function(Score) {
    */
   Score.fn.repeat = function(times) {
     var duration = this.duration();
-    return this.transform(function(event) {
+    return Score(this, function(event) {
       return range(times).map(function(i) {
         return Score.event(event, { position: event.position + duration * i });
       });
@@ -32,7 +41,7 @@ module.exports = function(Score) {
    * - distance: space between the event and the delayed event in ticks
    */
   Score.fn.delay = function(distance) {
-    return this.transform(function(event) {
+    return Score(this, function(event) {
       return Score.event(event, { position: event.position + distance });
     });
   }

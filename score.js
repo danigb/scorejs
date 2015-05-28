@@ -19,7 +19,10 @@ module.exports = function() {
     var hasTimeParam = (typeof(time) === 'string');
     this.time = hasTimeParam ? time : "4/4";
 
-    if(typeof(source) === 'string') {
+    if(source instanceof Score) {
+      this.sequence = source.sequence;
+      this.time = source.time;
+    } else if(typeof(source) === 'string') {
       this.sequence = parseMeasures(source, this.time) || parseMelody(source, this.time);
     } else if(Array.isArray(source)) {
       // it they are not events, create new events
@@ -31,8 +34,8 @@ module.exports = function() {
     }
     transform = hasTimeParam ? transform : time;
     transform = transform || identity;
-    var apply = (typeof(transform) == 'function') ? applyFunction : applyObj;
-    apply(this, transform);
+    var applyFn = (typeof(transform) == 'function') ? applyFunction : applyObj;
+    applyFn(this, transform);
   }
   /*
    * applyFunction(private)
@@ -65,25 +68,23 @@ module.exports = function() {
       typeof(e.duration) !== 'undefined';
   }
 
+  function merge(dest, obj) {
+    for(var key in obj) {
+      if(obj.hasOwnProperty(key)) {
+        dest[key] = obj[key];
+      }
+    }
+  }
+
   /*
    * Score.event
    *
    * Clone or create events and merge parameters
    */
-  Score.event = function(e) {
-    var evt = { value: e.value || e,
-      position: e.position || 0, duration: e.duration || 0 };
-    if(arguments.length !== 1) {
-      // merge values of each argument
-      for(var i = 1; i < arguments.length; i++) {
-        var obj = arguments[i];
-        for(var key in obj) {
-          if(obj.hasOwnProperty(key)) {
-            evt[key] = obj[key];
-          }
-        }
-      }
-    }
+  Score.event = function(e, obj) {
+    var evt = { value: e, position: 0, duration: 0 };
+    if(e && typeof(e.value) !== 'undefined') merge(evt, e);
+    if(obj) merge(evt, obj);
     return evt;
   }
 
@@ -98,9 +99,8 @@ module.exports = function() {
   Score.concat = function() {
     var result = [], s, position = 0;
     for(var i = 0, total = arguments.length; i < total; i++) {
-      s = arguments[i].transform(function (event) {
-        event.position += position;
-        return event;
+      s = Score(arguments[i], function (event) {
+        return Score.event(event, { position: event.position + position});
       });
       result = result.concat(s.sequence);
       position += s.duration();
@@ -108,14 +108,13 @@ module.exports = function() {
     return new Score(result);
   }
 
-  Score.prototype.transform = function(transform) {
-    return new Score(this.sequence, transform);
+  Score.prototype.clone = function(transform) {
+    return new Score(this, transform);
   }
 
   Score.prototype.set = function (properties) {
     return this.transform(function(event) {
-
-    })
+    });
   };
 
   Score.fn = Score.prototype;
