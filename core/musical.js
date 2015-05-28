@@ -7,22 +7,15 @@ module.exports = function(Score) {
   Score.fn.transpose = function(interval ) {
     return this.transform(function(event) {
       var transposed = pitch.transpose(event.value, interval);
-      if (transposed) {
-        event.type = 'note';
-        event.value = transposed;
-      }
-      return event;
+      return transposed ?
+        Score.event(event, {value: transposed, type: 'note'}) : event;
     });
   }
 
   Score.fn.pitches = function() {
     return this.transform(function(event) {
       var p = pitch(event.value);
-      if (p) {
-        event.type = 'note';
-        event.pitch = p;
-      }
-      return event;
+      return p ? Score.event(event, { pitch: p, type: 'note'}) : event;
     });
   }
 }

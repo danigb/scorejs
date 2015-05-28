@@ -25,8 +25,7 @@ module.exports = function(Score) {
    */
   Score.fn.delay = function(distance) {
     return this.transform(function(event) {
-      event.position += distance;
-      return event;
+      return Score.event(event, { position: event.position + distance });
     });
   }
 }

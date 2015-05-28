@@ -1,7 +1,9 @@
 
 [0.5.0]
-- Simplify code base
-- Rename Score(obj) to Score.build(obj)
+- Simplify code base. Remove Score.Sequence class
+- Rename Score(obj) to Score.build(obj) in a plugin
+- Remove score.clone
+- Make events more explicitly immutable
 
 [0.4.0]
 - Combine plugin: merge function

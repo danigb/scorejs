@@ -36,8 +36,10 @@ s = Score('c/8 e/8 d4 g4');
 s.sequence; // => an array of events
 ```
 
-It uses [note-duration](http://github.com/danigb/note-duration) to parse note
-durations.
+It uses [melody-parser](http://github.com/danigb/melody-parser) and [measure-parser](http://github.com/danigb/measure-parser) to convert from
+string to an array of event objects.
+
+The events are simply objects in the form of `{ value: '', position: 0, duration: 0 }`
 
 Given a sequence you can manipulate them chaining methods:
 
@@ -51,7 +53,6 @@ The same of above can be written in a more declarative manner:
 Score('a b c', { reverse: true, delay: 100 });
 ```
 
-
 ## API
 
 #### Score(source [, time] [, transfom]);
@@ -62,16 +63,64 @@ with a time signature.
 An optional time argument to specify the time signature ("4/4" by default)
 
 An optional transform parameter allows to make simple or complex transformations
-to the score. See `score.transform` documentation.
+to the score. Since events are intended to be immutable, you need Score.event to
+change event values. See `score.transform` for more documentation:
 
+```js
+var s1 = new Score("a b c", "3/4", function(event) {
+  return Score.event(event, { type: 'note'});
+});
+```
 
-#### Score.event(obj, ...)
+Instead of a function, you can pass an object to build more complex
+transformations:
+
+```js
+var s2 = new Score("a b c", "3/4", { reverse: true, repeat: 4 });
+```
+
+`new Score(...)` and `Score(...)` are equivalents.
+
+#### Score.event(source, properties [, properties ...])
+
+Clone or create an event object from a source and merge some properties. An event
+object is any object with __at least__ three properties: value, position and
+duration. By default, position and duration are 0:
+
+```js
+var event = Score.event('d#4'); // => { value: "d#4", position: 0, duration: 0 }
+var cloned = Score.event(event); // => { value: "d#4", position: 0, duration: 0 }
+event === cloned // => false
+```
+
+You can pass one or more hashes with properties to be merged with:
+
+```js
+var event = Score.event('c2', { duration: 0.5, type: 'note' }); // =>
+// { value: 'c2', position: 0, duration: 0.5, type: 'note' }
+```
+
+The main purpose of this function is clone events and merge properties:
+
+```js
+var e1 = Score.event('Cm7');
+var e2 = Score.event(e1, { type: 'chord', intervals: ['P1', 'm3', 'P5', 'm7']});
+```
+
+You can use Score.event inside score.transform function to add new events:
+
 
 #### Score.merge(s1, s2, ...)
 
+Create a new score with the result of merge s1, s2, ... scores.
+
 #### Score.concat(s1, s2, ...)
 
+Create a new score with the result of join (sequentially) s1, s2 ... scores.
+
 ### Score object
+
+The Score function returns a new Score instance.
 
 #### score.time
 
@@ -83,41 +132,35 @@ The sequence property give access to the array of events.
 
 #### score.transform(transform)
 
-Transform sequences. If the transform parameter is a function,
-a new Score is created by map all the events with the function:
+Create a new score by applying a transformation. Since event objects are intended
+to be immutable, you need Score.event to create mutated events:
 
 ```js
-Score('a b', function(event) {
-  event.value = event.value.toUpperCase();
-  return value;
-}); // => values: 'A', 'B'
+var a = Score('a b')
+var b = a.transform(function(event) {
+  return Score.event(event, { value: event.value.toUpperCase() });
+});
 ```
-
-But it have some important differences from map. First of all, the null values
-are removed, so transform function can __remove events__:
+You can __remove events__ by returning null or undefined:
 
 ```js
 Score('a b c', function(event) {
-  if(event.value !== 'b') return event;
+  if(event.value === 'b') return null;
+  else return event;
 }); // this creates a score with TWO events ('b' is removed)
 ```
 
-The transform function is capable to __add events__ if wrapping them in an array:
+Also, you can add __add events__ if you wrap them inside an array:
 
 ```js
 Score('a b', function(event) {
-  return [event, event];
-}); // score events values are: ['a', 'a', 'b', 'b']
+  return [event, Score.event(event, { position: event.position + 10 })];
+}); // score events values are: ['a', 'b', 'a', 'b']
 ```
 
-#### score.clone
-
-Clone the score.
-
-#### score.duration
+#### score.duration()
 
 Returns the total duration of the score.
-
 
 ## Core plugins
 
