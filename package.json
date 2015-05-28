@@ -4,7 +4,8 @@
   "description": "Create and manipulate musical scores with javascript",
   "main": "index.js",
   "scripts": {
-    "test": "vows test/*.js"
+    "test": "vows test/*.js",
+    "build": "browserify index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   "dependencies": {
     "measure-parser": "^0.3.0",
     "melody-parser": "^0.1.0",
+    "note-pitch": "^0.3.0",
     "time-meter": "^0.3.0"
   }
 }

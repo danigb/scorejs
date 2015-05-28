@@ -15,17 +15,43 @@ The library is extensible using plugins and several of the are available.
 
 ## Usage
 
-You can create sequences (ordered list of timed events) with ease:
+Install the npm package: `npm i --save scorejs` and require it:
+`var Score = require('scorejs')`
 
-   s = Score('c/8 e/8 d4 g4') => | c.e.d...g... |
+### Run tests and build dist file
 
-Where the letter is the note and the /8 is the length of the note.
+You can use the `dist/score.js` module in browser environments. This file is
+up-to-date in the respository, buf if you want to re-build it, clone this
+repository and `npm run-script build`.
+
+To run test, clone this respository and `npm test`.
+
+### Basic usage
+
+You can create sequences (ordered list of timed events) with Score function,
+and access them with `sequence` property:
+
+```js
+s = Score('c/8 e/8 d4 g4');
+s.sequence; // => an array of events
+```
+
+It uses [note-duration](http://github.com/danigb/note-duration) to parse note
+durations.
 
 Given a sequence you can manipulate them chaining methods:
 
-  s.reverse().delay(100);
+```js
+  Score('a b c').reverse().delay(100);
+```
 
-There's a more declarative approach available too:
+The same of above can be written in a more declarative manner:
+
+```js
+Score('a b c', { reverse: true, delay: 100 });
+```
+
+Or even complex scores can be written in that way:
 
 ```js
   score = Score.build({
@@ -48,31 +74,77 @@ There's a more declarative approach available too:
   score.play( { tempo: 100 } );
 ```
 
-
-## Installation
-
-    $ npm install scorejs
-
-## How it works
-
-ScoreJS provides a parser to convert string to sequences:
-
-  Score("r4 a2/8 d2/8 e4 | c/2 ")
-
-The parser uses | to create measures and /num to specify durations.
-
-The parser returns a sequence: a time-ordered list of events. You can
-alter the sequences using a chain of methods:
-
-    Score("C | Dm G7 | C").measure(2).transpose('2M');
-
-All the methods are implemented by plugins. Add new methods are very easy.
-
-
-
 ## API
 
-## Plugins
+#### Score(source [, time] [, transfom]);
+
+Create a score object. Basically is an array of events ordered by time position
+with a time signature.
+
+An optional time argument to specify the time signature ("4/4" by default)
+
+If the transform parameter is a function, a new Score is created by map all
+the events with the function:
+
+```js
+Score('a b', function(event) {
+  event.value = event.value.toUpperCase();
+  return value;
+}); // => values: 'A', 'B'
+```
+
+But it have some important differences from map. First of all, the null values
+are removed, so transform function can __remove events__:
+
+```js
+Score('a b c', function(event) {
+  if(event.value !== 'b') return event;
+}); // this creates a score with TWO events ('b' is removed)
+```
+
+The transform function is capable to __add events__ if wrapping them in an array:
+
+```js
+Score('a b', function(event) {
+  return [event, event];
+}); // score events values are: ['a', 'a', 'b', 'b']
+```
+
+#### Score.event(obj, ...)
+
+#### Score.merge(s1, s2, ...)
+
+#### Score.concat(s1, s2, ...)
+
+### Score object
+
+#### score.time
+
+The time signature of the score. "4/4" by default.
+
+#### score.sequence
+
+The sequence property give access to the array of events.
+
+#### score.transform(transform)
+
+#### score.clone
+
+#### score.duration
+
+## Core plugins
+
+### Time
+
+Time related methods:
+
+#### repeat(times)
+
+#### delay(duration)
+
+### Selection
+
+### Musical
 
 ## Build your own plugin
 
@@ -80,11 +152,12 @@ All the methods are implemented by plugins. Add new methods are very easy.
 // A plugin is a function with one parameter: the Score
 module.exports = function(Score) {}
 
-  // It adds method to Sequence using Score.fn
+  // It adds method to Score instances using Score.fn
   Score.fn.delay = function(distance) {
-    // we use map to transform the current Sequence into another
-    return this.map(function(event) {
-      return Score.event(event, { position: event.position + distance });
+    // use transform api to return a modified sequence
+    this.transform(function(event) {
+      event.position += distance;
+      return event;
     });
   }
 }
