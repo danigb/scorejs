@@ -118,11 +118,6 @@ module.exports = function() {
     })
   };
 
-  Score.prototype.duration = function() {
-    var last = this.sequence[this.sequence.length - 1];
-    return last.position + last.duration;
-  }
-
   Score.fn = Score.prototype;
   Score.use = function(plugin) {
     plugin(Score);

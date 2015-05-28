@@ -5,6 +5,10 @@ var _ = require('lodash');
 var Score = require('../');
 
 vows.describe('Time plugin').addBatch({
+  "duration": function() {
+    s = Score('a b c d e f');
+    assert.equal(s.duration(), 1.5);
+  },
   "delay method": function() {
     s = Score('a b').delay(100);
     assert.deepEqual(_.pluck(s.sequence, 'position'), [100, 100.25]);

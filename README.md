@@ -158,10 +158,6 @@ Score('a b', function(event) {
 }); // score events values are: ['a', 'b', 'a', 'b']
 ```
 
-#### score.duration()
-
-Returns the total duration of the score.
-
 ## Core plugins
 
 This are the plugins installed in the default Score object. All the methods are
@@ -170,6 +166,10 @@ available unless other thing is specified.
 ### Time
 
 Time related methods:
+
+#### score.duration()
+
+Returns the total duration of the score.
 
 #### repeat(times)
 

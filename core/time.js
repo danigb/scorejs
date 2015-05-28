@@ -2,6 +2,14 @@
 
 module.exports = function(Score) {
   /*
+   * Return the total duration of the score
+   */
+  Score.prototype.duration = function() {
+    var last = this.sequence[this.sequence.length - 1];
+    return last.position + last.duration;
+  }
+
+  /*
    * Repeat a sequence 'times' times
    *
    * @param {Integer} times - the number of times to be repeated

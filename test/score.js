@@ -26,8 +26,4 @@ vows.describe('Score').addBatch({
       assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.25, 0.25]);
     }
   },
-  "duration": function() {
-    s = Score('a b c d e f');
-    assert.equal(s.duration(), 1.5);
-  }
 }).export(module);
