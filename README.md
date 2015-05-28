@@ -13,7 +13,7 @@ build useful tools for musicians.
 
 The library is extensible using plugins and several of the are available.
 
-## Usage
+## Installation
 
 Install the npm package: `npm i --save scorejs` and require it:
 `var Score = require('scorejs')`
@@ -26,7 +26,7 @@ repository and `npm run-script build`.
 
 To run test, clone this respository and `npm test`.
 
-### Basic usage
+## Usage
 
 You can create sequences (ordered list of timed events) with Score function,
 and access them with `sequence` property:
@@ -134,17 +134,45 @@ The sequence property give access to the array of events.
 
 ## Core plugins
 
+This are the plugins installed in the default Score object. All the methods are
+available unless other thing is specified.
+
 ### Time
 
 Time related methods:
 
 #### repeat(times)
 
+Repeat the score `times` times:
+```js
+Score('a b').repeat(3); // => values: ['a', 'b', 'a', 'b', 'a', 'b']
+```
+
 #### delay(duration)
+
+Add the given duration to the position of all score events:
+```js
+Score('a b').delay(2); // => durations [2, 2.25]
+```
 
 ### Selection
 
+Create new scores using from a subset of events.
+
+#### region(begin, end)
+
+Returns a new score with the events between `begin` and `end`
+
 ### Musical
+
+Music related methods.
+
+#### transpose(interval)
+
+Transpose all the notes by an interval:
+```js
+Score('a b c').transpose('M2'); // => values: ['b' 'c#', 'd']
+```
 
 ## Build your own plugin
 
