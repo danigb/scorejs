@@ -1,44 +1,41 @@
-var vows = require('vows');
-var assert = require('assert');
+vows = require('vows');
+assert = require('assert');
+_ = require('lodash');
 
-var score = require('../lib/score.js')();
+Score = require('../');
 
 vows.describe('Score').addBatch({
-  "constructor" : {
-    "by default return score instance": function() {
-      assert(score() instanceof score);
+  "parse": {
+    "parse melody": function() {
+      s = Score('a b');
+      assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'a', 'b' ]);
+      assert.deepEqual(_.pluck(s.sequence, 'position'), [ 0, 0.25 ]);
+      assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.25]);
     },
-    "parse and return a sequence instance": function() {
-      assert(score('a') instanceof score.Sequence);
-      assert(score(['a']) instanceof score.Sequence);
+    "parse measure": function() {
+      s = Score('a b |');
+      assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'a', 'b' ]);
+      assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.5]);
+      assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.5, 0.5]);
     },
-    "time is 4/4 by default": function() {
-      assert(score().time.beats, 4);
-      assert(score().time.sub, 4);
-    },
-    "data object": function() {
-      var s = score({title: 'Title'});
-      assert.equal(s.data.title, 'Title');
-    },
-  },
-  "parts": {
-    "can add a part": function() {
-      s = score().part('melody', 'a b c d');
-      assert.equal(s.part('melody').events.length, 4);
-    },
-    "part have score": function() {
-      s = score().part('melody', 'a b');
-      assert(s.part('melody').score === s, "Score of part");
-    },
-    "part can have process": function() {
-      s = score().part('m', 'a b', function(seq) {
-        return seq.map(function(e) { return e.clone({
-            value: e.value.toUpperCase()
-          });
-        });
-      });
-      assert(s.part('m'));
-      assert.equal(s.part('m').toString(), 'A B');
+    "custom time signature": function() {
+      s = Score("a b c |", "3/4");
+      assert.equal(s.time, '3/4');
+      assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'a', 'b', 'c' ]);
+      assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.25, 0.5]);
+      assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.25, 0.25]);
     }
   },
+  "utility": {
+    "clone score": function() {
+      s1 = Score('a b');
+      s2 = s1.clone();
+      assert.deepEqual(s1.sequence, s2.sequence);
+      assert(s1 !== s2, "are equal but not same");
+    },
+    "duration": function() {
+      s = Score('a b c d e f');
+      assert.equal(s.duration(), 1.5);
+    }
+  }
 }).export(module);

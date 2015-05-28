@@ -8,7 +8,7 @@ build useful tools for musicians.
   var Score = require('scorejs');
   var melody = Score('a b c d e f g').transpose('M2');
   var chords = Score('Cmaj7 | Dm7 G7').leftHandPiano();
-  chords.merge(melody).play({ tempo: 110 });
+  Score.merge(melody, chord).play({ tempo: 110 });
 ```
 
 The library is extensible using plugins and several of the are available.
@@ -28,28 +28,24 @@ Given a sequence you can manipulate them chaining methods:
 There's a more declarative approach available too:
 
 ```js
-  score = Score({
-    title: "Ain't misbehavin'",
-    parts: {
-      melody: {
-        score: "r8 e8 f8 e8 b8 b4."
-        transpose: 'M2'
-      },
-      chords: {
-        score: "EbMaj7 Edim7 | Fm7 F#dim7"
-      },
-      piano: {
-        score: "chords",
-        leftHandPiano: true
-      },
-      bass:
-        score: "chords",
-        walkingBass: true
-      }
-    }
+  score = Score.build({
+    melody: {
+      score: "r8 e8 f8 e8 b8 b4."
+      transpose: 'M2'
+    },
+    chords: {
+      score: "EbMaj7 Edim7 | Fm7 F#dim7"
+    },
+    piano: {
+      score: "chords",
+      leftHandPiano: true
+    },
+    bass:
+    score: "chords",
+    walkingBass: true
   });
 
-  score.merge().play( { tempo: 100 } );
+  score.play( { tempo: 100 } );
 ```
 
 
@@ -88,7 +84,7 @@ module.exports = function(Score) {}
   Score.fn.delay = function(distance) {
     // we use map to transform the current Sequence into another
     return this.map(function(event) {
-      return event.set(position: event.position + distance);
+      return Score.event(event, { position: event.position + distance });
     });
   }
 }

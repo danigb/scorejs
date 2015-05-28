@@ -4,7 +4,7 @@
   "description": "Create and manipulate musical scores with javascript",
   "main": "index.js",
   "scripts": {
-    "test": "vows test/*.js test/**/*.js"
+    "test": "vows test/*.js"
   },
   "repository": {
     "type": "git",
@@ -28,10 +28,12 @@
   "devDependencies": {
     "uglify-loader": "^1.2.0",
     "vows": "^0.8.1",
-    "webpack": "^1.8.11"
+    "webpack": "^1.8.11",
+    "lodash": "^3.8.0"
   },
   "dependencies": {
-    "lodash": "^3.8.0",
-    "teoria": "^1.6.0"
+    "measure-parser": "^0.3.0",
+    "melody-parser": "^0.1.0",
+    "time-meter": "^0.3.0"
   }
 }
