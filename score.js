@@ -113,7 +113,8 @@ module.exports = function() {
   }
 
   Score.prototype.set = function (properties) {
-    return this.transform(function(event) {
+    return this.clone(function(event) {
+      return Score.event(event, properties);
     });
   };
 

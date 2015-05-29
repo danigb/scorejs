@@ -26,6 +26,18 @@ vows.describe('Score').addBatch({
       assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.25, 0.25]);
     }
   },
+  "set": {
+    "set properties": function() {
+      s = Score('a b').set({instrument: 'piano'});
+      assert.deepEqual(_.pluck(s.sequence, 'instrument'), ['piano', 'piano']);
+    },
+    "set duration doesn't change position": function() {
+      s = Score('a b', { set: { duration: 2, instrument: 'organ'}});
+      assert.deepEqual(_.pluck(s.sequence, 'duration'), [2, 2]);
+      assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.25]);
+      assert.deepEqual(_.pluck(s.sequence, 'instrument'), ['organ', 'organ']);
+    }
+  },
   "combine": {
     "merge": function() {
       s = Score.merge(Score('a b'), Score('c d'));
