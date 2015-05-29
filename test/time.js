@@ -19,6 +19,12 @@ vows.describe('Time plugin').addBatch({
     assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.25, 0.5, 0.75, 1, 1.25]);
     assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.25, 0.25, 0.25, 0.25, 0.25]);
   },
+  "reverse": function() {
+    s = Score('a/8 b/4 c/2').reverse();
+    assert.deepEqual(_.pluck(s.sequence, 'value'), ['c', 'b', 'a']);
+    assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.5, 0.25, 0.125]);
+    assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.5, 0.75]);
+  },
   "sequence": function() {
     s = Score('a b c/8', function(event) {
       return event.value === 'b' ? null : event;

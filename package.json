@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "vows test/*.js",
-    "build": "browserify index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js"
+    "dist": "browserify index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js"
   },
   "repository": {
     "type": "git",

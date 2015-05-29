@@ -1,5 +1,7 @@
 [0.6.0]
 - Add score.set method
+- Add reverse to time plugin
+- Export window.Score if window available
 
 [0.5.0]
 - Simplify code base. Remove Score.Sequence class

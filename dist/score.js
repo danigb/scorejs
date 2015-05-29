@@ -5,25 +5,18 @@ var pitch = require('note-pitch');
 
 module.exports = function(Score) {
 
-  Score.fn.transpose = function(interval ) {
-    return this.transform(function(event) {
+  Score.fn.transpose = function(interval) {
+    return Score(this, function(event) {
       var transposed = pitch.transpose(event.value, interval);
-      if (transposed) {
-        event.type = 'note';
-        event.value = transposed;
-      }
-      return event;
+      return transposed ?
+        Score.event(event, {value: transposed, type: 'note'}) : event;
     });
   }
 
   Score.fn.pitches = function() {
-    return this.transform(function(event) {
+    return Score(this, function(event) {
       var p = pitch(event.value);
-      if (p) {
-        event.type = 'note';
-        event.pitch = p;
-      }
-      return event;
+      return p ? Score.event(event, { pitch: p, type: 'note'}) : event;
     });
   }
 }
@@ -47,13 +40,38 @@ module.exports = function(Score) {
 
 module.exports = function(Score) {
   /*
+   * Return the total duration of the score
+   */
+  Score.prototype.duration = function() {
+    var last = this.sequence[this.sequence.length - 1];
+    return last.position + last.duration;
+  }
+
+  Score.fn.reverse = function() {
+    return compactTime(this.sequence.reverse());
+  }
+
+  Score.fn.compact = function() {
+    return compactTime(this.sequence);
+  }
+
+  function compactTime(sequence) {
+    var position = 0;
+    return Score(sequence, function(event) {
+      var evt = Score.event(event, { position: position });
+      position += event.duration;
+      return evt;
+    });
+  }
+
+  /*
    * Repeat a sequence 'times' times
    *
    * @param {Integer} times - the number of times to be repeated
    */
   Score.fn.repeat = function(times) {
     var duration = this.duration();
-    return this.transform(function(event) {
+    return Score(this, function(event) {
       return range(times).map(function(i) {
         return Score.event(event, { position: event.position + duration * i });
       });
@@ -69,9 +87,8 @@ module.exports = function(Score) {
    * - distance: space between the event and the delayed event in ticks
    */
   Score.fn.delay = function(distance) {
-    return this.transform(function(event) {
-      event.position += distance;
-      return event;
+    return Score(this, function(event) {
+      return Score.event(event, { position: event.position + distance });
     });
   }
 }
@@ -468,8 +485,8 @@ module.exports = parse;
 
 var parseMeasures = require('measure-parser');
 var parseMelody = require('melody-parser');
+var identity = function(e) { return e; };
 
-var identity = function(e) { return e; }
 
 module.exports = function() {
   /*
@@ -485,17 +502,23 @@ module.exports = function() {
     var hasTimeParam = (typeof(time) === 'string');
     this.time = hasTimeParam ? time : "4/4";
 
-    if(typeof(source) === 'string') {
+    if(source instanceof Score) {
+      this.sequence = source.sequence;
+      this.time = source.time;
+    } else if(typeof(source) === 'string') {
       this.sequence = parseMeasures(source, this.time) || parseMelody(source, this.time);
     } else if(Array.isArray(source)) {
-      this.sequence = source.map(function(e) { return Score.event(e); });
+      // it they are not events, create new events
+      this.sequence = source.map(function(e) {
+        return isEvent(e) ? e : Score.event(e);
+      });
     } else {
       throw Error('Unkown source format: ' + source);
     }
     transform = hasTimeParam ? transform : time;
     transform = transform || identity;
-    var apply = (typeof(transform) == 'function') ? applyFunction : applyObj;
-    apply(this, transform);
+    var applyFn = (typeof(transform) == 'function') ? applyFunction : applyObj;
+    applyFn(this, transform);
   }
   /*
    * applyFunction(private)
@@ -522,20 +545,29 @@ module.exports = function() {
     score.sequence = result.sequence;
   }
 
-  Score.event = function(e) {
-    var evt = { value: e.value || e,
-      position: e.position || 0, duration: e.duration || 0 };
-    if(arguments.length !== 1) {
-      // merge arguments
-      for(var i = 1; i < arguments.length; i++) {
-        var obj = arguments[i];
-        for(var key in obj) {
-          if(obj.hasOwnProperty(key)) {
-            evt[key] = obj[key];
-          }
-        }
+  function isEvent(e) {
+    return typeof(e.value) !== 'undefined' &&
+      typeof(e.position) !== 'undefined' &&
+      typeof(e.duration) !== 'undefined';
+  }
+
+  function merge(dest, obj) {
+    for(var key in obj) {
+      if(obj.hasOwnProperty(key)) {
+        dest[key] = obj[key];
       }
     }
+  }
+
+  /*
+   * Score.event
+   *
+   * Clone or create events and merge parameters
+   */
+  Score.event = function(e, obj) {
+    var evt = { value: e, position: 0, duration: 0 };
+    if(e && typeof(e.value) !== 'undefined') merge(evt, e);
+    if(obj) merge(evt, obj);
     return evt;
   }
 
@@ -550,9 +582,8 @@ module.exports = function() {
   Score.concat = function() {
     var result = [], s, position = 0;
     for(var i = 0, total = arguments.length; i < total; i++) {
-      s = arguments[i].transform(function (event) {
-        event.position += position;
-        return event;
+      s = Score(arguments[i], function (event) {
+        return Score.event(event, { position: event.position + position});
       });
       result = result.concat(s.sequence);
       position += s.duration();
@@ -560,28 +591,15 @@ module.exports = function() {
     return new Score(result);
   }
 
-  Score.prototype.transform = function(transform) {
-    return new Score(this.sequence, transform);
+  Score.prototype.clone = function(transform) {
+    return new Score(this, transform);
   }
 
-  Score.prototype.duration = function() {
-    var last = this.sequence[this.sequence.length - 1];
-    return last.position + last.duration;
-  }
-
-  Score.prototype.clone = function () {
-    return new Score(this.sequence);
+  Score.prototype.set = function (properties) {
+    return this.clone(function(event) {
+      return Score.event(event, properties);
+    });
   };
-
-  Score.prototype.merge = function() {
-    var seqs = [this].concat(Array.prototype.slice.call(arguments));
-    return Score.merge.apply(null, seqs);
-  }
-
-  Score.prototype.concat = function() {
-    var seqs = [this].concat(Array.prototype.slice.call(arguments));
-    return Score.concat.apply(null, seqs);
-  }
 
   Score.fn = Score.prototype;
   Score.use = function(plugin) {
@@ -598,6 +616,9 @@ var Score = require('./score.js')();
 Score.use(require('./core/time.js'));
 Score.use(require('./core/musical.js'));
 Score.use(require('./core/select.js'));
-module.exports = Score;
+
+if (typeof define === "function" && define.amd) define(function() { return Score; });
+if (typeof module === "object" && module.exports) module.exports = Score;
+if (typeof window !== "undefined") window.Score = Score;
 
 },{"./core/musical.js":1,"./core/select.js":2,"./core/time.js":3,"./score.js":12}]},{},[13]);

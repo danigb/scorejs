@@ -9,9 +9,17 @@ module.exports = function(Score) {
     return last.position + last.duration;
   }
 
+  Score.fn.reverse = function() {
+    return compactTime(this.sequence.reverse());
+  }
+
   Score.fn.compact = function() {
+    return compactTime(this.sequence);
+  }
+
+  function compactTime(sequence) {
     var position = 0;
-    return Score(this, function(event) {
+    return Score(sequence, function(event) {
       var evt = Score.event(event, { position: position });
       position += event.duration;
       return evt;
