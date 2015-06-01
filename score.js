@@ -34,7 +34,7 @@ module.exports = function() {
     }
     transform = hasTimeParam ? transform : time;
     transform = transform || identity;
-    var applyFn = (typeof(transform) == 'function') ? applyFunction : applyObj;
+    var applyFn = (typeof(transform) === 'function') ? applyFunction : applyObj;
     applyFn(this, transform);
   }
   /*

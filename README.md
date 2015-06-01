@@ -1,8 +1,15 @@
 # ScoreJS
 
-Create and manipulate musical scores with javascript. The aim of this project
-is to provide a common interface and a high level toolkit that make easy
+[![Code Climate](https://codeclimate.com/github/danigb/scorejs/badges/gpa.svg)](https://codeclimate.com/github/danigb/scorejs)
+
+Create and manipulate musical scores with javascript. The aim of this project is
+to provide a common interface and a high level toolkit that make easy
 build useful tools for musicians.
+
+This library is oriented to music learning, score analisys or algorithmic
+composition. Even you can play music with it, it's not a sequencer or DAW type
+software.
+
 
 ```js
   var Score = require('scorejs');
