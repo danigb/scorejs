@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "music-parser": "^0.5.0",
-    "note-pitch": "^0.3.0",
+    "note-pitch": "^0.5.2",
     "time-meter": "^0.3.0"
   },
   "standard": {

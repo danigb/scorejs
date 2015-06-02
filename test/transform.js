@@ -8,11 +8,11 @@ vows.describe('Score transform').addBatch({
   'transform object': {
     'simple object transform': function () {
       var s = Score('a b c', { transpose: 'M2' })
-      assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'b2', 'c#3', 'd2' ])
+      assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'b4', 'c#5', 'd4' ])
     },
     'multiple transformations': function () {
       var s = Score('a b |', { repeat: 2, transpose: 'M3' })
-      assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'c#3', 'd#3', 'c#3', 'd#3' ])
+      assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'c#5', 'd#5', 'c#5', 'd#5' ])
     }
   },
   'transform function': {

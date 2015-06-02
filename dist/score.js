@@ -38,22 +38,22 @@ function merge (dest, src, skip) {
 },{}],2:[function(require,module,exports){
 'use strict'
 
-var pitch = require('note-pitch')
+var Note = require('note-pitch')
 
 module.exports = function (Score) {
   Score.fn.transpose = function (interval) {
     return Score(this, function (event) {
-      var transposed = pitch.transpose(event.value, interval)
+      var transposed = Note.transpose(event.value, interval)
       return transposed ?
         Score.event(event, {value: transposed, type: 'note'}) : event
     })
   }
 
-  Score.fn.pitches = function () {
+  Score.fn.notes = function () {
     return Score(this, function (event) {
-      var p = pitch(event.value)
-      return p ? Score.event(event, { pitch: p, type: 'note'}) : event
-    })
+      var note = event.note || Note.parse(event.value)
+      return note ? Score.event(event, { note: note }) : event
+    });
   }
 }
 
@@ -325,21 +325,19 @@ duration.toString = function (value) {
 module.exports = duration
 
 },{}],7:[function(require,module,exports){
-'use strict';
+'use strict'
 
-var Interval = require('interval-parser');
-var Note = require('note-parser');
+var Interval = require('interval-parser')
+var parse = require('note-parser')
 
-var SEMITONES = {c: 0, d: 2, e: 4, f: 5, g: 7, a: 9, b: 11 }
-var pitch = function(note) {
-  note = Note(note);
-  var alter = note.accidentals.length;
-  if(note.accidentals[0] === 'b') alter = -1 * alter;
-  return SEMITONES[note.pitchClass] + alter + 12 * (note.octave + 1);
+var Note = {}
+
+Note.parse = function (note) {
+  return parse(note)
 }
 
-pitch.semitones = function(a, b) {
-  return pitch(b) - pitch(a);
+Note.semitones = function (a, b) {
+  return parse(b).midi - parse(a).midi
 }
 
 /*
@@ -347,33 +345,33 @@ pitch.semitones = function(a, b) {
  *
  * return intervals between notes
  */
-pitch.distance = function(root, notes) {
-  root = Note(root);
-  if(arguments.length == 1) {
-    return function(note) {
-      return interval(root, note);
+Note.distance = function (root, notes) {
+  root = parse(root)
+  if (arguments.length === 1) {
+    return function (note) {
+      return interval(root, note)
     }
   } else if (Array.isArray(notes)) {
-    return notes.map(function(i) {
-      return interval(root, i);
-    });
+    return notes.map(function (i) {
+      return interval(root, i)
+    })
   } else {
-    return interval(root, notes);
+    return interval(root, notes)
   }
 }
 
-pitch.transpose = function(note, interval) {
-  if(arguments.length == 1) {
-    interval = note;
-    return function(note) {
-      return transpose(note, interval);
+Note.transpose = function (note, interval) {
+  if (arguments.length === 1) {
+    interval = note
+    return function (note) {
+      return transpose(note, interval)
     }
   } else if (Array.isArray(interval)) {
-    return interval.map(function(i) {
-      return transpose(note, i);
-    });
+    return interval.map(function (i) {
+      return transpose(note, i)
+    })
   } else {
-    return transpose(note, interval);
+    return transpose(note, interval)
   }
 }
 
@@ -381,49 +379,44 @@ var CHANGE = {
   'minor': ['d', 'm', 'M', 'A'],
   'perfect': ['d', 'P', 'A']
 }
-function interval(a, b) {
-  a = Note(a);
-  b = Note(b);
-  var semitones = pitch.semitones(a, b);
-  var dir = semitones < 0 ? -1 : 1;
-  var pitchDistance = pitchDist(a, b) + dir;
-  if(dir < 0) pitchDistance -= 7;
+function interval (a, b) {
+  a = parse(a)
+  b = parse(b)
+  var semitones = b.midi - a.midi
+  var dir = semitones < 0 ? -1 : 1
+  var pitchDistance = pitchDist(a, b) + dir
+  if (dir < 0) pitchDistance -= 7
 
-  var i = Interval("d" + pitchDistance);
-  var octaves = semitones / 12 | 0;
-  if (octaves == -1) octaves = 0;
-  var difference = dir * (semitones - i.semitones - 12 * octaves);
-  var dest = CHANGE[i.type][difference] + (pitchDistance + 7 * octaves);
-  return dest;
+  var i = Interval('d' + pitchDistance)
+  var octaves = semitones / 12 | 0
+  if (octaves === -1) octaves = 0
+  var difference = dir * (semitones - i.semitones - 12 * octaves)
+  var dest = CHANGE[i.type][difference] + (pitchDistance + 7 * octaves)
+  return dest
 }
 
-function pitchDist(a, b) {
-  var first = PITCH_CLASSES.indexOf(Note(a).pitchClass);
-  var second = PITCH_CLASSES.indexOf(Note(b).pitchClass, first);
-  return second - first;
+function pitchDist (a, b) {
+  var first = PITCH_CLASSES.indexOf(parse(a).pc)
+  var second = PITCH_CLASSES.indexOf(parse(b).pc, first)
+  return second - first
 }
 
-function pitchNum(note) {
-  var num = Note(note).pitchClass.charCodeAt(0);
-  return (num < 99) ? num + 7 : num;
-}
-
-var PITCH_CLASSES = "cdefgabcdefgab";
+var PITCH_CLASSES = 'cdefgabcdefgab'
 var ACCIDENTALS = ['bb', 'b', '', '#', '##']
-function transpose(note, interval) {
-  note = Note(note);
-  interval = Interval(interval);
-  var pitchIndex = PITCH_CLASSES.indexOf(note.pitchClass);
-  var pitchClass = PITCH_CLASSES[pitchIndex + interval.simple - 1];
-  var dest = Note(pitchClass + (note.octave + interval.octaves));
-  var difference = interval.semitones - (pitch(dest) - pitch(note));
-  var reduced = difference % 12;
-  var octaves = (difference - reduced) / 12;
-  var accidentals = ACCIDENTALS[reduced + 2];
-  return dest.pitchClass + accidentals + (dest.octave + octaves);
+function transpose (note, interval) {
+  note = parse(note)
+  interval = Interval(interval)
+  var pitchIndex = PITCH_CLASSES.indexOf(note.pc)
+  var pc = PITCH_CLASSES[pitchIndex + interval.simple - 1]
+  var dest = parse(pc + (note.oct + interval.octaves))
+  var difference = interval.semitones - (dest.midi - note.midi)
+  var reduced = difference % 12
+  var octaves = (difference - reduced) / 12
+  var accidentals = ACCIDENTALS[reduced + 2]
+  return dest.pc + accidentals + (dest.oct + octaves)
 }
 
-module.exports = pitch;
+module.exports = Note
 
 },{"interval-parser":8,"note-parser":9}],8:[function(require,module,exports){
 'use strict';
@@ -524,39 +517,69 @@ if (typeof module === "object" && module.exports) module.exports = parseInterval
 else i.parseInterval = parseInterval;
 
 },{}],9:[function(require,module,exports){
-'use strict';
+'use strict'
 
-var NOTE = /^([a-gA-G])(#{0,2}|b{0,2})(-?\d{0,1})$/
+var NOTE = /^([a-gA-G])(#{0,2}|b{0,2})(-?[0-9]{1}|[+]{0,2}|[-]{0,2})$/
 /*
  * parseNote
  *
  * @param {String} note - the note string to be parsed
  * @return {Object} a object with the following attributes:
- * - pitchClass: the letter of the note, ALWAYS in lower case
- * - accidentals: the accidentals (or '' if no accidentals)
- * - octave: the octave as integer. If not present in the string, its 2
+ * - pc: pitchClass, the letter of the note, ALWAYS in lower case
+ * - acc: the accidentals (or '' if no accidentals)
+ * - oct: the octave as integer. By default is 4
  */
-var parse = function(note, options) {
-  if(typeof(note.pitchClass) !== 'undefined'
-    && typeof(note.accidentals) !== 'undefined'
-    && typeof(note.octave) !== 'undefined') {
-    return note;
+var parse = function (note, defaultOctave, defaultValue) {
+  var parsed, match, octave
+
+  // in scientific notation middleC is 4
+  defaultOctave = defaultOctave || 4
+  // test string against regex
+  if (typeof note === 'string' && (match = NOTE.exec(note))) {
+    // match[3] is the octave part
+    if (match[3].length > 0 && !isNaN(match[3])) {
+      octave = +match[3]
+    } else if (match[3][0] === '+') {
+      octave = defaultOctave + match[3].length
+    } else if (match[3][0] === '-') {
+      octave = defaultOctave - match[3].length
+    } else {
+      octave = defaultOctave
+    }
+    parsed = { pc: match[1].toLowerCase(),
+      acc: match[2], oct: octave }
+  } else if (typeof note.pc !== 'undefined'
+    && typeof note.acc !== 'undefined'
+    && typeof note.oct !== 'undefined') {
+    parsed = note
   }
 
-  var match = NOTE.exec(note);
-  if(match) {
-    var octave = match[3] !== '' ? +match[3] : 2;
-    return { pitchClass: match[1].toLowerCase(),
-      accidentals: match[2], octave: octave };
+  if (parsed) {
+    parsed.midi = parsed.midi || toMidi(parsed)
+    parsed.freq = parsed.freq || midiToFrequency(parsed.midi)
+    return parsed
+  } else if (typeof (defaultValue) !== 'undefined') {
+    return defaultValue
+  } else {
+    throw Error('Invalid note format: ' + note)
   }
-  throw Error("Invalid note format: " + note);
 }
 
-parse.toString = function(obj) {
-  return obj.pitchClass + obj.accidentals + obj.octave;
+parse.toString = function (obj) {
+  return obj.pc + obj.acc + obj.oct
 }
 
-module.exports = parse;
+var SEMITONES = {c: 0, d: 2, e: 4, f: 5, g: 7, a: 9, b: 11 }
+function toMidi (note) {
+  var alter = note.acc.length
+  if (note.acc[0] === 'b') alter = -1 * alter
+  return SEMITONES[note.pc] + alter + 12 * (note.oct + 1)
+}
+function midiToFrequency (note) {
+  return Math.pow(2, (note - 69) / 12) * 440
+}
+
+module.exports = parse
 
 },{}],10:[function(require,module,exports){
 'use strict';

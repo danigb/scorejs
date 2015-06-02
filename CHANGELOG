@@ -2,6 +2,8 @@
 - Use music-parse to parse music notation
 - Move to standard js style
 - Add Time toTempo
+- Builder is now part of core
+- Update note-pitch
 
 [0.6.0]
 - Add score.set method

@@ -33,6 +33,6 @@ vows.describe('Score builder').addBatch(integrationTests).addBatch({
     })
     assert.equal(s.title, 'The Title')
     assert.equal(s.time, '2/4')
-    assert.deepEqual(_.pluck(s.parts['melody'].sequence, 'value'), ['f#2', 'c#3'])
+    assert.deepEqual(_.pluck(s.parts['melody'].sequence, 'value'), ['f#4', 'c#5'])
   }
 }).export(module)
