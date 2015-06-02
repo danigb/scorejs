@@ -37,5 +37,8 @@
     "melody-parser": "^0.1.0",
     "note-pitch": "^0.3.0",
     "time-meter": "^0.3.0"
+  },
+  "standard": {
+    "ignore": [ "dist/**" ]
   }
 }

@@ -1,5 +1,9 @@
 # ScoreJS
 
+[![Code Climate](https://codeclimate.com/github/danigb/scorejs/badges/gpa.svg)](https://codeclimate.com/github/danigb/scorejs)
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+
 Create and manipulate musical scores with javascript. The aim of this project
 is to provide a common interface and a high level toolkit that make easy
 build useful tools for musicians.

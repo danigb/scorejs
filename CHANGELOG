@@ -1,3 +1,7 @@
+[0.7.0]
+- Add Time toTempo
+- Move to standard js style
+
 [0.6.0]
 - Add score.set method
 - Add reverse to time plugin
