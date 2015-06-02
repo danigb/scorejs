@@ -5,7 +5,21 @@ var _ = require('lodash')
 var Score = require('../')
 Score.use(require('../ext/builder.js'))
 
-vows.describe('Score builder').addBatch({
+var integrations = ['AnthropologyParker.ls.json']
+
+var integrationTests = integrations.reduce(function (tests, name) {
+  tests[name] = function () {
+    var data = require('./integration/' + name)
+    var score = Score.build(data)
+    var duration = score.parts.chords.duration()
+    for (var partName in score.parts) {
+      assert.equal(score.parts[partName].duration(), duration)
+    }
+  }
+  return tests
+}, {})
+
+vows.describe('Score builder').addBatch(integrationTests).addBatch({
   'builder without transformation': function () {
     var s = Score.build({
       melody: 'e b |',
@@ -15,7 +29,7 @@ vows.describe('Score builder').addBatch({
     assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0, 0.5, 0.5])
     assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.5, 0.5, 0.5, 0.5])
   },
-  'builder with parts': function() {
+  'builder with parts': function () {
     var s = Score.build({
       title: 'The Title',
       time: '2/4',
