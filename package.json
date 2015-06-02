@@ -27,9 +27,7 @@
   },
   "homepage": "https://github.com/danigb/scorejs#readme",
   "devDependencies": {
-    "uglify-loader": "^1.2.0",
     "vows": "^0.8.1",
-    "webpack": "^1.8.11",
     "lodash": "^3.8.0"
   },
   "dependencies": {

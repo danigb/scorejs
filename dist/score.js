@@ -1,67 +1,113 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
+'use strict'
 
-var pitch = require('note-pitch');
+module.exports = function (Score) {
+  Score.build = function (obj) {
+    var score = {}
 
-module.exports = function(Score) {
-
-  Score.fn.transpose = function(interval) {
-    return Score(this, function(event) {
-      var transposed = pitch.transpose(event.value, interval);
-      return transposed ?
-        Score.event(event, {value: transposed, type: 'note'}) : event;
-    });
-  }
-
-  Score.fn.pitches = function() {
-    return Score(this, function(event) {
-      var p = pitch(event.value);
-      return p ? Score.event(event, { pitch: p, type: 'note'}) : event;
-    });
+    score.parts = buildParts(Score, obj.parts)
+    merge(score, obj, 'parts')
+    return score
   }
 }
 
-},{"note-pitch":9}],2:[function(require,module,exports){
-'use strict';
+function buildParts (Score, parts) {
+  var parsed = {}
+  Object.keys(parts).forEach(function (name) {
+    var part = parts[name]
+    if (typeof part === 'string') {
+      parsed[name] = Score(part)
+    } else {
+      var source = part.score
+      var options = merge({}, part, 'score')
+      parsed[name] = Score(source, options)
+    }
+  })
+  return parsed
+}
 
-module.exports = function(Score) {
+function merge (dest, src, skip) {
+  for (var n in src) {
+    if (n !== skip) {
+      dest[n] = src[n]
+    }
+  }
+  return dest
+}
+
+},{}],2:[function(require,module,exports){
+'use strict'
+
+var pitch = require('note-pitch')
+
+module.exports = function (Score) {
+  Score.fn.transpose = function (interval) {
+    return Score(this, function (event) {
+      var transposed = pitch.transpose(event.value, interval)
+      return transposed ?
+        Score.event(event, {value: transposed, type: 'note'}) : event
+    })
+  }
+
+  Score.fn.pitches = function () {
+    return Score(this, function (event) {
+      var p = pitch(event.value)
+      return p ? Score.event(event, { pitch: p, type: 'note'}) : event
+    })
+  }
+}
+
+},{"note-pitch":7}],3:[function(require,module,exports){
+'use strict'
+
+module.exports = function (Score) {
   /*
    * Return a sequence with the events between 'begin' and 'end'
    */
-  Score.fn.region = function(begin, end) {
-    return Score(this.sequence.filter(function(event) {
-      return event.position >= begin && event.position < end;
-    }));
+  Score.fn.region = function (begin, end) {
+    return Score(this.sequence.filter(function (event) {
+      return event.position >= begin && event.position < end
+    }))
   }
 }
 
-},{}],3:[function(require,module,exports){
-'use strict';
+},{}],4:[function(require,module,exports){
+'use strict'
 
-module.exports = function(Score) {
+module.exports = function (Score) {
   /*
    * Return the total duration of the score
    */
-  Score.prototype.duration = function() {
-    var last = this.sequence[this.sequence.length - 1];
-    return last.position + last.duration;
+  Score.prototype.duration = function () {
+    var last = this.sequence[this.sequence.length - 1]
+    return last.position + last.duration
   }
 
-  Score.fn.reverse = function() {
-    return compactTime(this.sequence.reverse());
+  Score.fn.toTempo = function (beatsPerMinute) {
+    var factor = 60 / beatsPerMinute
+    return Score(this.sequence, function (event) {
+      return Score.event(event, {
+        position: event.position * factor,
+        duration: event.duration * factor
+      })
+    })
   }
 
-  Score.fn.compact = function() {
-    return compactTime(this.sequence);
+  Score.fn.reverse = function () {
+    return compactTime(this.sequence.reverse())
   }
 
-  function compactTime(sequence) {
-    var position = 0;
-    return Score(sequence, function(event) {
-      var evt = Score.event(event, { position: position });
-      position += event.duration;
-      return evt;
-    });
+  Score.fn.compact = function () {
+    return compactTime(this.sequence)
+  }
+
+  function compactTime (sequence) {
+    var position = 0
+    return Score(sequence, function (event) {
+      var evt = Score.event(event, { position: position })
+      position += event.duration
+      return evt
+    })
   }
 
   /*
@@ -69,13 +115,13 @@ module.exports = function(Score) {
    *
    * @param {Integer} times - the number of times to be repeated
    */
-  Score.fn.repeat = function(times) {
-    var duration = this.duration();
-    return Score(this, function(event) {
-      return range(times).map(function(i) {
-        return Score.event(event, { position: event.position + duration * i });
-      });
-    });
+  Score.fn.repeat = function (times) {
+    var duration = this.duration()
+    return Score(this, function (event) {
+      return range(times).map(function (i) {
+        return Score.event(event, { position: event.position + duration * i })
+      })
+    })
   }
 
   /*
@@ -86,167 +132,199 @@ module.exports = function(Score) {
    * Params:
    * - distance: space between the event and the delayed event in ticks
    */
-  Score.fn.delay = function(distance) {
-    return Score(this, function(event) {
-      return Score.event(event, { position: event.position + distance });
-    });
+  Score.fn.delay = function (distance) {
+    return Score(this, function (event) {
+      return Score.event(event, { position: event.position + distance })
+    })
   }
 }
 
-function range(number) {
-  var array = [];
-  for(var i = 0; i < number; i++) {
-    array.push(i);
+function range (number) {
+  var array = []
+  for (var i = 0; i < number; i++) {
+    array.push(i)
   }
-  return array;
+  return array
 }
 
-},{}],4:[function(require,module,exports){
-'use strict';
+},{}],5:[function(require,module,exports){
+'use strict'
 
-var duration = require('note-duration');
-var TimeMeter = require('time-meter');
+var TimeMeter = require('time-meter')
+var noteDuration = require('note-duration')
+
+// Use ticks internally (to prevent 1/3 + 1/3 + 1/3 == 0.99 )
+var TICKS = 96 * 4
 
 /*
  * parseMeasures
  *
  * @params {String} measures - the string measures to be parsed
  * @params {String} time - the time signature (4/4 by default)
- * @returns {Array} - an array of obects with value and duration
+ * @returns {Array} - an array of obects with value and expectedDur
  */
-module.exports = function(measures, time) {
-  if(Array.isArray(measures)) measures = measures.join('|');
-  else if (typeof(measures) !== 'string')
-    throw Error("String or Array expected in melody-parser");
-  if(measures.indexOf('|') == -1) return null;
+module.exports = function (measures, time, options) {
+  if (Array.isArray(measures)) {
+    return measures
+  } else if (typeof measures !== 'string') {
+    throw Error('String or Array expected in melody-parser')
+  }
 
-  time = time || "4/4";
-  var meter = TimeMeter(time);
-  return parseMeasures(meter, measures);
+  if (typeof time !== 'string') {
+    options = time
+    time = null
+  }
+
+  var opts = {}
+  options = options || {}
+  opts.durationParser = options.durationParser || parseDuration
+  opts.forceDurations = options.forceDurations || /[|()]/.test(measures)
+  opts.extendSymbol = options.extendSymbol || '_'
+
+  time = time || '4/4'
+  var meter = TimeMeter(time)
+  return parseMeasures(meter, measures, opts)
 }
 
-function parseMeasures(meter, repr) {
-  var events = [];
-  var position = 0;
-  splitMeasures(repr).forEach(function(measure) {
-    var items = measure.trim().split(' ');
-    var length = meter.measure / items.length;
-    items.forEach(function(i) {
-      if(i === '/') {
-        var last = events[events.length - 1];
-        last.duration += length;
-      } else {
-        events.push({ value: i, position: position, duration: length });
-      }
-      position += length;
-    });
-  });
-  return events;
+function parseMeasures (meter, measures, options) {
+  var events = []
+  var position = 0
+  var expectedDur = options.forceDurations ? meter.measure * TICKS : -1
+
+  splitMeasures(measures).forEach(function (measure) {
+    var list = parenthesize(tokenize(measure), [])
+    position = parseList(events, list, position, expectedDur, options)
+  })
+
+  events.forEach(function (event) {
+    event.duration = event.duration / TICKS
+    event.position = event.position / TICKS
+  })
+  return events
 }
 
-function splitMeasures(repr) {
+function parseList (events, list, position, total, options) {
+  var expectedDur = total / list.length
+  list.forEach(function (item) {
+    if (Array.isArray(item)) {
+      position = parseList(events, item, position, expectedDur, options)
+    } else {
+      position = parseItem(events, item, position, expectedDur, options)
+    }
+  })
+  return position
+}
+
+function parseItem (events, item, position, expectedDur, options) {
+  var parsed = options.durationParser(item, expectedDur / TICKS)
+  var event = parsed ?
+    { value: parsed[0], position: position, duration: parsed[1] * TICKS} :
+    { value: item, position: position, duration: expectedDur}
+
+  // var rounded = Math.floor(event.position * 10 + 0.001)
+  // if (Math.floor(event.position * 10) !== rounded) {
+  //   event.position = rounded / 10
+  // }
+
+  if (event.value === options.extendSymbol) {
+    var last = events[events.length - 1]
+    last.duration += event.duration
+  } else {
+    events.push(event)
+  }
+  return event.position + event.duration
+}
+
+function parseDuration (item, expectedDur) {
+  var split = item.split('/')
+  var dur = calcDuration(split[1])
+  if (dur) return [split[0], dur]
+  else if (expectedDur > 0) return [item, expectedDur]
+  else return [item, 0.25]
+}
+
+function calcDuration (string) {
+  if (!string) return null
+  var duration = string.split('+').map(function (durString) {
+    return noteDuration(durString)
+  }).reduce(function (a, b) {
+    return a + b
+  }, 0)
+  return (duration === +duration) ? duration : null
+}
+
+function splitMeasures (repr) {
   return repr
     .replace(/\s+\||\|\s+/, '|') // spaces between |
     .replace(/^\||\|\s*$/g, '') // first and last |
-    .split('|');
+    .split('|')
 }
 
-},{"note-duration":5,"time-meter":6}],5:[function(require,module,exports){
-'use strict';
-
-var names = ['long', 'double', 'whole', 'half', 'quarter', 'eighth', 'sixteenth', 'thirty-second'];
-var values = [4,       2,       1,       1/2,    1/4,       1/8,      1/16,       1/32];
-
-var namesToValues = {};
-for(var i = 0; i < values.length; i++) {
-  var name = names[i];
-  var value = values[i];
-  var short = name[0];
-  var num = "" + (1 / value);
-  namesToValues[name] = value;
-  namesToValues[short] = namesToValues[num] = value;
-  namesToValues[short + "."] = namesToValues[num + "."] = value + value / 2;
-  namesToValues[short + ".."] = namesToValues[num + ".."] = value + value / 2 + value / 4;
+/*
+ * The following code is copied from https://github.com/maryrosecook/littlelisp
+ * See: http://maryrosecook.com/blog/post/little-lisp-interpreter
+ * Thanks Mary Rose Cook!
+ */
+var parenthesize = function (input, list) {
+  var token = input.shift()
+  if (token === undefined) {
+    return list
+  } else if (token === '(') {
+    list.push(parenthesize(input, []))
+    return parenthesize(input, list)
+  } else if (token === ')') {
+    return list
+  } else {
+    return parenthesize(input, list.concat(token))
+  }
 }
 
-var valuesToNames = {};
-names.forEach(function(name, index) {
-  var value = values[index];
-  valuesToNames["" + value] = name[0];
-  valuesToNames["" + (value + value / 2)] = name[0] + ".";
-  valuesToNames["" + (value + value / 2 + value / 4)] = name[0] + "..";
-});
-
-var duration = function(name) {
-  return namesToValues['' + name];
+var tokenize = function (input) {
+  return input
+    .replace(/[\(]/g, ' ( ')
+    .replace(/[\)]/g, ' ) ')
+    .replace(/\,/g, ' ')
+    .trim().split(/\s+/)
 }
 
-duration.toString = function(value) {
-  return valuesToNames['' + value];
+},{"note-duration":6,"time-meter":10}],6:[function(require,module,exports){
+'use strict'
+
+var names = ['long', 'double', 'whole', 'half', 'quarter', 'eighth', 'sixteenth', 'thirty-second']
+var values = [4, 2, 1, 1 / 2, 1 / 4, 1 / 8, 1 / 16, 1 / 32]
+
+var namesToValues = {}
+for (var i = 0; i < values.length; i++) {
+  var name = names[i]
+  var value = values[i]
+  var short = name[0]
+  var num = '' + (1 / value)
+  namesToValues[name] = value
+  namesToValues[short] = namesToValues[num] = value
+  namesToValues[short + '.'] = namesToValues[num + '.'] = value + value / 2
+  namesToValues[short + '..'] = namesToValues[num + '..'] = value + value / 2 + value / 4
+  namesToValues[short + 't'] = namesToValues[num + 't'] = (value + value) / 3
 }
 
-module.exports = duration;
+var valuesToNames = {}
+names.forEach(function (name, index) {
+  var value = values[index]
+  valuesToNames['' + value] = name[0]
+  valuesToNames['' + (value + value / 2)] = name[0] + '.'
+  valuesToNames['' + (value + value / 2 + value / 4)] = name[0] + '..'
+})
 
-},{}],6:[function(require,module,exports){
-'use strict';
-
-module.exports = TimeMeter;
-
-function TimeMeter(meter) {
-  if(!(this instanceof TimeMeter)) return new TimeMeter(meter);
-  meter = meter.split('/');
-  this.beats = +meter[0];
-  this.subdivision = +meter[1]
-  this.measure = this.beats / this.subdivision;
+var duration = function (name) {
+  return namesToValues['' + name]
 }
 
-TimeMeter.prototype.toString = function () {
-  return "" + this.beats + "/" + this.subdivision;
-};
+duration.toString = function (value) {
+  return valuesToNames['' + value]
+}
+
+module.exports = duration
 
 },{}],7:[function(require,module,exports){
-'use strict';
-
-var duration = require('note-duration');
-
-module.exports = function(source, options) {
-  options = options || {};
-  var defaultDuration = duration(options.duration) || 0.25;
-  var parser = options.parser || parseDuration;
-
-  if(typeof(source) === 'string') {
-    source = source.trim().split(' ');
-  } else if (!Array.isArray(source)) {
-    throw Error('Melody must be an string or an array.')
-  }
-
-  var seq = source.map(function(e) {
-    return { value: e.value || e,
-      position: e.position || 0, duration: e.duration || 0 };
-  });
-
-  var parsed, position = 0;
-  seq.forEach(function(e) {
-    parsed = parser(e.value, defaultDuration);
-    if(parsed) {
-      e.value = parsed[0]
-      e.duration = +parsed[1];
-    }
-    e.position = position;
-    position += e.duration;
-  });
-  return seq;
-}
-
-function parseDuration(value, defaultDuration) {
-  var split = value.split('/');
-  var dur = duration(split[1]);
-  return dur ? [split[0], dur] : [value, defaultDuration ];
-}
-
-},{"note-duration":8}],8:[function(require,module,exports){
-arguments[4][5][0].apply(exports,arguments)
-},{"dup":5}],9:[function(require,module,exports){
 'use strict';
 
 var Interval = require('interval-parser');
@@ -347,7 +425,7 @@ function transpose(note, interval) {
 
 module.exports = pitch;
 
-},{"interval-parser":10,"note-parser":11}],10:[function(require,module,exports){
+},{"interval-parser":8,"note-parser":9}],8:[function(require,module,exports){
 'use strict';
 /*
  * parseInterval
@@ -445,7 +523,7 @@ function type(i) {
 if (typeof module === "object" && module.exports) module.exports = parseInterval;
 else i.parseInterval = parseInterval;
 
-},{}],11:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 var NOTE = /^([a-gA-G])(#{0,2}|b{0,2})(-?\d{0,1})$/
@@ -480,15 +558,30 @@ parse.toString = function(obj) {
 
 module.exports = parse;
 
-},{}],12:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
-var parseMeasures = require('measure-parser');
-var parseMelody = require('melody-parser');
-var identity = function(e) { return e; };
+module.exports = TimeMeter;
 
+function TimeMeter(meter) {
+  if(!(this instanceof TimeMeter)) return new TimeMeter(meter);
+  meter = meter.split('/');
+  this.beats = +meter[0];
+  this.subdivision = +meter[1]
+  this.measure = this.beats / this.subdivision;
+}
 
-module.exports = function() {
+TimeMeter.prototype.toString = function () {
+  return "" + this.beats + "/" + this.subdivision;
+};
+
+},{}],11:[function(require,module,exports){
+'use strict'
+
+var parseMusic = require('music-parser')
+var identity = function (e) { return e }
+
+module.exports = function () {
   /*
    * Score
    *
@@ -496,65 +589,65 @@ module.exports = function() {
    * @param {String} time [optional] - the time signature ("4/4" by default)
    * @param {Function} - the transformation function
    */
-  function Score(source, time, transform) {
-    if (!(this instanceof Score)) return new Score(source, time, transform);
+  function Score (source, time, transform) {
+    if (!(this instanceof Score)) return new Score(source, time, transform)
 
-    var hasTimeParam = (typeof(time) === 'string');
-    this.time = hasTimeParam ? time : "4/4";
+    var hasTimeParam = (typeof (time) === 'string')
+    this.time = hasTimeParam ? time : '4/4'
 
-    if(source instanceof Score) {
-      this.sequence = source.sequence;
-      this.time = source.time;
-    } else if(typeof(source) === 'string') {
-      this.sequence = parseMeasures(source, this.time) || parseMelody(source, this.time);
-    } else if(Array.isArray(source)) {
+    if (source instanceof Score) {
+      this.sequence = source.sequence
+      this.time = source.time
+    } else if (typeof source === 'string') {
+      this.sequence = parseMusic(source, this.time)
+    } else if (Array.isArray(source)) {
       // it they are not events, create new events
-      this.sequence = source.map(function(e) {
-        return isEvent(e) ? e : Score.event(e);
-      });
+      this.sequence = source.map(function (e) {
+        return isEvent(e) ? e : Score.event(e)
+      })
     } else {
-      throw Error('Unkown source format: ' + source);
+      throw Error('Unkown source format: ' + source)
     }
-    transform = hasTimeParam ? transform : time;
-    transform = transform || identity;
-    var applyFn = (typeof(transform) == 'function') ? applyFunction : applyObj;
-    applyFn(this, transform);
+    transform = hasTimeParam ? transform : time
+    transform = transform || identity
+    var applyFn = (typeof (transform) === 'function') ? applyFunction : applyObj
+    applyFn(this, transform)
   }
   /*
    * applyFunction(private)
    * map -> flatten - > compact -> sort
    */
-  function applyFunction(score, transform) {
+  function applyFunction (score, transform) {
     score.sequence = [].concat.apply([], score.sequence.map(transform))
-      .filter(function(e) {
-        return e != null;
+      .filter(function (e) {
+        return e != null
       })
-      .sort(function(a, b) {
-        return a.position - b.position;
-      });
+      .sort(function (a, b) {
+        return a.position - b.position
+      })
   }
-  function applyObj(score, obj) {
-    var result = score;
-    for(var name in obj) {
-      if(!score[name]) {
-        throw Error("Sequence doesn't have '" + name + "' method. Maybe forgot a plugin?");
+  function applyObj (score, obj) {
+    var result = score
+    for (var name in obj) {
+      if (!score[name]) {
+        throw Error("Sequence doesn't have '" + name + "' method. Maybe forgot a plugin?")
       } else {
-        result = result[name].call(result, obj[name]);
+        result = result[name].call(result, obj[name])
       }
     }
-    score.sequence = result.sequence;
+    score.sequence = result.sequence
   }
 
-  function isEvent(e) {
-    return typeof(e.value) !== 'undefined' &&
-      typeof(e.position) !== 'undefined' &&
-      typeof(e.duration) !== 'undefined';
+  function isEvent (e) {
+    return typeof (e.value) !== 'undefined' &&
+      typeof (e.position) !== 'undefined' &&
+      typeof (e.duration) !== 'undefined'
   }
 
-  function merge(dest, obj) {
-    for(var key in obj) {
-      if(obj.hasOwnProperty(key)) {
-        dest[key] = obj[key];
+  function merge (dest, obj) {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        dest[key] = obj[key]
       }
     }
   }
@@ -564,61 +657,61 @@ module.exports = function() {
    *
    * Clone or create events and merge parameters
    */
-  Score.event = function(e, obj) {
-    var evt = { value: e, position: 0, duration: 0 };
-    if(e && typeof(e.value) !== 'undefined') merge(evt, e);
-    if(obj) merge(evt, obj);
-    return evt;
+  Score.event = function (e, obj) {
+    var evt = { value: e, position: 0, duration: 0 }
+    if (e && typeof (e.value) !== 'undefined') merge(evt, e)
+    if (obj) merge(evt, obj)
+    return evt
   }
 
-  Score.merge = function() {
-    var result = [];
-    for(var i = 0, total = arguments.length; i < total; i++) {
-      result = result.concat(arguments[i].sequence);
+  Score.merge = function () {
+    var result = []
+    for (var i = 0, total = arguments.length; i < total; i++) {
+      result = result.concat(arguments[i].sequence)
     }
-    return new Score(result);
+    return new Score(result)
   }
 
-  Score.concat = function() {
-    var result = [], s, position = 0;
-    for(var i = 0, total = arguments.length; i < total; i++) {
+  Score.concat = function () {
+    var result = [], s, position = 0
+    for (var i = 0, total = arguments.length; i < total; i++) {
       s = Score(arguments[i], function (event) {
-        return Score.event(event, { position: event.position + position});
-      });
-      result = result.concat(s.sequence);
-      position += s.duration();
+        return Score.event(event, { position: event.position + position})
+      })
+      result = result.concat(s.sequence)
+      position += s.duration()
     }
-    return new Score(result);
+    return new Score(result)
   }
 
-  Score.prototype.clone = function(transform) {
-    return new Score(this, transform);
+  Score.prototype.clone = function (transform) {
+    return new Score(this, transform)
   }
 
   Score.prototype.set = function (properties) {
-    return this.clone(function(event) {
-      return Score.event(event, properties);
-    });
-  };
-
-  Score.fn = Score.prototype;
-  Score.use = function(plugin) {
-    plugin(Score);
+    return this.clone(function (event) {
+      return Score.event(event, properties)
+    })
   }
 
-  return Score;
+  Score.fn = Score.prototype
+  Score.use = function (plugin) {
+    plugin(Score)
+  }
+
+  return Score
 }
 
-},{"measure-parser":4,"melody-parser":7}],13:[function(require,module,exports){
-'use strict';
+},{"music-parser":5}],12:[function(require,module,exports){
+'use strict'
 
-var Score = require('./score.js')();
-Score.use(require('./core/time.js'));
-Score.use(require('./core/musical.js'));
-Score.use(require('./core/select.js'));
+var Score = require('./score.js')()
+Score.use(require('./core/time.js'))
+Score.use(require('./core/musical.js'))
+Score.use(require('./core/select.js'))
+Score.use(require('./core/builder.js'))
 
-if (typeof define === "function" && define.amd) define(function() { return Score; });
-if (typeof module === "object" && module.exports) module.exports = Score;
-if (typeof window !== "undefined") window.Score = Score;
+if (typeof module === 'object' && module.exports) module.exports = Score
+if (typeof window !== 'undefined') window.Score = Score
 
-},{"./core/musical.js":1,"./core/select.js":2,"./core/time.js":3,"./score.js":12}]},{},[13]);
+},{"./core/builder.js":1,"./core/musical.js":2,"./core/select.js":3,"./core/time.js":4,"./score.js":11}]},{},[12]);
