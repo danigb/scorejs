@@ -1,9 +1,12 @@
+
 [0.7.0]
-- Use music-parse to parse music notation
 - Move to standard js style
-- Add Time toTempo
+- Use music-parse to parse music notation
+- Update note-pitch to new API
 - Builder is now part of core
-- Update note-pitch
+- time: Add score.toTempo
+- musical: score.notes
+- musical: transpose only transpose notes (leave the rest)
 
 [0.6.0]
 - Add score.set method

@@ -49,10 +49,17 @@ module.exports = function (Score) {
     })
   }
 
-  Score.fn.notes = function () {
+  Score.fn.notes = function (options) {
     return Score(this, function (event) {
-      var note = event.note || Note.parse(event.value)
-      return note ? Score.event(event, { note: note }) : event
+      if (!event.note) {
+        var note = Note.parse(event.value, null, null)
+        if (note) {
+          return Score.event(event, { note: note })
+        } else {
+          return null;
+        }
+      }
+      return event;
     });
   }
 }
@@ -333,7 +340,7 @@ var parse = require('note-parser')
 var Note = {}
 
 Note.parse = function (note) {
-  return parse(note)
+  return parse.apply(null, arguments)
 }
 
 Note.semitones = function (a, b) {
@@ -404,7 +411,8 @@ function pitchDist (a, b) {
 var PITCH_CLASSES = 'cdefgabcdefgab'
 var ACCIDENTALS = ['bb', 'b', '', '#', '##']
 function transpose (note, interval) {
-  note = parse(note)
+  note = parse(note, null, null)
+  if (!note) return null;
   interval = Interval(interval)
   var pitchIndex = PITCH_CLASSES.indexOf(note.pc)
   var pc = PITCH_CLASSES[pitchIndex + interval.simple - 1]
