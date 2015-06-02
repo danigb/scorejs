@@ -25,12 +25,23 @@ vows.describe('Time plugin').addBatch({
     assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.5, 0.25, 0.125]);
     assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.5, 0.75]);
   },
-  "sequence": function() {
+  "compact": function() {
     s = Score('a b c/8', function(event) {
       return event.value === 'b' ? null : event;
     }).compact();
     assert.deepEqual(_.pluck(s.sequence, 'value'), ['a', 'c']);
     assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.125]);
     assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.25]);
+  },
+  "toTempo": {
+    "4/4 tempo": function() {
+      s = Score('a / b c |');
+      bpm60 = s.toTempo(60);
+      assert.deepEqual(_.pluck(bpm60.sequence, 'duration'), [0.5, 0.25, 0.25]);
+      assert.deepEqual(_.pluck(bpm60.sequence, 'position'), [0, 0.5, 0.75]);
+      bpm120 = s.toTempo(120);
+      assert.deepEqual(_.pluck(bpm120.sequence, 'duration'), [ 0.25, 0.125, 0.125 ]);
+      assert.deepEqual(_.pluck(bpm120.sequence, 'position'), [ 0, 0.25, 0.375 ]);
+    }
   }
 }).export(module);

@@ -9,6 +9,16 @@ module.exports = function(Score) {
     return last.position + last.duration;
   }
 
+  Score.fn.toTempo = function(beatsPerMinute) {
+    var factor = 60 / beatsPerMinute;
+    return Score(this.sequence, function(event) {
+      return Score.event(event, {
+        position: event.position * factor,
+        duration: event.duration * factor
+      });
+    });
+  }
+
   Score.fn.reverse = function() {
     return compactTime(this.sequence.reverse());
   }
