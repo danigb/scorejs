@@ -35,7 +35,7 @@ vows.describe('Time plugin').addBatch({
   },
   'toTempo': {
     '4/4 tempo': function () {
-      var s = Score('a / b c |')
+      var s = Score('a _ b c ')
       var bpm60 = s.toTempo(60)
       assert.deepEqual(_.pluck(bpm60.sequence, 'duration'), [0.5, 0.25, 0.25])
       assert.deepEqual(_.pluck(bpm60.sequence, 'position'), [0, 0.5, 0.75])

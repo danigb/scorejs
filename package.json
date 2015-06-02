@@ -33,12 +33,13 @@
     "lodash": "^3.8.0"
   },
   "dependencies": {
-    "measure-parser": "^0.3.0",
-    "melody-parser": "^0.1.0",
+    "music-parser": "^0.5.0",
     "note-pitch": "^0.3.0",
     "time-meter": "^0.3.0"
   },
   "standard": {
-    "ignore": [ "dist/**" ]
+    "ignore": [
+      "dist/**"
+    ]
   }
 }

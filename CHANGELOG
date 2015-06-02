@@ -1,6 +1,7 @@
 [0.7.0]
-- Add Time toTempo
+- Use music-parse to parse music notation
 - Move to standard js style
+- Add Time toTempo
 
 [0.6.0]
 - Add score.set method

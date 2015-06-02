@@ -1,7 +1,6 @@
 'use strict'
 
-var parseMeasures = require('measure-parser')
-var parseMelody = require('melody-parser')
+var parseMusic = require('music-parser')
 var identity = function (e) { return e }
 
 module.exports = function () {
@@ -22,7 +21,7 @@ module.exports = function () {
       this.sequence = source.sequence
       this.time = source.time
     } else if (typeof source === 'string') {
-      this.sequence = parseMeasures(source, this.time) || parseMelody(source, this.time)
+      this.sequence = parseMusic(source, this.time)
     } else if (Array.isArray(source)) {
       // it they are not events, create new events
       this.sequence = source.map(function (e) {
