@@ -59,31 +59,24 @@ The same of above can be written in a more declarative manner:
 Score('a b c', { reverse: true, delay: 100 });
 ```
 
-### Transformations
-
-The core concept of ScoreJS is `transformation`. You can transform a score into
-another one either with a js function or composing different transformations:
-
-
-
 ## API
 
-#### Score(source [, time] [, transfom]);
+#### Score(source [, meter] [, transfom]);
 
-Clone or create a score object. An score has a time signature (score.time) and
+Clone or create a score object. An score has a time meter (score.time) and
 and array of time ordered events (objects with, at least, value, position and
   duration properties).
 
 If the source is a string, uses [melody-parser](http://github.com/danigb/melody-parser) and [measure-parser](http://github.com/danigb/measure-parser) to convert it to an
 array of event objects.
 
-If the source is another score, it clones the score and apply the transformation.
+If the source is another score, it applies the transform to create a new one.
 
-An optional time argument to specify the time signature ("4/4" by default)
+An optional meter argument to specify the time meter ("4/4" by default)
 
 The optional transform parameter allows to make simple or complex transformations
 to the score. Since events are intended to be immutable, you need Score.event to
-change event values. See `score.clone` for more documentation:
+change event values (see clone method):
 
 ```js
 var s1 = new Score("a b c", "3/4", function(event) {
