@@ -1,16 +1,59 @@
 'use strict'
 
 module.exports = function (Score) {
-  Score.build = function (obj) {
-    var score = {}
+  Score.build = function (data) {
+    var obj, score = {}
+    if (typeof data === 'string') {
+      try {
+        obj = JSON.parse(data)
+      } catch (e) {
+        obj = parseScore(data)
+      }
+    } else {
+      obj = data
+    }
 
-    score.parts = buildParts(Score, obj.parts)
+    score.parts = buildParts(Score, obj.parts || {})
     merge(score, obj, 'parts')
     score.part = function (name, transform) {
-      return Score(score.parts[name], transform)
+      var part = score.parts[name]
+      return part ? Score(score.parts[name], transform) : null
     }
     return score
   }
+}
+
+var IS_PART = /^\s*\[[^]*\]\s*$/
+var MATCH_PART = /^\s*\[([a-zA-Z]+)\]\s*$/
+var IS_ASSIGN = /^\s*[^=]+\s*=.*$/
+var MATCH_ASSIGN = /^\s*([a-zA-Z]+)\s*=\s*(.*)$/
+function parseScore (text) {
+  var obj = { parts: {} }, matched, partName = null
+  text.split(/\n/).forEach(function (line, index) {
+    if (/^\s*$/.test(line)) return
+
+    if (IS_PART.test(line)) {
+      if ((matched = MATCH_PART.exec(line))) {
+        partName = matched[1]
+        obj.parts[partName] = ''
+      } else {
+        throw Error('Line ' + (index + 1) + ' Part name not valid: ' + line)
+      }
+    } else if (partName) {
+      obj.parts[partName] = obj.parts[partName] + line
+    } else {
+      if (IS_ASSIGN.test(line)) {
+        if ((matched = MATCH_ASSIGN.exec(line))) {
+          obj[matched[1]] = matched[2].replace(/^["']/, '').replace(/["']$/, '')
+        } else {
+          throw Error('Line ' + (index + 1) + ' Assignment not valid: ' + line)
+        }
+      } else {
+        throw Error('Line ' + (index + 1) + ' Syntax error: ' + line)
+      }
+    }
+  })
+  return obj
 }
 
 function buildParts (Score, parts) {

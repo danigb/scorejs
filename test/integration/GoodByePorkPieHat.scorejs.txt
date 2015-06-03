@@ -1,0 +1,16 @@
+title = Good Bye Pork Pie Hat
+author = Charles Mingus
+meter = 4/4
+key = -4
+
+[chords]
+r | F7 Db7 | Gbmaj7 B7 | Eb7 Db7   |
+  | Eb7 F7 | Bbm7 Db7  | Gm7 C7    |
+  | D7 G7  | Db7Gbmaj7 | B7 Bb7    |
+  | C7 Eb7 | F7 Db7    | Gbmaj7 B7 | r
+
+[melody]
+r r r (r c) | (f a) (_ f a) (b a _ (f d)) | (f a _ (f e)) (f _ _ c)     | (f a) (_ f a) (cb+ b _ (f e))       |
+            | (f a _ (f e)) (f _ _ f)     | (c+ e+ (_ f a)) (b a (f a)) | (c+ e+) (_ f b) (e+ _ c+) (a b; e)  |
+            | (a b f) (e b g)             | a (f _ _ (cb+ b))           | a f                                 |
+            | b a f e cb+ b a f           | a f                         | (c b a) (f e c)                     | f

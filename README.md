@@ -43,9 +43,9 @@ and access them with `sequence` property:
 s = Score('c/8 e/8 d4 g4');
 s.sequence; // => an array of events
 ```
-
-
 The events are simply objects in the form of `{ value: '', position: 0, duration: 0 }`
+It uses [music-parser](http://github.com/danigb/music-parser) to convert a string
+into an array of events, so read music-parser's documentation for mor info.
 
 Given a sequence you can manipulate them chaining methods:
 
@@ -58,6 +58,13 @@ The same of above can be written in a more declarative manner:
 ```js
 Score('a b c', { reverse: true, delay: 100 });
 ```
+
+### Transformations
+
+The core concept of ScoreJS is `transformation`. You can transform a score into
+another one either with a js function or composing different transformations:
+
+
 
 ## API
 

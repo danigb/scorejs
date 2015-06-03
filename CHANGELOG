@@ -1,3 +1,7 @@
+[0.9.0]
+- builder: build() support a json string as parameter
+- builder: build() supports custom txt format
+
 [0.8.0]
 - time: loopUntil(duration)
 - chords: <new plugin> chords(), playChords()
