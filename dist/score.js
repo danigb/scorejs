@@ -7,6 +7,9 @@ module.exports = function (Score) {
 
     score.parts = buildParts(Score, obj.parts)
     merge(score, obj, 'parts')
+    score.part = function (name, transform) {
+      return Score(score.parts[name], transform)
+    }
     return score
   }
 }
@@ -72,10 +75,11 @@ function parseChord (value) {
   return (chord.root && chord.intervals) ? chord : null
 }
 
-},{"daccord":6,"note-pitch":9}],3:[function(require,module,exports){
+},{"daccord":8,"note-pitch":11}],3:[function(require,module,exports){
 'use strict'
 
 var Note = require('note-pitch')
+var Andante = require('andante')
 
 module.exports = function (Score) {
   Score.fn.transpose = function (interval) {
@@ -84,6 +88,11 @@ module.exports = function (Score) {
       return transposed ?
         Score.event(event, {value: transposed, type: 'note'}) : event
     })
+  }
+
+  Score.fn.play = function (ctx, tempo, callback) {
+    var andante = new Andante(ctx)
+    return andante.play(this.notes(), tempo, callback)
   }
 
   Score.fn.notes = function (options) {
@@ -101,7 +110,7 @@ module.exports = function (Score) {
   }
 }
 
-},{"note-pitch":9}],4:[function(require,module,exports){
+},{"andante":7,"note-pitch":11}],4:[function(require,module,exports){
 'use strict'
 
 module.exports = function (Score) {
@@ -206,6 +215,120 @@ function range (number) {
 }
 
 },{}],6:[function(require,module,exports){
+var NOOP = function () {}
+
+function Clock (ctx, options) {
+  if (!(this instanceof Clock)) return new Clock(ctx, options)
+
+  options = options || {}
+
+  this.ctx = ctx
+  this.lookahead = options.lookahead || 25.0
+  this.scheduleAheadTime = options.scheduleAheadTime || 0.1
+  this.ticksPerBeat = options.ticksPerBeat || 1
+  this.tempo(options.tempo || 120)
+
+  this.scheduler = NOOP
+  this.nextTick = 0
+  this.nextTickTime = 0
+
+  this.timer = null
+  this.running = false
+}
+
+Clock.prototype.schedule = function () {
+  if (this.running) {
+    var nextTime = this.ctx.currentTime + this.scheduleAheadTime
+    while (this.nextTickTime < nextTime) {
+      this.scheduler(this.nextTick, this.nextTickTime)
+      this.nextTick++
+      this.nextTickTime += this.tickInterval
+    }
+    setTimeout(this.schedule.bind(this), this.lookahead)
+  }
+}
+
+Clock.prototype.tempo = function (newTempo) {
+  if (arguments.length === 0) return this._tempo
+  this._tempo = newTempo
+  this.tickInterval = (60 / newTempo) / this.ticksPerBeat
+  return this
+}
+
+Clock.prototype.start = function (tempo) {
+  if (tempo) this.tempo(tempo)
+  this.nextTick = 0
+  this.nextTickTime = this.ctx.currentTime
+  this.running = true
+  this.schedule()
+  return this
+}
+
+Clock.prototype.stop = function () {
+  this.running = false
+  if (this.timer) clearTimeout(this.timer)
+  return this
+}
+
+module.exports = Clock
+
+},{}],7:[function(require,module,exports){
+'use strict'
+
+var Clock = require('./clock.js')
+
+/*
+ * Andante
+ *
+ * Build an andante object
+ */
+function Andante (audioContext) {
+  if (!(this instanceof Andante)) return new Andante(audioContext)
+
+  this.ctx = audioContext
+  this.clock = new Clock(audioContext)
+}
+
+Andante.prototype.play = function (sequence, tempo, player) {
+  if (sequence.sequence) sequence = sequence.sequence
+  var clock = this.clock
+  clock.tempo(tempo)
+
+  var timePerBeat = (60 / this.clock.tempo())
+  var timePerTick = (timePerBeat / this.clock.ticksPerBeat) * 4
+  var region = { lastIndex: 0 }
+  clock.scheduler = function (tick, tickTime) {
+    var begin = tick
+    var end = (tick + 1)
+    region = getRegion(region.lastIndex, sequence, begin, end)
+    var time = function (t) { return t * timePerTick + 0.2 }
+    region.events.forEach(function (event) {
+      player(event, time, event)
+    })
+    if (region.lastIndex === sequence.length) clock.stop()
+  }
+  clock.start()
+}
+
+function getRegion (index, sequence, begin, end) {
+  var region = { lastIndex: 0, events: []}
+  for (var i = index, total = sequence.length; i < total; i++) {
+    var event = sequence[i]
+    if (event.position >= end) {
+      region.lastIndex = i
+      return region
+    } else if (event.position >= begin) {
+      region.events.push(event)
+    }
+  }
+  region.lastIndex = i
+  return region
+}
+
+if (typeof module === 'object' && module.exports) module.exports = Andante
+if (typeof window !== 'undefined') window.Andante = Andante
+
+},{"./clock.js":6}],8:[function(require,module,exports){
 var SYMBOLS = {
   'm': ['m3', 'P5'],
   'mi': ['m3', 'P5'],
@@ -395,7 +518,7 @@ module.exports = function(symbol) {
   return notes.slice(0, chordLength + 1).concat(additionals);
 }
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict'
 
 var TimeMeter = require('time-meter')
@@ -535,7 +658,7 @@ var tokenize = function (input) {
     .trim().split(/\s+/)
 }
 
-},{"note-duration":8,"time-meter":12}],8:[function(require,module,exports){
+},{"note-duration":10,"time-meter":14}],10:[function(require,module,exports){
 'use strict'
 
 var names = ['long', 'double', 'whole', 'half', 'quarter', 'eighth', 'sixteenth', 'thirty-second']
@@ -572,7 +695,7 @@ duration.toString = function (value) {
 
 module.exports = duration
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict'
 
 var Interval = require('interval-parser')
@@ -667,7 +790,7 @@ function transpose (note, interval) {
 
 module.exports = Note
 
-},{"interval-parser":10,"note-parser":11}],10:[function(require,module,exports){
+},{"interval-parser":12,"note-parser":13}],12:[function(require,module,exports){
 'use strict';
 /*
  * parseInterval
@@ -765,7 +888,7 @@ function type(i) {
 if (typeof module === "object" && module.exports) module.exports = parseInterval;
 else i.parseInterval = parseInterval;
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict'
 
 var NOTE = /^([a-gA-G])(#{0,2}|b{0,2})(-?[0-9]{1}|[+]{0,2}|[-]{0,2})$/
@@ -830,7 +953,7 @@ function midiToFrequency (note) {
 
 module.exports = parse
 
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 module.exports = TimeMeter;
@@ -847,7 +970,7 @@ TimeMeter.prototype.toString = function () {
   return "" + this.beats + "/" + this.subdivision;
 };
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict'
 
 var parseMusic = require('music-parser')
@@ -974,7 +1097,7 @@ module.exports = function () {
   return Score
 }
 
-},{"music-parser":7}],14:[function(require,module,exports){
+},{"music-parser":9}],16:[function(require,module,exports){
 'use strict'
 
 var Score = require('./score.js')()
@@ -987,4 +1110,4 @@ Score.use(require('./core/builder.js'))
 if (typeof module === 'object' && module.exports) module.exports = Score
 if (typeof window !== 'undefined') window.Score = Score
 
-},{"./core/builder.js":1,"./core/chords.js":2,"./core/notes.js":3,"./core/select.js":4,"./core/time.js":5,"./score.js":13}]},{},[14]);
+},{"./core/builder.js":1,"./core/chords.js":2,"./core/notes.js":3,"./core/select.js":4,"./core/time.js":5,"./score.js":15}]},{},[16]);

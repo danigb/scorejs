@@ -31,6 +31,7 @@
     "lodash": "^3.8.0"
   },
   "dependencies": {
+    "andante": "^0.1.0",
     "daccord": "^1.1.0",
     "music-parser": "^0.5.0",
     "note-pitch": "^0.6.0",

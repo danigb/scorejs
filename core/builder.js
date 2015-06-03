@@ -6,6 +6,9 @@ module.exports = function (Score) {
 
     score.parts = buildParts(Score, obj.parts)
     merge(score, obj, 'parts')
+    score.part = function (name, transform) {
+      return Score(score.parts[name], transform)
+    }
     return score
   }
 }

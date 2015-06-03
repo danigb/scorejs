@@ -1,6 +1,7 @@
 'use strict'
 
 var Note = require('note-pitch')
+var Andante = require('andante')
 
 module.exports = function (Score) {
   Score.fn.transpose = function (interval) {
@@ -9,6 +10,11 @@ module.exports = function (Score) {
       return transposed ?
         Score.event(event, {value: transposed, type: 'note'}) : event
     })
+  }
+
+  Score.fn.play = function (ctx, tempo, callback) {
+    var andante = new Andante(ctx)
+    return andante.play(this.notes(), tempo, callback)
   }
 
   Score.fn.notes = function (options) {

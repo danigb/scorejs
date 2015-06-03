@@ -1,6 +1,7 @@
 [0.8.0]
 - time: loopUntil(duration)
 - chords: <new plugin> chords(), playChords()
+- example 'plays' charlie parker
 
 [0.7.0]
 - Move to standard js style
