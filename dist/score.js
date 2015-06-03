@@ -39,6 +39,43 @@ function merge (dest, src, skip) {
 'use strict'
 
 var Note = require('note-pitch')
+var daccord = require('daccord')
+
+module.exports = function (Score) {
+  Score.fn.chords = function () {
+    return Score(this, function (event) {
+      var chord = parseChord(event.value)
+      if (chord) {
+        return Score.event(event, { chord: chord })
+      }
+    })
+  }
+
+  Score.fn.playChords = function () {
+    return Score(this.chords(), function (event) {
+      var chord = event.chord
+      if (chord) {
+        var notes = Note.transpose(chord.root, chord.intervals)
+        return notes.map(function (note) {
+          return Score.event(event, { value: note })
+        })
+      }
+    })
+  }
+}
+
+function parseChord (value) {
+  var chord = {}
+  chord.root = Note.parse(value[0])
+  chord.type = value.substring(1)
+  chord.intervals = daccord(chord.type)
+  return (chord.root && chord.intervals) ? chord : null
+}
+
+},{"daccord":6,"note-pitch":9}],3:[function(require,module,exports){
+'use strict'
+
+var Note = require('note-pitch')
 
 module.exports = function (Score) {
   Score.fn.transpose = function (interval) {
@@ -64,7 +101,7 @@ module.exports = function (Score) {
   }
 }
 
-},{"note-pitch":7}],3:[function(require,module,exports){
+},{"note-pitch":9}],4:[function(require,module,exports){
 'use strict'
 
 module.exports = function (Score) {
@@ -78,7 +115,7 @@ module.exports = function (Score) {
   }
 }
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict'
 
 module.exports = function (Score) {
@@ -124,11 +161,25 @@ module.exports = function (Score) {
    */
   Score.fn.repeat = function (times) {
     var duration = this.duration()
-    return Score(this, function (event) {
+    return new Score(this, function (event) {
       return range(times).map(function (i) {
         return Score.event(event, { position: event.position + duration * i })
       })
     })
+  }
+
+  Score.fn.loopUntil = function (max) {
+    if (this.duration() === 0) return this
+
+    var looped = []
+    var total = this.sequence.length
+    var event, index = 0, position = 0
+    while (position < max) {
+      event = this.sequence[index++ % total]
+      looped.push(Score.event(event, { position: position }))
+      position += event.duration
+    }
+    return new Score(looped)
   }
 
   /*
@@ -154,7 +205,197 @@ function range (number) {
   return array
 }
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
+var SYMBOLS = {
+  'm': ['m3', 'P5'],
+  'mi': ['m3', 'P5'],
+  'min': ['m3', 'P5'],
+  '-': ['m3', 'P5'],
+
+  'M': ['M3', 'P5'],
+  'ma': ['M3', 'P5'],
+  '': ['M3', 'P5'],
+
+  '+': ['M3', 'A5'],
+  'aug': ['M3', 'A5'],
+
+  'dim': ['m3', 'd5'],
+  'o': ['m3', 'd5'],
+
+  'maj': ['M3', 'P5', 'M7'],
+  'dom': ['M3', 'P5', 'm7'],
+  'ø': ['m3', 'd5', 'm7'],
+
+  '5': ['P5'],
+
+  '6/9': ['M3', 'P5', 'M6', 'M9']
+};
+
+module.exports = function(symbol) {
+  var c, parsing = 'quality', additionals = [], name, chordLength = 2
+  var notes = ['P1', 'M3', 'P5', 'm7', 'M9', 'P11', 'M13'];
+  var explicitMajor = false;
+
+  function setChord(name) {
+    var intervals = SYMBOLS[name];
+    for (var i = 0, len = intervals.length; i < len; i++) {
+      notes[i + 1] = intervals[i];
+    }
+
+    chordLength = intervals.length;
+  }
+
+  // Remove whitespace, commas and parentheses
+  symbol = symbol.replace(/[,\s\(\)]/g, '');
+  for (var i = 0, len = symbol.length; i < len; i++) {
+    if (!(c = symbol[i]))
+      return;
+
+    if (parsing === 'quality') {
+      var sub3 = (i + 2) < len ? symbol.substr(i, 3).toLowerCase() : null;
+      var sub2 = (i + 1) < len ? symbol.substr(i, 2).toLowerCase() : null;
+      if (sub3 in SYMBOLS)
+        name = sub3;
+      else if (sub2 in SYMBOLS)
+        name = sub2;
+      else if (c in SYMBOLS)
+        name = c;
+      else
+        name = '';
+
+      if (name)
+        setChord(name);
+
+      if (name === 'M' || name === 'ma' || name === 'maj')
+        explicitMajor = true;
+
+
+      i += name.length - 1;
+      parsing = 'extension';
+    } else if (parsing === 'extension') {
+      c = (c === '1' && symbol[i + 1]) ? +symbol.substr(i, 2) : +c;
+
+      if (!isNaN(c) && c !== 6) {
+        chordLength = (c - 1) / 2;
+
+        if (chordLength !== Math.round(chordLength))
+          return new Error('Invalid interval extension: ' + c.toString(10));
+
+        if (name === 'o' || name === 'dim')
+          notes[3] = 'd7';
+        else if (explicitMajor)
+          notes[3] = 'M7';
+
+        i += c >= 10 ? 1 : 0;
+      } else if (c === 6) {
+        notes[3] = 'M6';
+        chordLength = Math.max(3, chordLength);
+      } else
+        i -= 1;
+
+      parsing = 'alterations';
+    } else if (parsing === 'alterations') {
+      var alterations = symbol.substr(i).split(/(#|b|add|maj|sus|M)/i),
+          next, flat = false, sharp = false;
+
+      if (alterations.length === 1)
+        return new Error('Invalid alteration');
+      else if (alterations[0].length !== 0)
+        return new Error('Invalid token: \'' + alterations[0] + '\'');
+
+      var ignore = false;
+      alterations.forEach(function(alt, i, arr) {
+        if (ignore || !alt.length)
+          return ignore = false;
+
+        var next = arr[i + 1], lower = alt.toLowerCase();
+        if (alt === 'M' || lower === 'maj') {
+          if (next === '7')
+            ignore = true;
+
+          chordLength = Math.max(3, chordLength);
+          notes[3] = 'M7';
+        } else if (lower === 'sus') {
+          var type = 'P4';
+          if (next === '2' || next === '4') {
+            ignore = true;
+
+            if (next === '2')
+              type = 'M2';
+          }
+
+          notes[1] = type; // Replace third with M2 or P4
+        } else if (lower === 'add') {
+          if (next === '9')
+            additionals.push('M9');
+          else if (next === '11')
+            additionals.push('P11');
+          else if (next === '13')
+            additionals.push('M13');
+
+          ignore = true
+        } else if (lower === 'b') {
+          flat = true;
+        } else if (lower === '#') {
+          sharp = true;
+        } else {
+          var token = +alt, quality, intPos;
+          if (isNaN(token) || String(token).length !== alt.length)
+            return new Error('Invalid token: \'' + alt + '\'');
+
+          if (token === 6) {
+            if (sharp)
+              notes[3] = 'A6';
+            else if (flat)
+              notes[3] = 'm6';
+            else
+              notes[3] = 'M6';
+
+            chordLength = Math.max(3, chordLength);
+            return;
+          }
+
+          // Calculate the position in the 'note' array
+          intPos = (token - 1) / 2;
+          if (chordLength < intPos)
+            chordLength = intPos;
+
+          if (token < 5 || token === 7 || intPos !== Math.round(intPos))
+            return new Error('Invalid interval alteration: ' + token);
+
+          quality = notes[intPos][0];
+
+          // Alterate the quality of the interval according the accidentals
+          if (sharp) {
+            if (quality === 'd')
+              quality = 'm';
+            else if (quality === 'm')
+              quality = 'M';
+            else if (quality === 'M' || quality === 'P')
+              quality = 'A';
+          } else if (flat) {
+            if (quality === 'A')
+              quality = 'M';
+            else if (quality === 'M')
+              quality = 'm';
+            else if (quality === 'm' || quality === 'P')
+              quality = 'd';
+          }
+
+          sharp = flat = false;
+          notes[intPos] = quality + token;
+        }
+      });
+      parsing = 'ended';
+    } else if (parsing === 'ended') {
+      break;
+    }
+  }
+
+  return notes.slice(0, chordLength + 1).concat(additionals);
+}
+
+},{}],7:[function(require,module,exports){
 'use strict'
 
 var TimeMeter = require('time-meter')
@@ -294,7 +535,7 @@ var tokenize = function (input) {
     .trim().split(/\s+/)
 }
 
-},{"note-duration":6,"time-meter":10}],6:[function(require,module,exports){
+},{"note-duration":8,"time-meter":12}],8:[function(require,module,exports){
 'use strict'
 
 var names = ['long', 'double', 'whole', 'half', 'quarter', 'eighth', 'sixteenth', 'thirty-second']
@@ -331,7 +572,7 @@ duration.toString = function (value) {
 
 module.exports = duration
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict'
 
 var Interval = require('interval-parser')
@@ -426,7 +667,7 @@ function transpose (note, interval) {
 
 module.exports = Note
 
-},{"interval-parser":8,"note-parser":9}],8:[function(require,module,exports){
+},{"interval-parser":10,"note-parser":11}],10:[function(require,module,exports){
 'use strict';
 /*
  * parseInterval
@@ -524,7 +765,7 @@ function type(i) {
 if (typeof module === "object" && module.exports) module.exports = parseInterval;
 else i.parseInterval = parseInterval;
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict'
 
 var NOTE = /^([a-gA-G])(#{0,2}|b{0,2})(-?[0-9]{1}|[+]{0,2}|[-]{0,2})$/
@@ -589,7 +830,7 @@ function midiToFrequency (note) {
 
 module.exports = parse
 
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 module.exports = TimeMeter;
@@ -606,7 +847,7 @@ TimeMeter.prototype.toString = function () {
   return "" + this.beats + "/" + this.subdivision;
 };
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict'
 
 var parseMusic = require('music-parser')
@@ -733,16 +974,17 @@ module.exports = function () {
   return Score
 }
 
-},{"music-parser":5}],12:[function(require,module,exports){
+},{"music-parser":7}],14:[function(require,module,exports){
 'use strict'
 
 var Score = require('./score.js')()
 Score.use(require('./core/time.js'))
-Score.use(require('./core/musical.js'))
 Score.use(require('./core/select.js'))
+Score.use(require('./core/notes.js'))
+Score.use(require('./core/chords.js'))
 Score.use(require('./core/builder.js'))
 
 if (typeof module === 'object' && module.exports) module.exports = Score
 if (typeof window !== 'undefined') window.Score = Score
 
-},{"./core/builder.js":1,"./core/musical.js":2,"./core/select.js":3,"./core/time.js":4,"./score.js":11}]},{},[12]);
+},{"./core/builder.js":1,"./core/chords.js":2,"./core/notes.js":3,"./core/select.js":4,"./core/time.js":5,"./score.js":13}]},{},[14]);

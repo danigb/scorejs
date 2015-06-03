@@ -1,5 +1,7 @@
 [0.8.0]
-- chords: chords()
+- time: loopUntil(duration)
+- chords: <new plugin> chords(), playChords()
+
 [0.7.0]
 - Move to standard js style
 - Use music-parse to parse music notation

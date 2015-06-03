@@ -43,11 +43,25 @@ module.exports = function (Score) {
    */
   Score.fn.repeat = function (times) {
     var duration = this.duration()
-    return Score(this, function (event) {
+    return new Score(this, function (event) {
       return range(times).map(function (i) {
         return Score.event(event, { position: event.position + duration * i })
       })
     })
+  }
+
+  Score.fn.loopUntil = function (max) {
+    if (this.duration() === 0) return this
+
+    var looped = []
+    var total = this.sequence.length
+    var event, index = 0, position = 0
+    while (position < max) {
+      event = this.sequence[index++ % total]
+      looped.push(Score.event(event, { position: position }))
+      position += event.duration
+    }
+    return new Score(looped)
   }
 
   /*

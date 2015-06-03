@@ -13,11 +13,17 @@ vows.describe('Time plugin').addBatch({
     var s = Score('a b').delay(100)
     assert.deepEqual(_.pluck(s.sequence, 'position'), [100, 100.25])
   },
-  'repeat method': function () {
+  'repeat': function () {
     var s = Score('a b').repeat(3)
     assert.deepEqual(_.pluck(s.sequence, 'value'), ['a', 'b', 'a', 'b', 'a', 'b'])
     assert.deepEqual(_.pluck(s.sequence, 'position'), [0, 0.25, 0.5, 0.75, 1, 1.25])
     assert.deepEqual(_.pluck(s.sequence, 'duration'), [0.25, 0.25, 0.25, 0.25, 0.25, 0.25])
+  },
+  'loopUntil': function () {
+    var a = Score('1|2|3|4|')
+    var b = Score('a|').loopUntil(a.duration())
+    assert.deepEqual(_.pluck(b.sequence, 'value'), ['a', 'a', 'a', 'a'])
+    assert.equal(a.duration(), b.duration())
   },
   'reverse': function () {
     var s = Score('a/8 b/4 c/2').reverse()
