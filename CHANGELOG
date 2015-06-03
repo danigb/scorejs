@@ -1,12 +1,13 @@
-
+[0.8.0]
+- chords: chords()
 [0.7.0]
 - Move to standard js style
 - Use music-parse to parse music notation
 - Update note-pitch to new API
 - Builder is now part of core
 - time: Add score.toTempo
-- musical: score.notes
-- musical: transpose only transpose notes (leave the rest)
+- notes: score.notes
+- notes: transpose only transpose notes (leave the rest)
 
 [0.6.0]
 - Add score.set method

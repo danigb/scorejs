@@ -13,9 +13,8 @@ vows.describe('Musical plugin').addBatch({
     var s = Score('a r b').transpose('M2')
     assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'b4', 'r', 'c#5' ])
   },
-  'select notes': function() {
+  'select notes': function () {
     var s = Score('a b r c').notes()
     assert.deepEqual(_.pluck(s.sequence, 'value'), [ 'a', 'b', 'c' ])
   }
-
 }).export(module)
