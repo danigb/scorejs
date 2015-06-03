@@ -15,11 +15,15 @@ software.
 ```js
   var Score = require('scorejs');
   var melody = Score('a b c d e f g').transpose('M2');
-  var chords = Score('Cmaj7 | Dm7 G7').leftHandPiano();
-  Score.merge(melody, chord).play({ tempo: 110 });
+  var chords = Score('Cmaj7 | Dm7 G7').chordVoicings();
+  Score.merge(melody, chord).loop(4).play({ tempo: 110 });
 ```
 
-The library is extensible using plugins and several of the are available.
+The core concept behind ScoreJS is transformation (transpose, loop,
+  chordVoicings, are score transformations)
+You can transform a
+score in different ways and compose the transformations to build complex ones. Also,
+the library is fully extensible and new tranformations can be added easely.
 
 ## Installation
 
