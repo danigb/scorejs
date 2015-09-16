@@ -5,7 +5,7 @@
   "description": "Create and manipulate musical scores with javascript",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js test/**/*.js | faucet"
+    "test": "tape test/*.js test/**/*.js"
   },
   "repository": {
     "type": "git",
