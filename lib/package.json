@@ -1,12 +1,8 @@
 {
-  "name": "scorejs-tools",
-  "private": "true",
+  "name": "scorejs",
   "version": "0.9.0",
   "description": "Create and manipulate musical scores with javascript",
-  "main": "index.js",
-  "scripts": {
-    "test": "tape test/*.js test/**/*.js | faucet"
-  },
+  "main": "scorejs.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danigb/scorejs.git"
@@ -26,8 +22,8 @@
   },
   "homepage": "https://github.com/danigb/scorejs#readme",
   "devDependencies": {
-    "tape": "^4.2.0",
-    "faucet": "0.0.1"
+  },
+  "dependencies": {
   },
   "standard": {
     "ignore": [
