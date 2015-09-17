@@ -1,7 +1,8 @@
-var test = require('tape')
+var t = require('../test')
 var measure = require('../../lib/duration/measure')
 
-test('test measure duration', function (t) {
-  t.equal(measure('4/4'), 1)
-  t.end()
-})
+t.describe('duration/measure', {
+  'test measure duration': function () {
+    t.equal(measure('4/4'), 1)
+  }
+}).export(module)

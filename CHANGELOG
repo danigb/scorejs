@@ -1,8 +1,9 @@
 [MASTER]
+- sequence/fromValues and sequence/fromMeasures
+- sequence/sequence and sequence/events
+- stream/loop
+- duration/measure, duration/name, duration/ticks and duration/value
 - move to a functional type library (like tonal)
-- add loop generator
-- add duration/measure duration/name duration/ticks and duration/value
-- add sequence
 
 [0.9.0]
 - builder: build() support a json string as parameter
