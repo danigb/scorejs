@@ -13,8 +13,11 @@ software.
 
 
 ```js
-  var Score = require('scorejs');
-  var melody = Score('a b c d e f g').transpose('M2');
+  var _ = require('scorejs');
+  // create a sequence of notes with duration 1
+  var melody = _.sequence(1, 'a b c d e f g')
+  var transposed = _.transpose('M2', melody)
+  var chords = _.measures('4/4', 'Cmaj7 | Dm7 G7')
   var chords = Score('Cmaj7 | Dm7 G7').chordVoicings();
   Score.merge(melody, chord).loop(4).play({ tempo: 110 });
 ```
