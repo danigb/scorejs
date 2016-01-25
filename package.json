@@ -4,7 +4,7 @@
   "description": "Create and manipulate musical scores with javascript",
   "main": "index.js",
   "scripts": {
-    "test": "vows test/*.js",
+    "test": "mocha",
     "dist": "browserify index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js"
   },
   "repository": {
@@ -26,16 +26,10 @@
     "url": "https://github.com/danigb/scorejs/issues"
   },
   "homepage": "https://github.com/danigb/scorejs#readme",
-  "devDependencies": {
-    "vows": "^0.8.1",
-    "lodash": "^3.8.0"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "andante": "^0.1.0",
-    "daccord": "^1.1.0",
-    "music-parser": "^0.5.1",
-    "note-pitch": "^0.6.0",
-    "time-meter": "^0.3.0"
+    "tonal": "^0.32.1",
+    "union-type": "^0.2.0"
   },
   "standard": {
     "ignore": [
