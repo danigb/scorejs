@@ -1,11 +1,9 @@
 'use strict'
 
-var Score = require('./score.js')()
-Score.use(require('./core/time.js'))
-Score.use(require('./core/select.js'))
-Score.use(require('./core/notes.js'))
-Score.use(require('./core/chords.js'))
-Score.use(require('./core/builder.js'))
+var score = require('./core/score')
+require('./core/map')(score)
+require('./core/forEachTime')(score)
+require('./core/events')(score)
 
-if (typeof module === 'object' && module.exports) module.exports = Score
-if (typeof window !== 'undefined') window.Score = Score
+if (typeof module === 'object' && module.exports) module.exports = score
+if (typeof window !== 'undefined') window.Score = score
