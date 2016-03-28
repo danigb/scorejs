@@ -19,6 +19,20 @@ var score = function (data) {
 }
 
 /**
+ * Create a score element: an object with duration
+ *
+ * It's accepts any data you supply, but duration property has a special
+ * meaning: it's a number representing the duration in arbitrary units.
+ * It's assumed to be 0 (no duration) if not present or not a valid number
+ *
+ * @param {Number} duration - the element duration
+ * @param {Object} data - the additional element data
+ */
+score.el = function (d, data) {
+  return Object.assign({ duration: +d || 0 }, data)
+}
+
+/**
  * Create a note
  *
  * @param {String|Integer} pitch - the note pitch
@@ -128,6 +142,19 @@ score.transform = function (nt, st, pt, obj, ctx) {
     }
   }
   return T
+}
+
+/**
+* Map the notes of a musical structure using a function
+*
+* @param {Function} fn - the function used to map the notes
+* @param {Score} score - the score to transform
+* @param {Object} ctx - (Optional) a context object passed to the function
+* @return {Score} the transformed score
+*/
+score.map = function (nt, obj, ctx) {
+  if (arguments.length > 1) return score.map(nt)(obj, ctx)
+  return score.transform(nt, score.seq, score.par)
 }
 
 module.exports = score

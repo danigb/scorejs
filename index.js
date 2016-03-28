@@ -1,9 +1,14 @@
 'use strict'
 
-var score = require('./core/score')
-require('./core/map')(score)
-require('./core/forEachTime')(score)
-require('./core/events')(score)
+var score = require('./lib/builder')()
+score.use(
+  require('./lib/score'),
+  require('./lib/notes'),
+  require('./lib/timed'),
+  require('./lib/fp'),
+  require('./lib/rhythm'),
+  require('./lib/measures')
+)
 
 if (typeof module === 'object' && module.exports) module.exports = score
 if (typeof window !== 'undefined') window.Score = score

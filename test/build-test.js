@@ -5,16 +5,15 @@ var score = require('..')
 
 describe('Score builder', function () {
   it('create notes', function () {
-    assert.deepEqual(score(['note', 'C', 2]),
-      { duration: 2, pitch: 'C' })
+    assert.deepEqual(score(['note', 'C', 2]), score.note('C', 2))
   })
   it('create sequences', function () {
     assert.deepEqual(score(['seq', ['note', 'C', 2]]),
-      ['seq', { duration: 2, pitch: 'C' }])
+      score.seq(score.note('C', 2)))
   })
   it('create parallel', function () {
     assert.deepEqual(score(['par', ['note', 'C', 2]]),
-      ['par', { duration: 2, pitch: 'C' }])
+      score.par(score.note('C', 2)))
   })
   it('create phrases', function () {
     assert.deepEqual(score(['phrase', 'C D E', '3 2 1']), ['seq',
