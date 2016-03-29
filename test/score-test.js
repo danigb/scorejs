@@ -20,45 +20,48 @@ describe('Score module', function () {
     })
   })
   describe('note function', function () {
-    it('duration is 1 by default', function () {
-      assert.deepEqual(_.note('A'), { pitch: 'A', duration: 1 })
+    it('partially apply duration', function () {
+      var qn = _.note(1)
+      assert.deepEqual(qn('A'), { pitch: 'A', duration: 1 })
     })
     it('accepts pitch and duration', function () {
-      assert.deepEqual(_.note('A', 2), { pitch: 'A', duration: 2 })
+      assert.deepEqual(_.note(2, 'A'), { pitch: 'A', duration: 2 })
     })
     it('accepts pitch, duration and data', function () {
-      assert.deepEqual(_.note('A', 3, { inst: 'synth' }),
+      assert.deepEqual(_.note(3, 'A', { inst: 'synth' }),
       { pitch: 'A', duration: 3, inst: 'synth' })
     })
   })
 
   describe('sequential', function () {
+    var qn = _.note(1)
     it('from array', function () {
-      assert.deepEqual(_.seq([_.note('A'), _.note('B')]), ['seq',
+      assert.deepEqual(_.seq([qn('A'), qn('B')]), ['seq',
       { pitch: 'A', duration: 1 },
       { pitch: 'B', duration: 1 } ])
     })
     it('from arguments', function () {
-      assert.deepEqual(_.seq(_.note('A'), _.note('B')),
-        _.seq([_.note('A'), _.note('B')]))
+      assert.deepEqual(_.seq(qn('A'), qn('B')),
+        _.seq([qn('A'), qn('B')]))
     })
     it('joins seq sim', function () {
-      assert.deepEqual(_.seq(_.sim(_.note('A'))),
+      assert.deepEqual(_.seq(_.sim(qn('A'))),
         [ 'seq', [ 'sim', { pitch: 'A', duration: 1 } ] ])
     })
   })
   describe('simultaneous', function () {
+    var qn = _.note(1)
     it('from array', function () {
-      assert.deepEqual(_.sim([_.note('A'), _.note('B')]), ['sim',
+      assert.deepEqual(_.sim([qn('A'), qn('B')]), ['sim',
       { pitch: 'A', duration: 1 },
       { pitch: 'B', duration: 1 } ])
     })
     it('from arguments', function () {
-      assert.deepEqual(_.sim(_.note('A'), _.note('B')),
-        _.sim([_.note('A'), _.note('B')]))
+      assert.deepEqual(_.sim(qn('A'), qn('B')),
+        _.sim([qn('A'), qn('B')]))
     })
     it('joins sim seq', function () {
-      assert.deepEqual(_.sim(_.seq(_.note('A'))),
+      assert.deepEqual(_.sim(_.seq(qn('A'))),
         ['sim', ['seq', { duration: 1, pitch: 'A' }]])
     })
   })
@@ -70,7 +73,7 @@ describe('Score module', function () {
       function (par) { return '[' + par.join('+') + ']' }
     )
     it('can transform notes', function () {
-      assert.deepEqual(T(_.note('A')), 'A')
+      assert.deepEqual(T(_.note(1, 'A')), 'A')
     })
     it('can transform sequences', function () {
       assert.deepEqual(T(_.phrase('A B C')), '(A,B,C)')

@@ -21,7 +21,7 @@ function processList (seq, list, total) {
   var dur = total / list.length
   list.forEach(function (i) {
     if (Array.isArray(i)) processList(seq, i, dur)
-    else seq.push(score.note(i, dur))
+    else seq.push(score.note(dur, i))
   })
 }
 

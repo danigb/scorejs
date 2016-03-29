@@ -2,37 +2,38 @@
 
 var assert = require('assert')
 var score = require('..')
+var qn = score.note(1)
 
 describe('Builder module', function () {
   describe('build function', function () {
     it('create elements', function () {
-      assert.deepEqual(score(['seq', ['note', 'C']]),
-        score.seq(score.note('C')))
+      assert.deepEqual(score(['seq', ['note', 1, 'C']]),
+        score.seq(qn('C')))
     })
     it('create simultaneosly if more than one parameter', function () {
-      assert.deepEqual(score(['note', 'A'], ['note', 'B']),
-        score.sim(score.note('A'), score.note('B')))
+      assert.deepEqual(score(['note', 1, 'A'], ['note', 1, 'B']),
+        score.sim(qn('A'), qn('B')))
     })
     it('can call itself to create simultaneous structures', function () {
-      assert.deepEqual(score(['score', ['note', 'A'], ['note', 'B']]),
-        score.sim(score.note('A'), score.note('B')))
+      assert.deepEqual(score(['score', ['note', 1, 'A'], ['note', 1, 'B']]),
+        score.sim(qn('A'), qn('B')))
     })
     it('can create variables with $', function () {
-      assert.deepEqual(score(['$v', ['note', 'A']], ['seq', '$v', '$v']),
+      assert.deepEqual(score(['$v', ['note', 1, 'A']], ['seq', '$v', '$v']),
         ['sim', ['seq', {pitch: 'A', duration: 1}, {pitch: 'A', duration: 1}]])
     })
   })
   describe('build integration', function () {
     it('create notes', function () {
-      assert.deepEqual(score(['note', 'C', 2]), score.note('C', 2))
+      assert.deepEqual(score(['note', 2, 'C']), score.note(2, 'C'))
     })
     it('create sequences', function () {
-      assert.deepEqual(score(['seq', ['note', 'C', 2]]),
-        score.seq(score.note('C', 2)))
+      assert.deepEqual(score(['seq', ['note', 2, 'C']]),
+        score.seq(score.note(2, 'C')))
     })
     it('create simultaneous', function () {
-      assert.deepEqual(score(['sim', ['note', 'C', 2]]),
-        score.sim(score.note('C', 2)))
+      assert.deepEqual(score(['sim', ['note', 2, 'C']]),
+        score.sim(score.note(2, 'C')))
     })
     it('create phrases', function () {
       assert.deepEqual(score(['phrase', 'C D E', '3 2 1']), ['seq',
