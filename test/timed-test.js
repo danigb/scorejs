@@ -9,7 +9,7 @@ describe('Timed module', function () {
       var ctx = []
       _.forEachTime(function (time, note, ctx) {
         ctx.push(time)
-      }, _.par(_.phrase('C D E'), _.phrase('E F G')), ctx)
+      }, _.sim(_.phrase('C D E'), _.phrase('E F G')), ctx)
 
       assert.deepEqual(ctx, [ 0, 1, 2, 0, 1, 2 ])
     })
@@ -17,7 +17,7 @@ describe('Timed module', function () {
 
   describe('events', function () {
     it('have ordered events', function () {
-      assert.deepEqual(_.events(_.par(_.phrase('A B C'), _.phrase('D'))),
+      assert.deepEqual(_.events(_.sim(_.phrase('A B C'), _.phrase('D'))),
       [ [ 0, { pitch: 'A', duration: 1 } ],
       [ 0, { pitch: 'D', duration: 1 } ],
       [ 1, { pitch: 'B', duration: 1 } ],

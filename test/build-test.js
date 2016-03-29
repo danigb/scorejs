@@ -3,29 +3,49 @@
 var assert = require('assert')
 var score = require('..')
 
-describe('Score builder', function () {
-  it('create notes', function () {
-    assert.deepEqual(score(['note', 'C', 2]), score.note('C', 2))
+describe('Builder module', function () {
+  describe('build function', function () {
+    it('create elements', function () {
+      assert.deepEqual(score(['seq', ['note', 'C']]),
+        score.seq(score.note('C')))
+    })
+    it('create simultaneosly if more than one parameter', function () {
+      assert.deepEqual(score(['note', 'A'], ['note', 'B']),
+        score.sim(score.note('A'), score.note('B')))
+    })
+    it('can call itself to create simultaneous structures', function () {
+      assert.deepEqual(score(['score', ['note', 'A'], ['note', 'B']]),
+        score.sim(score.note('A'), score.note('B')))
+    })
+    it('can create variables with $', function () {
+      assert.deepEqual(score(['$v', ['note', 'A']], ['seq', '$v', '$v']),
+        ['sim', ['seq', {pitch: 'A', duration: 1}, {pitch: 'A', duration: 1}]])
+    })
   })
-  it('create sequences', function () {
-    assert.deepEqual(score(['seq', ['note', 'C', 2]]),
-      score.seq(score.note('C', 2)))
-  })
-  it('create parallel', function () {
-    assert.deepEqual(score(['par', ['note', 'C', 2]]),
-      score.par(score.note('C', 2)))
-  })
-  it('create phrases', function () {
-    assert.deepEqual(score(['phrase', 'C D E', '3 2 1']), ['seq',
-      { duration: 3, pitch: 'C' },
-      { duration: 2, pitch: 'D' },
-      { duration: 1, pitch: 'E' }])
-  })
-  it('create chords', function () {
-    assert.deepEqual(score(['chord', 'C D E', '3 2 1']), ['par',
-      { duration: 3, pitch: 'C' },
-      { duration: 2, pitch: 'D' },
-      { duration: 1, pitch: 'E' }])
+  describe('build integration', function () {
+    it('create notes', function () {
+      assert.deepEqual(score(['note', 'C', 2]), score.note('C', 2))
+    })
+    it('create sequences', function () {
+      assert.deepEqual(score(['seq', ['note', 'C', 2]]),
+        score.seq(score.note('C', 2)))
+    })
+    it('create simultaneous', function () {
+      assert.deepEqual(score(['sim', ['note', 'C', 2]]),
+        score.sim(score.note('C', 2)))
+    })
+    it('create phrases', function () {
+      assert.deepEqual(score(['phrase', 'C D E', '3 2 1']), ['seq',
+        { duration: 3, pitch: 'C' },
+        { duration: 2, pitch: 'D' },
+        { duration: 1, pitch: 'E' }])
+    })
+    it('create chords', function () {
+      assert.deepEqual(score(['chord', 'C D E', '3 2 1']), ['sim',
+        { duration: 3, pitch: 'C' },
+        { duration: 2, pitch: 'D' },
+        { duration: 1, pitch: 'E' }])
+    })
   })
   it.skip('create complex score', function () {
     score(['tempo', 120, ['parts',

@@ -1,7 +1,6 @@
 'use strict'
 
-var score = require('./lib/builder')()
-score.use(
+var score = require('./lib/builder').init(
   require('./lib/score'),
   require('./lib/notes'),
   require('./lib/timed'),

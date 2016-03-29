@@ -14,14 +14,14 @@ software.
 ```js
 var Score = require('scorejs').init()
 
-var score = Score.simultaneously(
+var score = Score(
   Score.melody('4/4', 'c2 d2 e2 (f2 g2) | a2 b2 | c3')
   Score.harmony('4/4', 'Cmaj7 | Dm7 G7 | Cmaj7')
 )
 
 var ac = new AudioContext()
 var player = require('scorejs/ext/player')
-player.play(player.piano(ac), score)
+player.play(ac, player.piano, Score.tempo(120, score))
 
 var pianoRoll = require('scorejs/ext/pianoroll')
 var ctx = canvas.getContext('2d')

@@ -89,7 +89,7 @@ score.seq = structureAs('seq')
  * @example
  * score.par(score.note('A'), score.note('B'))
  */
-score.par = structureAs('par')
+score.par = structureAs('sim')
 
 // Create musical structures from function arguments
 function structureAs (name) {
@@ -137,7 +137,7 @@ score.transform = function (nt, st, pt, obj, ctx) {
     switch (typeOf(obj)) {
       case 'event': return nt(obj, ctx)
       case 'seq': return st(obj.slice(1).map(T), ctx)
-      case 'par': return pt(obj.slice(1).map(T), ctx)
+      case 'sim': return pt(obj.slice(1).map(T), ctx)
       default: return obj
     }
   }
