@@ -5,7 +5,6 @@ score.use(
   require('./lib/score'),
   require('./lib/notes'),
   require('./lib/timed'),
-  require('./lib/fp'),
   require('./lib/rhythm'),
   require('./lib/measures')
 )
