@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/",
-    "dist": "browserify index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js"
+    "dist": "browserify index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js",
+    "docs": "browserify index.js | documentation -f md > API.md",
+    "disc": "mkdir -p tmp && browserify --full-paths index.js | discify > tmp/disc.html"
   },
   "repository": {
     "type": "git",
