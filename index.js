@@ -6,7 +6,8 @@ var score = require('./lib/builder').init(
   require('./lib/timed'),
   require('./lib/rhythm'),
   require('./lib/measures'),
-  require('./lib/harmony')
+  require('./lib/harmony'),
+  require('./lib/performance')
 )
 
 if (typeof module === 'object' && module.exports) module.exports = score
