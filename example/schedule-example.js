@@ -5,12 +5,11 @@ var scheduler = require('../ext/scheduler')
 
 var ac = new AudioContext()
 var s = score(
-  ['measures', '4/4', 'a b c d'],
-  ['measures', '4/4', 'a (b c) d (e f g)']
+  ['inst', 'hihat', ['measures', '4/4', 'a b c d']],
+  ['inst', 'clave', ['measures', '4/4', 'a (_ c) d (_ f g)']]
 )
 console.log(s)
 
 scheduler.schedule(ac, 0, score.events(s), function (time, note) {
-  console.log('play', time, note)
-  dm.hihat(ac, time)
+  if (note.pitch !== '_') dm[note.inst](ac, time)
 })
