@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "chord-dictionary": "^0.2.0",
+    "midi-freq": "^1.0.0",
     "note-midi": "^1.0.2",
     "note-transposer": "^1.0.4"
   },

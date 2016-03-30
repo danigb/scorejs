@@ -22,6 +22,15 @@ describe('Builder module', function () {
       assert.deepEqual(score(['$v', ['note', 1, 'A']], ['seq', '$v', '$v']),
         ['sim', ['seq', {pitch: 'A', duration: 1}, {pitch: 'A', duration: 1}]])
     })
+    it('accepts its own output', function () {
+      var s = ['seq',
+        ['sim', { pitch: 'C4', duration: 1 }, { pitch: 'E4', duration: 1 },
+          { pitch: 'G4', duration: 1 }, { pitch: 'B4', duration: 1 }],
+        ['sim', { pitch: 'G4', duration: 1 }, { pitch: 'B4', duration: 1 },
+          { pitch: 'D4', duration: 1 }, { pitch: 'F4', duration: 1 }]
+      ]
+      assert.deepEqual(score(s), s)
+    })
   })
   describe('build integration', function () {
     it('create notes', function () {
