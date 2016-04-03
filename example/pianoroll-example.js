@@ -14,7 +14,7 @@ pianoRoll.draw(canvas(200, 200), score(
 ))
 pianoRoll.draw(canvas(200, 200), score(
   ['$melo', ['phrase', 'c2 d2 e2 g2', 1]],
-  ['score', '$melo', ['trans', 'M3', '$melo']]
+  ['seq', '$melo', ['sim', '$melo', ['trans', 'M3', '$melo']]]
 ))
 pianoRoll.draw(canvas(200, 200), score(
   ['harmony', '4/4', 'Cmaj7 | Dm7 Gdom | Cmaj79']

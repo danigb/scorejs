@@ -14,9 +14,10 @@ describe('Builder module', function () {
       assert.deepEqual(score(['note', 1, 'A'], ['note', 1, 'B']),
         score.sim(qn('A'), qn('B')))
     })
-    it('can call itself to create simultaneous structures', function () {
-      assert.deepEqual(score(['score', ['note', 1, 'A'], ['note', 1, 'B']]),
-        score.sim(qn('A'), qn('B')))
+    it('accepts functions', function () {
+      var piano = score.map(function (e) { return score.el(e, { inst: 'piano' }) }, null)
+      assert.deepEqual(score([piano, ['note', 1, 'A']]),
+        { pitch: 'A', duration: 1, inst: 'piano' })
     })
     it('can create variables with $', function () {
       assert.deepEqual(score(['$v', ['note', 1, 'A']], ['seq', '$v', '$v']),

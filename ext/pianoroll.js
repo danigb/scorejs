@@ -20,7 +20,7 @@ function draw (ctx, score) {
     var midi = toMidi(note.pitch)
     console.log(time, note, midi)
     ctx.fillRect(box.x(time), box.y(midi), box.nw(note.duration), box.nh())
-  }, score)
+  }, null, score)
 }
 
 var ALT = [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0]
