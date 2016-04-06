@@ -1,5 +1,6 @@
 # ScoreJS
 
+[![Build Status](https://travis-ci.org/danigb/scorejs.svg?branch=master)](https://travis-ci.org/danigb/scorejs)
 [![CodeClimate](https://codeclimate.com/github/danigb/scorejs/badges/gpa.svg)](https://codeclimate.com/github/danigb/scorejs)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
