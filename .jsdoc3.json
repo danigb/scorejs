@@ -1,0 +1,9 @@
+{
+  "source": {
+    "include": ["README.md", "index.js", "lib/"]
+  },
+  "opts": {
+    "destination": "./docs/"
+  },
+  "plugins": ["plugins/markdown"]
+}

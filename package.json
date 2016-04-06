@@ -7,6 +7,7 @@
     "test": "mocha test/",
     "dist": "browserify index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js",
     "docs": "browserify index.js | documentation -f md > API.md",
+    "jsdoc": "jsdoc -c .jsdoc3.json && open docs/index.html",
     "disc": "mkdir -p tmp && browserify --full-paths index.js | discify > tmp/disc.html"
   },
   "repository": {
