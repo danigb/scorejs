@@ -41,6 +41,10 @@ Via npm package: `npm i --save scorejs` and require it:
 
 For browsers use the file in the `dist` folder:
 
+__Important:__
+
+It uses `Object.assign` so if your environment doesn't have it you need a polyfill, for example: https://github.com/sindresorhus/object-assign
+
 ## Usage
 
 `scorejs` models scores as collection of notes (objects with `duration` and `pitch` properties), that can be arranged sequentially o simultaneously:
