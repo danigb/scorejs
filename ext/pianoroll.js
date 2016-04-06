@@ -10,6 +10,10 @@ var box = {
   nh: function () { return box.pitch - 1 }
 }
 
+function build (score, options) {
+
+}
+
 /**
  * Draw a piano roll
  */
@@ -39,4 +43,4 @@ function drawStripes (box, ctx) {
   ctx.fillStyle = '#000000'
 }
 
-module.exports = { draw: draw }
+module.exports = { build: build, draw: draw }

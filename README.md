@@ -17,21 +17,31 @@ This code is largely based in two papers:
 - Lisp as a second language, composing programs and music: http://www.mcg.uva.nl/papers/lisp2nd/functional.pdf
 - Haskell School of Music: http://www.cs.yale.edu/homes/hudak/Papers/HSoM.pdf
 
-```js
-var Score = require('scorejs')
+## Example
 
-var score = Score(
+```js
+// require the library
+var score = require('scorejs')
+
+// create the score
+var song = score(
   ['melody', '4/4', 'c2 d2 e2 (f2 g2) | a2 b2 | c3'],
   ['harmony', '4/4', 'Cmaj7 | Dm7 G7 | Cmaj7']
 )
 
+// play the score:
+// create an audio context
 var ac = new AudioContext()
+// require the player module
 var player = require('scorejs/ext/player')
-player.play(ac, player.piano, Score.tempo(120, score))
+player.play(ac, player.synth, score.tempo(120, song))
 
-var pianoRoll = require('scorejs/ext/pianoroll')
+// show the score in a piano roll
+// given a canvas...
 var ctx = canvas.getContext('2d')
-pianoRoll.draw(ctx, score)
+// require the pianoroll module
+var pianoRoll = require('scorejs/ext/pianoroll')
+pianoRoll.draw(ctx, song)
 ```
 
 ## Installation

@@ -4,6 +4,7 @@ var slice = Array.prototype.slice
 var modules = [
   require('./lib/score'),
   require('./lib/notes'),
+  require('./lib/stats'),
   require('./lib/timed'),
   require('./lib/rhythm'),
   require('./lib/measures'),
