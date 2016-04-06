@@ -1,6 +1,10 @@
 ## `chord`
 
-Create a chord (a parallel structure of notes)
+Create a collection of simultaneus notes
+
+You can specify a collection of pitches, durations and attributes
+and `chord` will arrange them as a collection of notes in simultaneus
+layout
 
 ### Parameters
 
@@ -33,6 +37,9 @@ Create a chord names sequence
 
 ```js
 score.chords('4/4', 'C6 | Dm7 G7 | Cmaj7')
+```
+```js
+score(['chords', '4/4', 'Cmaj7 | Dm7 G7'])
 ```
 
 
@@ -81,8 +88,8 @@ __Important:__ ascending time ordered is not guaranteed
 ### Parameters
 
 * `fn` **`Function`** the function
-* `score` **`Score`** the score object
 * `ctx` **`Object`** (Optional) a context object passed to the function
+* `score` **`Score`** the score object
 
 
 
@@ -120,6 +127,15 @@ to a pattern
 
 
 
+## `isArray`
+
+
+
+
+
+
+
+
 ## `map`
 
 Map the notes of a musical structure using a function
@@ -127,8 +143,8 @@ Map the notes of a musical structure using a function
 ### Parameters
 
 * `fn` **`Function`** the function used to map the notes
+* `ctx` **`Object`** a context object passed to the function
 * `score` **`Score`** the score to transform
-* `ctx` **`Object`** (Optional) a context object passed to the function
 
 
 
@@ -187,6 +203,15 @@ score.note(2, 'A', 2, { inst: 'piano' }) // => { duration: 2, pitch: 'A', inst: 
 ```
 
 Returns `Hash` a note
+
+
+## `notes`
+
+
+
+
+
+
 
 
 ## `pattern`
@@ -298,8 +323,8 @@ transformations of musical structures using three functions
 * `elTransform` **`Function`** element transform function
 * `seqTransform` **`Function`** sequential structure transform function
 * `parTransform` **`Function`** simultaneous structure transform function
-* `score` **`Object`** the score to transform
 * `ctx` **`Any`** an additional object passed to transform functions
+* `score` **`Object`** the score to transform
 
 
 
