@@ -92,11 +92,9 @@ var song = score(
 )
 ```
 
-## Modules
+## Play
 
-ScoreJS is a collection of (pure) functions organized inside modules:
-
-- score: create notes, rests, sequences (either simultaneously or sequentially). Transform scores and map note values.
+There's a built-in scheduler and player based on Web Audio API.
 
 
 ## Tests and examples

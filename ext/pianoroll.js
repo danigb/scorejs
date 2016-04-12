@@ -10,7 +10,16 @@ var box = {
   nh: function () { return box.pitch - 1 }
 }
 
-function build (score, options) {
+function canvas (w, h, parent) {
+  parent = parent || document.body
+  var canvas = document.createElement('canvas')
+  canvas.width = w || 200
+  canvas.height = h || 200
+  parent.appendChild(canvas)
+  return canvas.getContext('2d')
+}
+
+function build (obj) {
 
 }
 
@@ -43,4 +52,4 @@ function drawStripes (box, ctx) {
   ctx.fillStyle = '#000000'
 }
 
-module.exports = { build: build, draw: draw }
+module.exports = { build: build, draw: draw, canvas: canvas }
