@@ -4,7 +4,16 @@ var assert = require('assert')
 var score = require('..')
 
 describe('Measures module', function () {
-  describe('measure function', function () {
+  describe('chords', function () {
+    it('create chords', function () {
+      assert.deepEqual(score.chords('4/4', 'C | Dm G7 | C'), [ 'seq',
+      { duration: 4, chord: 'C' },
+      { duration: 2, chord: 'Dm' },
+      { duration: 2, chord: 'G7' },
+      { duration: 4, chord: 'C' } ])
+    })
+  })
+  describe('measure', function () {
     it('no parenthesis divide time by number of items', function () {
       assert.deepEqual(score(['measures', '4/4', 'a | b c ']),
         score.phrase('a b c', '4 2 2'))

@@ -1,14 +1,14 @@
 {
   "name": "scorejs",
   "version": "0.10.0",
-  "description": "Create and manipulate musical scores with javascript",
-  "main": "index.js",
+  "description": "Create and manipulate musical scores",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha test/",
-    "dist": "browserify index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js",
-    "docs": "browserify index.js | documentation -f md > API.md",
+    "dist": "browserify lib/index.js > dist/score.js && uglifyjs dist/score.js > dist/score.min.js",
+    "docs": "browserify lib/index.js | documentation -f md > API.md",
     "jsdoc": "jsdoc -c .jsdoc3.json && open docs/index.html",
-    "disc": "mkdir -p tmp && browserify --full-paths index.js | discify > tmp/disc.html"
+    "disc": "mkdir -p tmp && browserify --full-paths lib/index.js | discify > tmp/disc.html"
   },
   "repository": {
     "type": "git",
@@ -16,12 +16,7 @@
   },
   "keywords": [
     "music",
-    "theory",
-    "chords",
-    "melody",
-    "score",
-    "leadsheet",
-    "jazz"
+    "score"
   ],
   "author": "danigb",
   "license": "MIT",
@@ -30,18 +25,15 @@
   },
   "homepage": "https://github.com/danigb/scorejs#readme",
   "devDependencies": {
-    "eslint": "^2.5.1",
+    "eslint": "^2",
     "eslint-config-standard": "^5.1.0",
     "eslint-plugin-promise": "^1.1.0",
     "eslint-plugin-standard": "^1.3.2",
-    "mocha": "^2.4.5"
+    "mocha": "^2",
+    "soundfont-player": "^0.9.1",
+    "tonal": "^0.50.2"
   },
-  "dependencies": {
-    "chord-dictionary": "^0.2.0",
-    "midi-freq": "^1.0.0",
-    "note-midi": "^1.0.2",
-    "note-transposer": "^1.0.4"
-  },
+  "dependencies": {},
   "standard": {
     "ignore": [
       "dist/**"

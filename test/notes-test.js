@@ -22,13 +22,4 @@ describe('Notes module', function () {
       { pitch: 'G', duration: 1 } ])
     })
   })
-
-  describe('transpose', function () {
-    it('transpose notes by interval', function () {
-      assert.deepEqual(_.trans('M3', _.phrase('c d e')), [ 'seq',
-        { pitch: 'E', duration: 1 },
-        { pitch: 'F#', duration: 1 },
-        { pitch: 'G#', duration: 1 } ])
-    })
-  })
 })
