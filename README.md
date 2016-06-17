@@ -103,7 +103,7 @@ Clone this repo and install dependencies: `npm install`
 
 Tests are executed with `npm test`
 
-Examples can be running with beefy: `npm -g install beefy` and then: `beefy example/pianoroll-example`
+Examples can be running with beefy: `npm -g install beefy` and then: `beefy examples/pianoroll-example`
 
 ## License
 

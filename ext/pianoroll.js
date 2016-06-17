@@ -1,5 +1,6 @@
 var forEachTime = require('../lib/timed').forEachTime
-var toMidi = require('note-midi')
+var midi = require('note-parser').midi
+var toMidi = function (n) { return midi(n) || +n }
 
 var box = {
   width: 300, height: 200,
